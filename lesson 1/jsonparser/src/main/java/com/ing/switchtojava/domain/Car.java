@@ -2,7 +2,7 @@ package com.ing.switchtojava.domain;
 
 public class Car {
 
-    // TODO implement Builder pattern
+    // TODO 3 implement Builder pattern
 
 	private Long id;
 	

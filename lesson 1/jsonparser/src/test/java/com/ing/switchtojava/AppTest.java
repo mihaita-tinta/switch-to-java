@@ -9,6 +9,6 @@ public class AppTest {
 
     @Test
     public void test() {
-        Assert.assertNotNull(object); // TODO make this test pass
+        Assert.assertNotNull(object); // TODO 1 make this test pass
     }
 }

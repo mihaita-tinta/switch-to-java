@@ -17,6 +17,6 @@ public class ObjectSerializerTest {
         car.setSeats(5);
         String json = serializer.serialize(car);
 
-        // TODO assert json looks as expected
+        // TODO 4 assert json looks as expected
     }
 }

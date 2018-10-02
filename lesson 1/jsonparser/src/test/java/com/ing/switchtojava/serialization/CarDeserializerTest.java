@@ -12,6 +12,6 @@ public class CarDeserializerTest {
 
         Car car = deserializer.deserialize("{\"id\":\"100\",\"number\":\"B-01-ERU\",\"seats\":\"2\"}");
 
-        //TODO assert the instance properties
+        //TODO 5 assert the instance properties
     }
 }
