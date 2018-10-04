@@ -68,7 +68,81 @@ These interfaces (with or without the annotation) can be transformed by the comp
 You can find here a list of FunctionalInterfaces available in the jdk:
 https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
 
-A lambda expression has the following syntax:
+A lambda expression could use the following syntax (not the only one possible):
 ```
 parameter -> expression body
+```
+
+### Optional
+Optional is a container object used to contain not-null objects. It provides methods for dealing with nulls in a 
+fluent manner.
+
+javadoc: https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
+
+## Streams
+
+Stream represents a sequence of objects from a source, which supports aggregate operations. 
+
+A stream can be created from multiple objects, an array or a collection:
+
+```java
+String[] arr = new String[]{"a", "b", "c"};
+Stream<String> stream = Arrays.stream(arr);
+stream = Stream.of("a", "b", "c");
+stream = list.stream();
+```
+
+### Operations
+
+There are 2 types of stream operations:
+* intermediate, which return a Stream<T>
+* terminal, which return a definitive result (or Void).
+
+Stream operation do not modify the original stream. Processing is done only on the final operations.
+
+#### Iterating
+
+```java
+list.stream().forEach(el -> System.out.println(el));
+```
+
+#### Filtering
+
+```java
+Stream<String> stream = list.stream().filter(el -> el.contains("aString"));
+```
+
+#### Mapping
+
+```java
+List<String> uris = new ArrayList<>();
+uris.add("C:\\My.txt");
+Stream<Path> stream = uris.stream().map(uri -> Paths.get(uri));
+```
+
+For dealing with functions which return collections of elements use flatmap
+
+```java
+List<Detail> details = new ArrayList<>();
+details.add(new Detail());
+Stream<String> stream = details.stream().flatMap(detail -> detail.getParts().stream());
+```
+
+#### Reducing
+
+```java
+List<Integer> integers = Arrays.asList(1, 1, 1);
+Integer reduced = integers.stream().reduce(23, (a, b) -> a + b);
+```
+
+#### Collecting
+
+```java
+List<String> resultList = list.stream().map(element -> element.toUpperCase()).collect(Collectors.toList());
+```
+
+#### Parallel execution
+
+```java
+list.parallelStream().forEach(element -> doWork(element));
 ```
