@@ -17,7 +17,9 @@ Things to know:
 * More info at: https://www.java.com/en/download/faq/techinfo.xml
 
 
-### Things we discuss:
+## Part 1:
+
+### Things we covered:
 * Why Java ? OOP, Platform independent, Robust, Simple, Secure and Data protection
 * Classes - template used to model state and behavior of things
 * Objects - intances of classes created by using the "new" keyword
@@ -39,15 +41,34 @@ Things to know:
 * Arrays, ArrayList (<> diamond operator)
 * Wrapper classes
 * Autoboxing
+
+Nice to read:
+https://www.oracle.com/technetwork/java/codeconventions-150003.pdf
+
+## Part 2
+
+### Other features in Java:
 * java.time API
 * Methods. Overloading rules
 * Constructor. Initialization rules
 * Data encapsulation
 * What is an immutable class?
-* What is lambda?
 * Class design. Inheritance and constructor definition rules
-* Override rules. Homework: can you override static methods?
+* Override rules. Can you override static methods?
 * Abstract class
 * Interfaces methods and fields
 * Polimorphism - references, casting
-* Exeptions
+* Exceptions
+
+### Lambda expressions
+
+Java 8 added the *@FunctionalInterface* which can be used to decorate interfaces with exactly one abstract method. 
+These interfaces (with or without the annotation) can be transformed by the compiler into lambda expressions.
+
+You can find here a list of FunctionalInterfaces available in the jdk:
+https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+
+A lambda expression has the following syntax:
+```
+parameter -> expression body
+```
