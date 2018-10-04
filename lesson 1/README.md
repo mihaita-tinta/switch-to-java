@@ -79,7 +79,7 @@ fluent manner.
 
 javadoc: https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
 
-#### Streams 
+### Collections 
 
 The Java collections framework gives the programmer access to prepackaged data structures as well as to algorithms for manipulating them.
 
