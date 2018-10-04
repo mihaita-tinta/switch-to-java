@@ -26,6 +26,13 @@ public class Part2_3_MethodsTest {
         assertEquals(new String[] {"c", "b"}, args);
     }
 
+    @Test
+    public void testVarArgs() {
+        Entity a = new Entity();
+        a.varArgsMethod("a", "b");
+        a.varArgsMethod("c");
+        a.varArgsMethod();
+    }
     class Entity {
 
         public void method(String string) {
@@ -37,6 +44,10 @@ public class Part2_3_MethodsTest {
             System.out.println("method - strings : " + Arrays.toString(strings));
             strings[0] = "c";
             System.out.println("method - strings : " + Arrays.toString(strings));
+        }
+
+        public void varArgsMethod(String... args) {
+            System.out.println("varArgsMethod - strings : " + Arrays.toString(args));
         }
     }
 

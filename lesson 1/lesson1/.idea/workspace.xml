@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9578c237-dbb7-40cf-89cc-cfde9c62abec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,24 +26,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="10" />
+          <entry key="java" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="10" />
+          <entry key="JAVA" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1108" />
-          <entry key="xml" value="40" />
+          <entry key="java" value="2429" />
+          <entry key="xml" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1108" />
-          <entry key="XML" value="40" />
+          <entry key="JAVA" value="2429" />
+          <entry key="XML" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -50,31 +52,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Car.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="63">
+              <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1144#1145#0" expanded="true" />
+                <element signature="e#1184#1185#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#979#980#0" expanded="true" />
+                <element signature="e#1026#1027#0" expanded="true" />
+                <element signature="e#1309#1310#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_ExceptionTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+            <state relative-caret-position="204">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -101,6 +102,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Car.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java" />
       </list>
     </option>
   </component>
@@ -186,11 +189,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538659949947" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538662935404" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -204,44 +207,69 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Part2_0_ExceptionTest.testMultipleCatch">
-    <configuration name="Car" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Car" />
-      <module name="lesson1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Part2_0_ExceptionTest.testException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Part2_7_StreamTest.testReduce">
+    <configuration name="Part2_3_MethodsTest.testVarArgs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lesson1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Part2_0_ExceptionTest" />
-      <option name="METHOD_NAME" value="testException" />
+      <option name="MAIN_CLASS_NAME" value="Part2_3_MethodsTest" />
+      <option name="METHOD_NAME" value="testVarArgs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Part2_0_ExceptionTest.testMultipleCatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Part2_7_StreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lesson1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Part2_0_ExceptionTest" />
-      <option name="METHOD_NAME" value="testMultipleCatch" />
+      <option name="MAIN_CLASS_NAME" value="Part2_7_StreamTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part2_7_StreamTest.testFlatMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lesson1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Part2_7_StreamTest" />
+      <option name="METHOD_NAME" value="testFlatMap" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part2_7_StreamTest.testParallelStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lesson1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Part2_7_StreamTest" />
+      <option name="METHOD_NAME" value="testParallelStream" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part2_7_StreamTest.testReduce" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lesson1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Part2_7_StreamTest" />
+      <option name="METHOD_NAME" value="testReduce" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Car" />
-      <item itemvalue="JUnit.Part2_0_ExceptionTest.testException" />
-      <item itemvalue="JUnit.Part2_0_ExceptionTest.testMultipleCatch" />
+      <item itemvalue="JUnit.Part2_3_MethodsTest.testVarArgs" />
+      <item itemvalue="JUnit.Part2_7_StreamTest.testFlatMap" />
+      <item itemvalue="JUnit.Part2_7_StreamTest" />
+      <item itemvalue="JUnit.Part2_7_StreamTest.testParallelStream" />
+      <item itemvalue="JUnit.Part2_7_StreamTest.testReduce" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Part2_0_ExceptionTest.testMultipleCatch" />
-        <item itemvalue="JUnit.Part2_0_ExceptionTest.testException" />
-        <item itemvalue="Application.Car" />
+        <item itemvalue="JUnit.Part2_7_StreamTest.testReduce" />
+        <item itemvalue="JUnit.Part2_7_StreamTest.testParallelStream" />
+        <item itemvalue="JUnit.Part2_7_StreamTest" />
+        <item itemvalue="JUnit.Part2_7_StreamTest.testFlatMap" />
+        <item itemvalue="JUnit.Part2_3_MethodsTest.testVarArgs" />
       </list>
     </recent_temporary>
   </component>
@@ -258,11 +286,43 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Part2_0_JavaTimeTest_when_localDateCreated_expect_daysArePrintedOk - 2018.10.04 at 16h 34m 08s.xml">
+      <configuration name="Part2_0_JavaTimeTest.when_localDateCreated_expect_daysArePrintedOk" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_test - 2018.10.04 at 16h 45m 24s.xml">
+      <configuration name="Part2_7_StreamTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testForEach - 2018.10.04 at 16h 47m 43s.xml">
+      <configuration name="Part2_7_StreamTest.testForEach" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testMapAndForEach - 2018.10.04 at 16h 47m 53s.xml">
+      <configuration name="Part2_7_StreamTest.testMapAndForEach" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testMapAndForEach - 2018.10.04 at 16h 52m 26s.xml">
+      <configuration name="Part2_7_StreamTest.testMapAndForEach" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testFlatMap - 2018.10.04 at 17h 14m 29s.xml">
+      <configuration name="Part2_7_StreamTest.testFlatMap" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest - 2018.10.04 at 17h 14m 35s.xml">
+      <configuration name="Part2_7_StreamTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testParallelStream - 2018.10.04 at 17h 17m 15s.xml">
+      <configuration name="Part2_7_StreamTest.testParallelStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testParallelStream - 2018.10.04 at 17h 17m 33s.xml">
+      <configuration name="Part2_7_StreamTest.testParallelStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Part2_7_StreamTest_testParallelStream - 2018.10.04 at 17h 17m 46s.xml">
+      <configuration name="Part2_7_StreamTest.testParallelStream" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14415781" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2215478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,7 +332,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.30932897" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.60065466" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -347,6 +407,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="142" column="23" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="23" />
+          <folding>
+            <element signature="e#5027#5028#0" expanded="true" />
+            <element signature="e#5098#5099#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -374,17 +438,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_ExceptionTest.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        <state relative-caret-position="132">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_ExceptionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="100">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_JavaTimeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_6_CollectionsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
