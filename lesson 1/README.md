@@ -79,6 +79,16 @@ fluent manner.
 
 javadoc: https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
 
+#### Streams 
+
+The Java collections framework gives the programmer access to prepackaged data structures as well as to algorithms for manipulating them.
+
+A collection is an object that can hold references to other objects. The collection interfaces declare the operations that can be performed on each type of collection.
+
+The classes and interfaces of the collections framework are in package java.util.
+
+You can find more details here: https://www.tutorialspoint.com/java/java_collections.htm
+
 ## Streams
 
 Stream represents a sequence of objects from a source, which supports aggregate operations. 
