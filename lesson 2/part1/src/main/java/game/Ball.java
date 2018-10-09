@@ -44,7 +44,7 @@ public class Ball {
     public void setHeight(int height) {
         this.height = height;
     }
-    
+
 
     public static Ball random() {
         return random(random.nextInt(SecretGame.MAX_WIDTH), random.nextInt(SecretGame.MAX_HEIGHT));
