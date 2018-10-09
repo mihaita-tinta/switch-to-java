@@ -44,12 +44,7 @@ public class Ball {
     public void setHeight(int height) {
         this.height = height;
     }
-
-    public void goDown() {
-        if (y  + height > SecretGame.MAX_HEIGHT)
-            y = y - width;
-        y = y + 10;
-    }
+    
 
     public static Ball random() {
         return random(random.nextInt(SecretGame.MAX_WIDTH), random.nextInt(SecretGame.MAX_HEIGHT));
