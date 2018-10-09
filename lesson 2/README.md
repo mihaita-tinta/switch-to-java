@@ -190,3 +190,11 @@ for writing data to a destination.
 Stream hierarchy of classes:
 
 ![Streams](https://www.tutorialspoint.com/java/images/file_io.jpg)
+
+## Exercise
+
+We need to create an application that can be configured to lookup for any new files in the input folder.
+Once a file is detected, the program reads the content and converts it to uppercase.
+The result is saved into a new file with the extension .transformed.
+Both files are moved to the output directory.
+If many files are received, the application can process many of them in parallel.
