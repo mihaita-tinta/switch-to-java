@@ -46,7 +46,7 @@ public class Ball {
     }
 
     public void goDown() {
-        if (y > SecretGame.MAX_HEIGHT)
+        if (y  + height > SecretGame.MAX_HEIGHT)
             y = y - width;
         y = y + 10;
     }

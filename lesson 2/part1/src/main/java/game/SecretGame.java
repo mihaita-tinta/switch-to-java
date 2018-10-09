@@ -1,14 +1,9 @@
 package game;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
 
 import javax.swing.*;
 
@@ -44,6 +39,8 @@ public class SecretGame extends JComponent {
             g.setColor(ball.getColor());
             g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
         });
+        g.setColor(Color.BLACK);
+        g.fillRect(0, MAX_HEIGHT, getWidth(), MAX_HEIGHT + 20);
 
     }
 
