@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -40,7 +41,7 @@ public class Lesson2_2_FileTest {
     @Test
     public void test_tryWithResources() throws IOException {
         try (InputStream in = Lesson2_2_FileTest.class.getClassLoader()
-                    .getResourceAsStream("src/test/resources/a.txt");
+                    .getResourceAsStream("a.txt");
              FileOutputStream out = new FileOutputStream("b.txt")) {
 
             int c;
@@ -59,7 +60,7 @@ public class Lesson2_2_FileTest {
 
     @Test
     public void testReadFile() throws IOException {
-        File file = new File("C:\\workplace\\github\\switch-to-java\\lesson 2\\src\\test\\resources\\a.txt");
+        File file = new File("C:\\workplace\\github\\switch-to-java\\lesson 2\\part1\\src\\test\\resources\\a.txt");
 
         BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -70,7 +71,7 @@ public class Lesson2_2_FileTest {
 
     @Test
     public void testReadFile_nio_line_by_line() throws IOException {
-        String path = "C:\\workplace\\github\\switch-to-java\\lesson 2\\src\\test\\resources\\a.txt";
+        String path = "C:\\workplace\\github\\switch-to-java\\lesson 2\\part1\\src\\test\\resources\\a.txt";
         Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8)
             .stream()
             .forEach(System.out :: println);
@@ -96,5 +97,15 @@ public class Lesson2_2_FileTest {
             Files.move(to, from);
         }
 
+    }
+
+    @Test
+    public void testListFiles() {
+        File input = new File("C:\\workplace\\github\\switch-to-java\\lesson 2\\part1\\src\\test\\resources\\");
+        if (input.isDirectory()) {
+            Arrays.asList(input.listFiles())
+            .stream()
+            .forEach(System.out::println);
+        }
     }
 }
