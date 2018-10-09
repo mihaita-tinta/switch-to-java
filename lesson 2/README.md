@@ -181,3 +181,12 @@ stage
 * otherwise, the thread which completes the first stage will execute the second one.
 
 The asyn form makes sure that the next thread will be executed on a thread belonging to the specified *Executor*.
+
+## Streams
+
+A stream is a sequence of data. The **InputStream** is used to read data from a source and the **OutputStream** is used 
+for writing data to a destination.
+
+Stream hierarchy of classes:
+
+![Streams](https://www.tutorialspoint.com/java/images/file_io.jpg)
