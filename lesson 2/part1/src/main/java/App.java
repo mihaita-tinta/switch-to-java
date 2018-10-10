@@ -17,7 +17,26 @@ public class App {
                     "--------------------------------------------------------------\n");
         }
 
-        String input = "";//TODO 0  first argument is input directory
-        String output = "";// TODO 0 second argument is the output directory
-    }
+
+        String input = "D:\\input";//TODO 0  first argument is input directory
+        String output = "D:\\output";// TODO 0 second argument is the output directory
+
+        CopiazaFisiere c = new CopiazaFisiere(input, output);
+        c.procesare();
+
+//        File inputFile = new File(input);
+//            Arrays.asList(inputFile.listFiles())
+//                    .stream()
+//                    .forEach(System.out::println);
+//
+//            List<File> ls = Arrays.asList(inputFile.listFiles());
+//            for(int i=0; i<ls.size();i++){
+//                System.out.println(ls.get(i));
+//                Path from = Paths.get(String.valueOf(ls.get(i)));
+//                Path to = Paths.get(String.valueOf(ls.get(i)));
+//                Path result = Files.move(from, to);
+//                if (result == null) {
+//                    System.out.println("fail to move file");
+
+                }
 }
