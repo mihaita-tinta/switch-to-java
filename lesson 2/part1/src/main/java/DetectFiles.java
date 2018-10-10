@@ -12,34 +12,36 @@ import java.util.stream.Stream;
 
 class DetectFiles
 {
-    private String inputDirectory;
+    private String input;
 
-    private String outputDirectory;
+    private String output;
 
-    public DetectFiles(String input, String output)
+    DetectFiles(String input, String output)
     {
-        inputDirectory = input;
-        outputDirectory = output;
+        this.input = input;
+        this.output = output;
     }
 
     void scanFolder()
     {
         System.out.println("Scan folder method called");
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        Runnable task = () -> transformAndMoveFiles(inputDirectory, outputDirectory);
+        Runnable task = () -> transformAndMoveFiles();
         executor.scheduleAtFixedRate(task, 0, 10, TimeUnit.SECONDS);
     }
 
-    private void transformAndMoveFiles(String input, String output)
+    private void transformAndMoveFiles()
     {
         System.out.println("Transform and move method called");
-        File inputDirectory = new File(input);
-        File outputDirectory = new File(output);
+        File inputDirectory = new File(this.input);
+        File outputDirectory = new File(this.output);
         if (inputDirectory.isDirectory() && outputDirectory.exists() && outputDirectory.isDirectory()) {
             File[] files = inputDirectory.listFiles();
             if (files != null) {
+                System.out.println(files.length + " files found");
                 Arrays.stream(files).forEach(file -> {
                     try {
+                        System.out.println("File processing " + file.getName());
                         Stream<String> stream = Files.lines(file.toPath());
                         List<String> list = stream.map(String::toUpperCase).collect(Collectors.toList());
                         String newExtension = file.getName().substring(0, file.getName().indexOf('.')) + ".transformed";
