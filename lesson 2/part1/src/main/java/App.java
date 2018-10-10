@@ -20,7 +20,10 @@ public class App {
         if (args.length > 1) {
             String input = args[0]; //"/Users/sandu.velea/personal/java/fisiere/1";//TODO 0  first argument is input directory
             String output = args[1]; //"/Users/sandu.velea/personal/java/fisiere/2";// TODO 0 second argument is the output directory
-            DetectFiles.transformAndMoveFiles(input, output);
+            System.out.println(input);
+            System.out.println(output);
+            DetectFiles detectFiles = new DetectFiles(input, output);
+            detectFiles.scanFolder();
         }
     }
 }

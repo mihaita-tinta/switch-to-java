@@ -4,17 +4,35 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class DetectFiles
 {
-    private DetectFiles()
+    private String inputDirectory;
+
+    private String outputDirectory;
+
+    public DetectFiles(String input, String output)
     {
+        inputDirectory = input;
+        outputDirectory = output;
     }
 
-    static void transformAndMoveFiles(String input, String output)
+    void scanFolder()
     {
+        System.out.println("Scan folder method called");
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        Runnable task = () -> transformAndMoveFiles(inputDirectory, outputDirectory);
+        executor.scheduleAtFixedRate(task, 0, 10, TimeUnit.SECONDS);
+    }
+
+    private void transformAndMoveFiles(String input, String output)
+    {
+        System.out.println("Transform and move method called");
         File inputDirectory = new File(input);
         File outputDirectory = new File(output);
         if (inputDirectory.isDirectory() && outputDirectory.exists() && outputDirectory.isDirectory()) {
