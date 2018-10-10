@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -39,8 +40,11 @@ class DetectFiles
             File[] files = inputDirectory.listFiles();
             if (files != null) {
                 System.out.println(files.length + " files found");
-                Arrays.stream(files).forEach(file -> {
+                ForkJoinPool customThreadPool = new ForkJoinPool(4);
+                customThreadPool.submit(()  ->
+                Arrays.stream(files).parallel().forEach(file -> {
                     try {
+                        System.out.println("Thread " + Thread.currentThread().getName());
                         System.out.println("File processing " + file.getName());
                         Stream<String> stream = Files.lines(file.toPath());
                         List<String> list = stream.map(String::toUpperCase).collect(Collectors.toList());
@@ -52,7 +56,8 @@ class DetectFiles
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
                     }
-                });
+                })
+                );
             }
         }
     }
