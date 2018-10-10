@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class AppTest {
 
-    App object;
+    App object = new App();
 
     @Test
     public void test() {
