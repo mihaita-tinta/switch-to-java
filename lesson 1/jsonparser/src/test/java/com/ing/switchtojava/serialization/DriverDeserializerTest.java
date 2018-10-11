@@ -3,13 +3,13 @@ package com.ing.switchtojava.serialization;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ing.switchtojava.domain.Car;
 import com.ing.switchtojava.domain.Driver;
-//import org.codehaus.jackson.map.ObjectMapper;
-
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.codehaus.jackson.map.ObjectMapper;
 
 public class DriverDeserializerTest {
 
