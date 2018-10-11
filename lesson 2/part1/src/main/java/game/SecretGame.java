@@ -57,6 +57,10 @@ public class SecretGame extends JComponent {
         mainFrame.pack();
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // FIXME after working on the App class can you change this implementation so that
+        // every ball instance is actually created only when a file is processed successfully?
+        // can you write the filepath in the center of the ball?
     }
 }
            
