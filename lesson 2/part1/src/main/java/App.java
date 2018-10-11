@@ -19,5 +19,7 @@ public class App {
 
         String input = "";//TODO 0  first argument is input directory
         String output = "";// TODO 0 second argument is the output directory
+
+        //test dupa ce am ramas doar cu clasele generate :)
     }
 }
