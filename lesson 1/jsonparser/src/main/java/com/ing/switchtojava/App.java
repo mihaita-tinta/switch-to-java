@@ -46,6 +46,10 @@ public class App  {
         System.out.println(c.getSeats());
         System.out.println("#################");
 
+        String g = "{\"id\":\"100\",\"number\":\"B-01-ERU\",\"seats\":\"2\"}";
+        System.out.println(g);
+
+
 //        ObjectSerializer serializer = new ObjectSerializerImpl();
 //        String json = "";
 //        try {
@@ -83,25 +87,27 @@ public class App  {
         System.out.println(driv.getCars());
         System.out.println(driv);
         System.out.println("################# EXIT");
-
-//        ObjectSerializer serializer = new ObjectSerializerImpl();
-//        String json = "";
-//        try {
-//            json = serializer.serialize(driv);
-//        } catch (SerializationException e) {
-//            e.printStackTrace();
-//        }
 //
-//        System.out.println(json);
-
-        DriverDeserializer deserializer = new DriverDeserializer();
-        String tt = "{\"firstname\":\"Ion\",\"lastname\":\"Vasile\",\"cars\":\"[Car<id=101, number='B-01-ERU', seats=5>, Car<id=19, number='IL-01-ERU', seats=3>]\"}";
+        ObjectSerializer serializer = new ObjectSerializerImpl();
+        String json = "";
         try {
-            Driver drive = deserializer.deserialize("{\"firstname\":\"Ion\",\"lastname\":\"Vasile\",\"cars\":\"[Car<id=101, number='B-01-ERU', seats=5>, Car<id=19, number='IL-01-ERU', seats=3>]\"}");
-            System.out.println(drive);
-        } catch (DeserializationException e) {
+            json = serializer.serialize(driv);
+        } catch (SerializationException e) {
             e.printStackTrace();
         }
+
+        System.out.println(json);
+
+
+//        System.out.println("################# Deserializer");
+//        DriverDeserializer deserializer = new DriverDeserializer();
+//        String tt = "{\"firstname\":\"Ion\",\"lastname\":\"Vasile\",\"cars\":\"[Car<id=101, number='B-01-ERU', seats=5>, Car<id=19, number='IL-01-ERU', seats=3>]\"}";
+//        try {
+//            Driver drive = deserializer.deserialize("{\"firstname\":\"Ion\",\"lastname\":\"Vasile\",\"cars\":\"[Car<id=101, number='B-01-ERU', seats=5>, Car<id=19, number='IL-01-ERU', seats=3>]\"}");
+//            System.out.println(drive);
+//        } catch (DeserializationException e) {
+//            e.printStackTrace();
+//        }
 
 
 

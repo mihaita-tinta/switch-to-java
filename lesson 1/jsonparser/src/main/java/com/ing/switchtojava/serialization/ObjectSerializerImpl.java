@@ -29,8 +29,10 @@ public class ObjectSerializerImpl implements ObjectSerializer{
 					String attribute = mname.substring(3).toLowerCase();
 					String value = method.invoke(jsonObject).toString();
 
-//					System.out.println(value);
-					json = json+"\\\""+attribute+"\\\":"+"\\\""+value+"\\\",";
+                    System.out.println(method);
+					System.out.println(value);
+//					json = json+"\\\""+attribute+"\\\":"+"\\\""+value+"\\\",";
+                    json = json+"\""+attribute+"\":"+"\""+value+"\",";
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
@@ -45,7 +47,7 @@ public class ObjectSerializerImpl implements ObjectSerializer{
 			}
 
 		}
-		return "\"{"+json.substring(0,json.length()-1)+"}\"";
+		return "{"+json.substring(0,json.length()-1)+"}";
 	}
 
 }

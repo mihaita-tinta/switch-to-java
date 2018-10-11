@@ -14,7 +14,7 @@ public class CarDeserializer implements ObjectDeserializer{
 		// TODO 5 Auto-generated method stub
 		//"{\"id\":\"101\",\"number\":\"B-01-ERU\",\"seats\":\"5\"}"
 
-		string = string.substring(1,string.length()-1).replaceAll("\"","");
+//		string = string.substring(1,string.length()-1).replaceAll("\"","");
 		string = string.replaceAll(":|,"," ");
 		String[] arr = string.split(" ");
 
