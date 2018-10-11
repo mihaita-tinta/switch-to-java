@@ -54,6 +54,8 @@ public class ServerApp {
                 // if the message has the format: "uppercase:Test 123" the server responds with "TEST 123"
                 // if the message has the format: "now:UTC" the server responds with "2018-10-11T12:26:14.937"
                 //                              see ZoneId.getAvailableZoneIds()
+                // if the message has the format: "path:<absolute_path>" list all filenames, otherwise print content of the file
+                //                              Can you reuse some classes you created in your homework?
                 String outMsg = inMsg;
                 socketWriter.write(outMsg);
                 socketWriter.write("\n");
