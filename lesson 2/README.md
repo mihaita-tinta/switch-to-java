@@ -1,6 +1,6 @@
 # Switch to Java
 
-## Java Multithreading
+## Part 1 - Java Multithreading
 
 ### Threads
 
@@ -190,3 +190,88 @@ for writing data to a destination.
 Stream hierarchy of classes:
 
 ![Streams](https://www.tutorialspoint.com/java/images/file_io.jpg)
+
+## Part 2 - Testing
+
+### Unit tests
+
+Unit tests are meant to test the contract of a class. The dependencies of a class under test can be replaced by mock 
+objects. Maven runs unit tests during the *test* phase using junit. By default, all the classes which have *Test* in 
+their name are run.
+
+The developers run unit tests locally on every change. They should run very fast. 
+
+### Integration tests
+
+Integration tests are meant to test the boundaries of an application with its external dependencies (other 
+applications, the OS, etc). Focus on testing only the boundaries and don't test functionality already covered by the 
+unit tests.
+
+The failsafe maven plugin runs test classes with *IT* in their name, usually during the *integration-test* phase.  
+
+Integration tests should be run locally when possible and on every change. Even though they will take more time than 
+unit tests, they should have a reasonable duration.
+
+### System tests (End to End tests)
+
+These are functional tests meant to test the application as a whole in an environment as close to production as 
+possible (usually a test environment). The test application should share as little code as possible with the system 
+under test.
+
+Usually, regression and user acceptance tests are included here. These tests can also provide ample documentation, 
+with numerous frameworks available: [FitNesse](http://docs.fitnesse.org/FrontPage), [cucumber](https://cucumber.io/).
+
+### Performance tests
+
+Performance tests are meant to test how the application handles high load and determine its breaking point. These are
+usually run on a test environment.
+ 
+Frameworks: [JMeter](https://jmeter.apache.org/), [Gatling](https://gatling.io/)
+
+### Mockito
+
+Mockito is a mocking framework for java tests. It mocks classes by implementing their interfaces, mocks which are 
+then controlled using the extensive Mockito toolset. 
+
+Mockito can has 2 ways of defining mocks:
+* programmatic
+* declarative using annotations.
+
+```java
+import static org.mockito.Mockito.when;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+// @RunWith attaches a runner with the test class to initialize the test data
+@RunWith(MockitoJUnitRunner.class)
+public class MathApplicationTester {
+	
+   //@InjectMocks annotation is used to create and inject the mock object
+   @InjectMocks 
+   MathApplication mathApplication;
+
+   //@Mock annotation is used to create the mock object to be injected
+   @Mock
+   CalculatorService calcService;
+
+   @Test
+   public void testAdd(){
+      //add the behavior of calc service to add two numbers
+      when(calcService.add(10.0,20.0)).thenReturn(30.00);
+		
+      //test the add functionality
+      Assert.assertEquals(mathApplication.add(10.0, 20.0),30.0,0);
+   }
+}
+```
+
+Besides mocking behavior, Mockito can also check any interactions with mocks using the [verify functionality](https://static.javadoc.io/org.mockito/mockito-core/2.15.0/org/mockito/Mockito.html#verification).
+
+You can find more extensive docs here: [Mockito](https://static.javadoc.io/org.mockito/mockito-core/2.15.0/org/mockito/Mockito.html)
+
+## Excercise
