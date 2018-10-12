@@ -21,7 +21,9 @@ public class SecretGame extends JComponent {
         container.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent ev){
                 System.out.println("mouseClicked - " + ev);
-                // TODO 1 create a new ball everytime the user clicks something
+                Ball ball = Ball.random(ev.getX(), ev.getY());
+                world.add(ball);
+                repaint();
             }
         });
     }
@@ -36,7 +38,13 @@ public class SecretGame extends JComponent {
 
         // TODO 2 render all objects from the world
 
-        // TODO 2 draw the ground. Hint: upper right corner is has the 2D coordinates: (x,y) ->(0,0)
+        g.setColor(Color.magenta);
+        world.getObjects()
+                    .forEach(ball -> {
+                        g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+                    });
+        g.setColor(Color.BLACK);
+        g.fillRect(0,  getHeight() - 10, getWidth(), 200);
 
     }
 
@@ -51,7 +59,7 @@ public class SecretGame extends JComponent {
     }
 
 
-    public static void main(String args[]) {
+    public static void main(String... args) {
         JFrame mainFrame = new JFrame("Graphics demo");
         mainFrame.getContentPane().add(new SecretGame(mainFrame));
         mainFrame.pack();
