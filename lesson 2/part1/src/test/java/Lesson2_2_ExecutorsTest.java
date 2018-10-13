@@ -1,9 +1,6 @@
 import org.junit.Test;
 
 import java.util.concurrent.*;
-import java.util.stream.IntStream;
-
-import static org.junit.Assert.assertEquals;
 
 public class Lesson2_2_ExecutorsTest {
 

@@ -10,14 +10,11 @@ import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 public class ServerApp {
     private static final Logger log = LoggerFactory.getLogger(ClientApp.class);
 
-    public static void main(String[] args) throws Exception {
+    public static void main2(String[] args) throws Exception {
 
         ServerSocket serverSocket = new ServerSocket(9090, 100, InetAddress.getByName("localhost"));
         log.info("Server started  at:  " + serverSocket);
