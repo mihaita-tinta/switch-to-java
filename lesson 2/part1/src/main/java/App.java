@@ -1,22 +1,14 @@
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class App {
 
-    /**
-     * This application
-     * @param args
-     */
     public static void main(String... args) {
         if (args.length != 2) {
             System.out.println("--------------------------------------------------------------\n" +
@@ -29,9 +21,10 @@ public class App {
                     "--------------------------------------------------------------\n" +
                     "--------------------------------------------------------------\n");
         }
-
-        String input = "C:\\Test\\input";//TODO 0  first argument is input directory
-        String output = "C:\\Test\\output";// TODO 0 second argument is the output directory
+        //D:\input          C:\Test\input
+        //D:\output         C:\Test\output
+        String input = "D:\\input";//TODO 0  first argument is input directory
+        String output = "D:\\output";// TODO 0 second argument is the output directory
 
         File inputFile = new File(input);
         File outputFile = new File(output);
@@ -73,7 +66,6 @@ public class App {
     }
 
     public static void creeazaSiModifica(File file, File inDirectory, File outDirectory){
-//        if(file.isDirectory()){ return;}
         try {
             String text  = Files.lines(file.toPath())
                     .map(e ->e.toUpperCase())
