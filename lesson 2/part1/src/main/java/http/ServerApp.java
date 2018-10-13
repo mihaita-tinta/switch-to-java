@@ -14,7 +14,7 @@ import java.net.Socket;
 public class ServerApp {
     private static final Logger log = LoggerFactory.getLogger(ClientApp.class);
 
-    public static void main2(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         ServerSocket serverSocket = new ServerSocket(9090, 100, InetAddress.getByName("localhost"));
         log.info("Server started  at:  " + serverSocket);
@@ -53,16 +53,36 @@ public class ServerApp {
                 //                              see ZoneId.getAvailableZoneIds()
                 // if the message has the format: "path:<absolute_path>" list all filenames, otherwise print content of the file
                 //                              Can you reuse some classes you created in your homework?
-                String outMsg = inMsg;
+                String outMsg = interpretMessage(inMsg);
                 socketWriter.write(outMsg);
                 socketWriter.write("\n");
                 socketWriter.flush();
             }
+            socketReader.close();
+            socketWriter.close();
             socket.close();
         } catch(Exception e){
             // FIXME what happens if we just print the error?
             e.printStackTrace();
         }
 
+    }
+
+    private static String interpretMessage(String inMsg) {
+        Expression exp = null;
+        String content = inMsg.substring(inMsg.indexOf(":") + 1);
+        if (inMsg.startsWith("lowercase:")) {
+            exp = new LowercaseExpression(content);
+        } else if (inMsg.startsWith("uppercase:")) {
+            exp = new UppercaseExpression(content);
+        } else if (inMsg.startsWith("now:")) {
+            exp = new NowExpression(content);
+        } else if (inMsg.startsWith("path:")) {
+            exp = new PathExpression(content);
+        } else {
+            return inMsg;
+        }
+
+        return exp.interpret(new InterpreterContext());
     }
 }
