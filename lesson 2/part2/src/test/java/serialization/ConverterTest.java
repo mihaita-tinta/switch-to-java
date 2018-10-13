@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -63,7 +64,7 @@ public class ConverterTest {
     @Test
     public void when_convertLocalDateTime_expect_returnLocalDateTime() {
         Converter converter = new Converter();
-        assertEquals(LocalDateTime.of(2018, 10, 11, 13, 15,0, 0),
-                    converter.convert("2018-10-11T13:15:0.0", LocalDate.class));
+        assertEquals(LocalDateTime.of(2018, 10, 11, 13, 15,10, 0),
+                    converter.convert("2018-10-11T13:15:10.000000000", LocalDateTime.class));
     }
 }
