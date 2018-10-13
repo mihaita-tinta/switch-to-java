@@ -5,10 +5,10 @@ import org.junit.Test;
 
 public class AppTest {
 
-    App object;
+    App object = new App();
 
     @Test
     public void test() {
-        Assert.assertNotNull(object); // TODO 1 make this test pass
+        Assert.assertNotNull(object);
     }
 }
