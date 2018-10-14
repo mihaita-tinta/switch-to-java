@@ -1,5 +1,3 @@
-import com.sun.javafx.collections.MappingChange;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -24,25 +22,21 @@ FileSaver {
         for(Map.Entry<File,List<String>> entry : convertedContentMap.entrySet())
         {
             //move original file
-            MoveOriginalFile(entry.getKey(),pathToMove);
+            MoveFile(entry.getKey(),pathToMove);
 
            File finalResult = CompletableFuture.supplyAsync(() -> {
                 File file = entry.getKey();
                 List<String> content  = entry.getValue();
-
                 String fileNameWithNewExt = ChangeFileExtension(file,newExtensionName);
                 File newFile = CreateNewFile(fileNameWithNewExt);
                 WriteToNewFile(content, fileNameWithNewExt);
+
                 return newFile;
             }).thenApply((res) -> {
-                try {
-                     //move transformed file
-                    Files.move(Paths.get(res.getAbsolutePath()),Paths.get(pathToMove
-                          +"\\" + res.getName()));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return res;
+               //move transformed file
+               MoveFile(res,pathToMove);
+
+               return res;
             }).join();
         }
     }
@@ -73,7 +67,7 @@ FileSaver {
         return new String(file.getParent() + "\\" + name + newExtension);
     }
 
-    private void MoveOriginalFile(File file, String pathToMove)
+    private void MoveFile(File file, String pathToMove)
     {
         try {
             Path result = Files.move(Paths.get(file.getAbsolutePath()),Paths.get(pathToMove
