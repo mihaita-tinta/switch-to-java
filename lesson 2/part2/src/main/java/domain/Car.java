@@ -28,7 +28,7 @@ public class Car {
 		return seats;
 	}
 
-	public void setSeats(int seats) {
+	public void setSeats(int seats, String s) {
 		this.seats = seats;
 	}
 }

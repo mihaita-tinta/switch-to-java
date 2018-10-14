@@ -1,6 +1,5 @@
 package serialization;
 
-import domain.Car;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -9,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -46,8 +46,14 @@ public class SimpleDeserializerMockTest {
         Mockito.when(keyValues.get("setId")).thenReturn("10");
         Mockito.when(converter.convert("10", Long.class)).thenReturn(10L);
 
-        Mockito.when(extractor.extractKeyValues("someInput")).thenReturn(keyValues);
+        //NU stiu daca asa trebuia facuta...chestia aia cu map??
+
+        Map<String, String> map = new HashMap<>();
+        map.put("id","10");
+//        Mockito.when(extractor.extractKeyValues("someInput")).thenReturn(keyValues);
+        Mockito.when(extractor.extractKeyValues("someInput")).thenReturn(map);
         OnePropertyClass instance = deserializer.deserialize("someInput", OnePropertyClass.class);
+
 
         assertEquals(new Long(10), instance.getId());
     }
@@ -56,6 +62,21 @@ public class SimpleDeserializerMockTest {
     public void when_TwoPropertyClass_expect_bothPropertiesAreSet() {
 
         //TODO 0 add mock behavior so that both properties are set
+        //NU stiu daca asa trebuia facuta...chestia aia cu map??
+        // https://www.baeldung.com/mockito-behavior
+        //https://www.youtube.com/watch?v=d2KwvXQgQx4
+
+        Mockito.when(keyValues.get("setId")).thenReturn("10");
+        Mockito.when(converter.convert("10", Long.class)).thenReturn(10L);
+
+        Mockito.when(keyValues.get("setName")).thenReturn("someName");
+        Mockito.when(converter.convert("someName", String.class)).thenReturn("someName");
+
+        Map<String, String> map = new HashMap<>();
+        map.put("id","10");
+        map.put("name","someName");
+
+        Mockito.when(extractor.extractKeyValues("someInput")).thenReturn(map);
 
         TwoPropertyClass instance = deserializer.deserialize("someInput", TwoPropertyClass.class);
 

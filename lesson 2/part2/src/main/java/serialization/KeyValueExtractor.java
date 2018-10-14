@@ -1,9 +1,6 @@
 package serialization;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class KeyValueExtractor {
     final char startObject = '{';
@@ -53,7 +50,8 @@ public class KeyValueExtractor {
 
     public List<String> getKeys(String content) {
         // TODO 2 we need to keys from the JSON
-        return Collections.emptyList();
+        Map<String, String> map = this.extractKeyValues(content);
+        return new ArrayList<String>(map.keySet());
     }
 
     private void startNewObject() {

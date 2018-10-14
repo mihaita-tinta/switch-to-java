@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08d4a6ae-155e-45f2-89de-cca21634c4aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../part1/src/main/java/CopiazaFisiere.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part1/src/main/java/CopiazaFisiere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../part1/src/main/java/game/SecretGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part1/src/main/java/game/SecretGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../part1/src/main/java/game/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part1/src/main/java/game/World.java" afterDir="false" />
+    <list default="true" id="743ce17a-dd8b-4bbe-918e-c702c6ba9dc5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../part1/src/main/java/InvalidDirectoryException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/lesson1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_5_OptionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_5_OptionalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_0_ExceptionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_0_JavaTimeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_1_ConstructorTest$C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_1_ConstructorTest$D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_1_ConstructorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_2_InterfaceTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_2_InterfaceTest$A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_2_InterfaceTest$B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_2_InterfaceTest$C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_2_InterfaceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_3_MethodsTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_3_MethodsTest$Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_3_MethodsTest$EntityOverloading.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_3_MethodsTest$LambdaEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_3_MethodsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest$AddCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest$Calculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest$NotReallyACalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest$StaticCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_4_LambdaTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest$SmartCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest$ObjectWithEquals.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest$ObjectWithEqualsAndHashCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest$ObjectWithNoEqualsImplemented.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest$Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../part1/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part1/src/main/java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serialization/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serialization/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serialization/KeyValueExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serialization/KeyValueExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,217 +52,66 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1841030040">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="java" value="41" />
-          <entry key="xml" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="41" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="gitignore" value="3" />
-          <entry key="java" value="2467" />
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2467" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-    </session>
     <session id="1523035219">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="5" />
+          <entry key="java" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="252" />
+          <entry key="java" value="1432" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="252" />
+          <entry key="JAVA" value="1432" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="75" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/serialization/Converter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/serialization/KeyValueExtractorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/serialization/KeyValueExtractor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="76" column="77" selection-start-line="76" selection-start-column="77" selection-end-line="76" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
-      </list>
-    </option>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>keyValues</find>
+      <find>extractKeyValues</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$/../../../ZombieBird" value="PREVIEW" />
-      </map>
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/Deserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ParameterizedDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DeserializationException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/serialization/DeserializationException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/serialization/ParameterizedDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/domain/Car.java" />
         <option value="$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/serialization/KeyValueExtractorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/serialization/Converter.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/serialization/KeyValueExtractor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/domain/Car.java" />
+        <option value="$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java" />
+        <option value="$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java" />
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="part2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="part2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="part2" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
     <option name="width" value="1365" />
-    <option name="height" value="727" />
+    <option name="height" value="730" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -236,6 +119,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -303,33 +187,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539276835031" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="serialization" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="serialization" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\workplace\github\switch-to-java\lesson 2\part2\src\main\java\serialization" />
-      <recent name="C:\workplace\github\switch-to-java\lesson 2\part2\src\main\java" />
-    </key>
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539507408714" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../lesson 1/lesson1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -343,8 +205,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned">
-    <configuration name="ConverterTest.when_convertLong_expect_returnLong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet">
+    <configuration name="SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="part2" />
       <extension name="coverage">
         <pattern>
@@ -353,40 +215,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="serialization" />
-      <option name="MAIN_CLASS_NAME" value="serialization.ConverterTest" />
-      <option name="METHOD_NAME" value="when_convertLong_expect_returnLong" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="part2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="serialization.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="serialization" />
-      <option name="MAIN_CLASS_NAME" value="serialization.KeyValueExtractorTest" />
-      <option name="METHOD_NAME" value="when_keyIsInJson_expect_correctValueIsReturned" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KeyValueExtractorTest.when_keyIsInNotJson_expect_nullIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="part2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="serialization.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="serialization" />
-      <option name="MAIN_CLASS_NAME" value="serialization.KeyValueExtractorTest" />
-      <option name="METHOD_NAME" value="when_keyIsInNotJson_expect_nullIsReturned" />
+      <option name="MAIN_CLASS_NAME" value="serialization.SimpleDeserializerMockTest" />
+      <option name="METHOD_NAME" value="when_TwoPropertyClass_expect_bothPropertiesAreSet" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -424,20 +254,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SimpleDeserializerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serialization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serialization" />
+      <option name="MAIN_CLASS_NAME" value="serialization.SimpleDeserializerTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleDeserializerTest.when_jsonProvided_expect_carInstanceIsCreatedWithAllPropertiesSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serialization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serialization" />
+      <option name="MAIN_CLASS_NAME" value="serialization.SimpleDeserializerTest" />
+      <option name="METHOD_NAME" value="when_jsonProvided_expect_carInstanceIsCreatedWithAllPropertiesSet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.KeyValueExtractorTest.when_keyIsInNotJson_expect_nullIsReturned" />
-      <item itemvalue="JUnit.SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" />
+      <item itemvalue="JUnit.SimpleDeserializerTest.when_jsonProvided_expect_carInstanceIsCreatedWithAllPropertiesSet" />
+      <item itemvalue="JUnit.SimpleDeserializerTest" />
       <item itemvalue="JUnit.SimpleDeserializerMockTest.when_mockConfigured_expect_itReturnsCorrectValue" />
-      <item itemvalue="JUnit.ConverterTest.when_convertLong_expect_returnLong" />
-      <item itemvalue="JUnit.KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" />
+      <item itemvalue="JUnit.SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" />
+      <item itemvalue="JUnit.SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" />
-        <item itemvalue="JUnit.ConverterTest.when_convertLong_expect_returnLong" />
+        <item itemvalue="JUnit.SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet" />
         <item itemvalue="JUnit.SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" />
         <item itemvalue="JUnit.SimpleDeserializerMockTest.when_mockConfigured_expect_itReturnsCorrectValue" />
-        <item itemvalue="JUnit.KeyValueExtractorTest.when_keyIsInNotJson_expect_nullIsReturned" />
+        <item itemvalue="JUnit.SimpleDeserializerTest" />
+        <item itemvalue="JUnit.SimpleDeserializerTest.when_jsonProvided_expect_carInstanceIsCreatedWithAllPropertiesSet" />
       </list>
     </recent_temporary>
   </component>
@@ -446,60 +306,50 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="08d4a6ae-155e-45f2-89de-cca21634c4aa" name="Default Changelist" comment="" />
-      <created>1539236554181</created>
+      <changelist id="743ce17a-dd8b-4bbe-918e-c702c6ba9dc5" name="Default Changelist" comment="" />
+      <created>1539445341955</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1539236554181</updated>
+      <updated>1539445341955</updated>
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SimpleDeserializerMockTest_when_mockConfigured_expect_itReturnsCorrectValue - 2018.10.11 at 13h 25m 47s.xml">
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 16m 51s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 21m 00s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 23m 02s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleDeserializerMockTest_when_mockConfigured_expect_itReturnsCorrectValue - 2018.10.14 at 10h 23m 38s.xml">
       <configuration name="SimpleDeserializerMockTest.when_mockConfigured_expect_itReturnsCorrectValue" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.11 at 13h 25m 54s.xml">
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 24m 19s.xml">
       <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.11 at 13h 26m 26s.xml">
+    <history-entry file="SimpleDeserializerMockTest_when_mockConfigured_expect_itReturnsCorrectValue - 2018.10.14 at 10h 24m 54s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_mockConfigured_expect_itReturnsCorrectValue" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 36m 45s.xml">
       <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.11 at 13h 26m 42s.xml">
+    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.14 at 10h 45m 40s.xml">
       <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.11 at 13h 32m 19s.xml">
-      <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
+    <history-entry file="SimpleDeserializerMockTest_when_TwoPropertyClass_expect_bothPropertiesAreSet - 2018.10.14 at 11h 14m 29s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SimpleDeserializerMockTest_when_usingMocks_expect_liveIsEasier - 2018.10.11 at 13h 32m 41s.xml">
-      <configuration name="SimpleDeserializerMockTest.when_usingMocks_expect_liveIsEasier" configurationId="JUnit" />
+    <history-entry file="SimpleDeserializerMockTest_when_TwoPropertyClass_expect_bothPropertiesAreSet - 2018.10.14 at 11h 17m 30s.xml">
+      <configuration name="SimpleDeserializerMockTest.when_TwoPropertyClass_expect_bothPropertiesAreSet" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConverterTest_when_convertLong_expect_returnLong - 2018.10.11 at 19h 17m 36s.xml">
-      <configuration name="ConverterTest.when_convertLong_expect_returnLong" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyValueExtractorTest_when_keyIsInJson_expect_correctValueIsReturned - 2018.10.11 at 19h 24m 35s.xml">
-      <configuration name="KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyValueExtractorTest_when_keyIsInJson_expect_correctValueIsReturned - 2018.10.11 at 19h 38m 32s.xml">
-      <configuration name="KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="KeyValueExtractorTest_when_keyIsInJson_expect_correctValueIsReturned - 2018.10.11 at 19h 41m 10s.xml">
-      <configuration name="KeyValueExtractorTest.when_keyIsInJson_expect_correctValueIsReturned" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25167784" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24563758" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -508,15 +358,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40536723" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32209107" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41666666" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.08757062" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32627118" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32909605" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,61 +374,87 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.3297546" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24966443" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32909605" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>method.getName()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>keyValues.get(method.getName())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="251">
+          <caret line="541" selection-start-line="541" selection-end-line="541" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../lesson 1/jsonparser/src/main/java/com/ing/switchtojava/serialization/ObjectSerializerImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Objects.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
+        <state relative-caret-position="413">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Deserializer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/domain/Car.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/time/format/DateTimeFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="1951" selection-start-line="1951" selection-end-line="1951" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/time/LocalDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="399" selection-start-line="399" selection-end-line="399" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/serialization/ParameterizedDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/time/LocalDate.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -589,47 +465,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/serialization/ParameterizedDeserializer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="238">
+          <caret line="18" column="78" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serialization/KeyValueExtractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="76" column="77" selection-start-line="76" selection-start-column="77" selection-end-line="76" selection-end-column="77" />
+        <state relative-caret-position="289">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#getKeys#0;class#KeyValueExtractor#0" />
+            <element signature="method#accumulate#0;class#KeyValueExtractor#0" />
+            <element signature="method#completeKeyValue#0;class#KeyValueExtractor#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/serialization/KeyValueExtractorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="153">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/serialization/SimpleDeserializer.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="75" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
+        <state relative-caret-position="204">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/SimpleDeserializerMockTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -638,87 +513,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/serialization/Converter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/serialization/ConverterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state relative-caret-position="623">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/domain/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
+      <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>part2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: junit:junit:4.12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
