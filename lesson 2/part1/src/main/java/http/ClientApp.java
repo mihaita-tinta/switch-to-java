@@ -3,21 +3,36 @@ package http;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.net.ConnectException;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 public class ClientApp {
     private static final Logger log = LoggerFactory.getLogger(ClientApp.class);
 
+
     public static void main(String[] args) throws Exception {
 
         // FIXME we need to retry connecting at least 3 times before giving up
-        Socket socket = new Socket("localhost", 9090);
-        log.info("Started client  socket at " + socket.getLocalSocketAddress());
+        int nrRetries = 1;
+        Socket socket=null;
 
+        while(nrRetries <= 3) {
+            try {
+                if(nrRetries != 1) {
+                    Thread.sleep(1000);
+                }
+                socket = new Socket("localhost", 9090);
+                log.info("Started client  socket at " + socket.getLocalSocketAddress());
+                break;
+            }catch(ConnectException e){
+                System.out.println("Trying to connect to localhost : "+nrRetries);
+                nrRetries++;
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
         // FIXME streams needs to be closed
         BufferedReader socketReader = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));

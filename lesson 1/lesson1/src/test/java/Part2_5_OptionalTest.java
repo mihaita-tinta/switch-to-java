@@ -47,9 +47,9 @@ public class Part2_5_OptionalTest {
 
     class SmartCalculator {
 
-        public int add(Optional<Integer> a, Optional<Integer> b) {
+        public void add(Optional<Integer> a, Optional<Integer> b) {
             // FIXME make SmartCalculator great again
-            return 0;
+            System.out.print( Optional.of(null));
         }
     }
 }

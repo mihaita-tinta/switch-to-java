@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9578c237-dbb7-40cf-89cc-cfde9c62abec" name="Default Changelist" comment="" />
+    <list default="true" id="9578c237-dbb7-40cf-89cc-cfde9c62abec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/InvalidDirectoryException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Part2_5_OptionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Part2_5_OptionalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_0_ExceptionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_0_JavaTimeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_1_ConstructorTest$C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_1_ConstructorTest$D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_1_ConstructorTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_2_InterfaceTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_2_InterfaceTest$A.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_2_InterfaceTest$B.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_2_InterfaceTest$C.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_2_InterfaceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_3_MethodsTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_3_MethodsTest$Entity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_3_MethodsTest$EntityOverloading.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_3_MethodsTest$LambdaEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_3_MethodsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest$AddCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest$Calculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest$NotReallyACalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest$StaticCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_4_LambdaTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_5_OptionalTest$SmartCalculator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_5_OptionalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_6_CollectionsTest$ObjectWithEquals.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_6_CollectionsTest$ObjectWithEqualsAndHashCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_6_CollectionsTest$ObjectWithNoEqualsImplemented.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_6_CollectionsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_7_StreamTest$Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Part2_7_StreamTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part2/src/main/java/serialization/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part2/src/main/java/serialization/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part2/src/test/java/serialization/ConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part2/src/test/java/serialization/ConverterTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,9 +82,39 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
+    <session id="-624915437">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="40" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="40" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +127,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_ExceptionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state relative-caret-position="364">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Part2_5_OptionalTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -102,6 +179,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Part2_5_OptionalTest.java" />
       </list>
     </option>
   </component>
@@ -128,11 +206,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-13" />
     <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="width" value="1365" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -156,19 +234,6 @@
               <item name="lesson1" type="b2602c69:ProjectViewProjectNode" />
               <item name="lesson1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lesson1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lesson1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lesson1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lesson1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -182,14 +247,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538665674592" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539448771642" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../test/switch-to-java/lesson 1/jsonparser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -207,13 +272,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Part2_7_StreamTest.testReduce">
-    <configuration name="Part2_3_MethodsTest.testVarArgs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Part2_5_OptionalTest">
+    <configuration name="Part2_5_OptionalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lesson1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Part2_3_MethodsTest" />
-      <option name="METHOD_NAME" value="testVarArgs" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Part2_5_OptionalTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,19 +320,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Part2_3_MethodsTest.testVarArgs" />
       <item itemvalue="JUnit.Part2_7_StreamTest.testFlatMap" />
       <item itemvalue="JUnit.Part2_7_StreamTest" />
       <item itemvalue="JUnit.Part2_7_StreamTest.testParallelStream" />
       <item itemvalue="JUnit.Part2_7_StreamTest.testReduce" />
+      <item itemvalue="JUnit.Part2_5_OptionalTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Part2_5_OptionalTest" />
         <item itemvalue="JUnit.Part2_7_StreamTest.testReduce" />
         <item itemvalue="JUnit.Part2_7_StreamTest.testParallelStream" />
         <item itemvalue="JUnit.Part2_7_StreamTest" />
         <item itemvalue="JUnit.Part2_7_StreamTest.testFlatMap" />
-        <item itemvalue="JUnit.Part2_3_MethodsTest.testVarArgs" />
       </list>
     </recent_temporary>
   </component>
@@ -319,9 +382,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22392638" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1624161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -338,7 +402,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32768363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -417,52 +481,15 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="143" column="42" selection-start-line="143" selection-start-column="42" selection-end-line="143" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4048">
-          <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="142" column="23" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="23" />
-          <folding>
-            <element signature="e#5027#5028#0" expanded="true" />
-            <element signature="e#5098#5099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="74" column="27" lean-forward="true" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/Collection.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/Arrays.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/List.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Object.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -487,13 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Part2_7_StreamTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
@@ -504,10 +524,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_3_MethodsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Part2_0_ExceptionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="364">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Part2_5_OptionalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="33" />
         </state>
       </provider>
     </entry>

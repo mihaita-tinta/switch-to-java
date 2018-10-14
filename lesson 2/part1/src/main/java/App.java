@@ -5,11 +5,14 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.stream.Collectors;
+import java.util.concurrent.TimeUnit;
 
 public class App {
 
-    public static void main(String... args) {
+    public static void main(String... args)  {
         if (args.length != 2) {
             System.out.println("--------------------------------------------------------------\n" +
                     "--------------------------------------------------------------\n" +
@@ -29,43 +32,37 @@ public class App {
         File inputFile = new File(input);
         File outputFile = new File(output);
 
-        if(!inputFile.isDirectory() | !outputFile.isDirectory()){
-            System.out.println("Fisierele nu sunt directoare");
+        try{
+            verifyDirectories(inputFile,outputFile);
+        }catch (InvalidDirectoryException e){
+            e.printStackTrace();
+            return;
         }
 
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        Runnable task = () -> {List<File> lista = createList(inputFile);
+                               lista.stream()
+                                    .forEach(e -> creeazaSiModifica(e,inputFile,outputFile));
+
+            };
+        executor.scheduleAtFixedRate(task, 0, 3, TimeUnit.SECONDS);
+
+    }
+
+    public static List<File> createList(File inputFile){
         File[] files = inputFile.listFiles();
-
-        if(files.length <= 0){
-            System.out.println("Nu avem fisiere in directorul input");
-        }
-
-        System.out.println("Creez o lista de fisiere - scot directoarele din lista initiala");
         List<File> lista = new ArrayList<File>(Arrays.asList(files)).stream()
                 .filter(i -> !i.isDirectory())
                 .collect(Collectors.toList());
 
-        System.out.println("### AICI INCEP");
-        long in = System.currentTimeMillis();
-        lista.parallelStream()
-                .forEach(e -> creeazaSiModifica(e,inputFile,outputFile));
-        long out = System.currentTimeMillis();
-        System.out.println(out-in);
-
-
-
-
-
-
-//        System.out.println("### Cazul for");
-//        long in = System.currentTimeMillis();
-//        for(File e:lista){
-//            creeazaSiModifica(e,inputFile,outputFile);
-//        }
-//        long out = System.currentTimeMillis();
-//        System.out.println(out-in);
+        if(lista.size()== 0){
+            System.out.println("Nu sunt fisiere in directorul sursa");
+        }
+        return lista;
     }
 
     public static void creeazaSiModifica(File file, File inDirectory, File outDirectory){
+        PrintWriter out = null;
         try {
             String text  = Files.lines(file.toPath())
                     .map(e ->e.toUpperCase())
@@ -73,9 +70,8 @@ public class App {
 
             String newName = file.getName().replaceFirst("\\..+","")+".transformed";
             File fileTransformed = new File(inDirectory+ "\\"+newName);
-            PrintWriter out = new PrintWriter(fileTransformed);
+            out = new PrintWriter(fileTransformed);
             out.print(text);
-            out.close();
 
             if(file.renameTo(new File(outDirectory+"\\"+file.getName()))){
                 System.out.println("File "+file.getName() +" was moved succesfully");
@@ -90,9 +86,16 @@ public class App {
             else{
                 System.out.println("File "+fileTransformed.getName() + " : Problem!!" );
             }
-
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            out.close();
+        }
+    }
+
+    public static void verifyDirectories(File inputFile, File outputFile) throws InvalidDirectoryException {
+        if(!inputFile.isDirectory() | !outputFile.isDirectory()){
+            throw new InvalidDirectoryException();
         }
     }
 }

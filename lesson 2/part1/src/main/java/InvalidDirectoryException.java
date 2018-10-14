@@ -1,4 +1,6 @@
-package http;
+public class InvalidDirectoryException extends Exception{
 
-public class InvalidDirectoryException {
+    public InvalidDirectoryException(){
+        super("Path name is not a valid directory");
+    }
 }
