@@ -1,10 +1,12 @@
+import java.io.File;
+
 public class App {
 
     /**
      * This application
      * @param args
      */
-    public static void main(String... args) {
+    public static void main(String... args) throws Exception {
         if (args.length != 2) {
             System.out.println("--------------------------------------------------------------\n" +
                     "--------------------------------------------------------------\n" +
@@ -17,9 +19,17 @@ public class App {
                     "--------------------------------------------------------------\n");
         }
 
-        String input = "";//TODO 0  first argument is input directory
-        String output = "";// TODO 0 second argument is the output directory
+        String input = "C:\\Users\\Thinkpad\\Desktop\\Java Test";
+        String output = "C:\\Users\\Thinkpad\\Desktop\\Java Test Output";
+        /*FileDetection fileDetection = new FileDetection();
+        fileDetection.DetectCurrentFiles(input);
 
-        //test dupa ce am ramas doar cu clasele generate :)
+        FileContentConversion fileConverter = new FileContentConversion(fileDetection.GetFiles());
+        fileConverter.ConvertFiles();
+        FileSaver fileSaver = new FileSaver(fileConverter.GetConvertedDataMap());
+        fileSaver.Save(output);*/
+
+        FileProcessing fileProcessing = new FileProcessing(input,output);
+        fileProcessing.StartFileProcessing();
     }
 }
