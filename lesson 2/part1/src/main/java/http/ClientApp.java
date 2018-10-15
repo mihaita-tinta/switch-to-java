@@ -24,44 +24,83 @@ public class ClientApp {
                     Thread.sleep(1000);
                 }
                 socket = new Socket("localhost", 9090);
+                nrRetries=4;
                 log.info("Started client  socket at " + socket.getLocalSocketAddress());
-                break;
+                System.out.println("Am deschis socket");
+
+                BufferedReader socketReader = new BufferedReader(new InputStreamReader(
+                        socket.getInputStream()));
+                BufferedWriter socketWriter = new BufferedWriter(new OutputStreamWriter(
+                        socket.getOutputStream()));
+                BufferedReader consoleReader = new BufferedReader(
+                        new InputStreamReader(System.in));
+
+                String outMsg = null;
+
+                log.info("Please enter a  message  (Bye  to quit):");
+                while ((outMsg = consoleReader.readLine()) != null) {
+                    if (outMsg.equalsIgnoreCase("bye")) {
+                        System.out.println("Am intrat pe iful de break");
+                        break;
+                    }
+                    // Add a new line to the message to the http,
+                    // because the http reads one line at a time.
+                    socketWriter.write(outMsg);
+                    socketWriter.write("\n");
+                    socketWriter.flush();
+
+                    // Read and display the message from the http
+                    String inMsg = socketReader.readLine();
+                    log.info("Server: " + inMsg);
+                    log.info(""); // Print a blank line
+                    log.info("Please enter a  message  (Bye  to quit):");
+
+                    // FIXME after implementing the message commands on server, try validating the messages here before sending
+                }
+                System.out.println("Am iesit din while");
+
             }catch(ConnectException e){
                 System.out.println("Trying to connect to localhost : "+nrRetries);
                 nrRetries++;
             }catch (IOException e){
                 e.printStackTrace();
+            }finally {
+                try {
+                    socket.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
         // FIXME streams needs to be closed
-        BufferedReader socketReader = new BufferedReader(new InputStreamReader(
-                socket.getInputStream()));
-        BufferedWriter socketWriter = new BufferedWriter(new OutputStreamWriter(
-                socket.getOutputStream()));
-        BufferedReader consoleReader = new BufferedReader(
-                new InputStreamReader(System.in));
-
-        String outMsg = null;
-
-        log.info("Please enter a  message  (Bye  to quit):");
-        while ((outMsg = consoleReader.readLine()) != null) {
-            if (outMsg.equalsIgnoreCase("bye")) {
-                break;
-            }
-            // Add a new line to the message to the http,
-            // because the http reads one line at a time.
-            socketWriter.write(outMsg);
-            socketWriter.write("\n");
-            socketWriter.flush();
-
-            // Read and display the message from the http
-            String inMsg = socketReader.readLine();
-            log.info("Server: " + inMsg);
-            log.info(""); // Print a blank line
-            log.info("Please enter a  message  (Bye  to quit):");
-
-            // FIXME after implementing the message commands on server, try validating the messages here before sending
-        }
-        socket.close(); // FIXME is this ok here?
+//        BufferedReader socketReader = new BufferedReader(new InputStreamReader(
+//                socket.getInputStream()));
+//        BufferedWriter socketWriter = new BufferedWriter(new OutputStreamWriter(
+//                socket.getOutputStream()));
+//        BufferedReader consoleReader = new BufferedReader(
+//                new InputStreamReader(System.in));
+//
+//        String outMsg = null;
+//
+//        log.info("Please enter a  message  (Bye  to quit):");
+//        while ((outMsg = consoleReader.readLine()) != null) {
+//            if (outMsg.equalsIgnoreCase("bye")) {
+//                break;
+//            }
+//            // Add a new line to the message to the http,
+//            // because the http reads one line at a time.
+//            socketWriter.write(outMsg);
+//            socketWriter.write("\n");
+//            socketWriter.flush();
+//
+//            // Read and display the message from the http
+//            String inMsg = socketReader.readLine();
+//            log.info("Server: " + inMsg);
+//            log.info(""); // Print a blank line
+//            log.info("Please enter a  message  (Bye  to quit):");
+//
+//            // FIXME after implementing the message commands on server, try validating the messages here before sending
+//        }
+//        socket.close(); // FIXME is this ok here?
     }
 }

@@ -56,7 +56,12 @@ public class ServerApp {
                 //                              see ZoneId.getAvailableZoneIds()
                 // if the message has the format: "path:<absolute_path>" list all filenames, otherwise print content of the file
                 //                              Can you reuse some classes you created in your homework?
-                String outMsg = inMsg;
+                Message message = MessageFactory.getMessage(inMsg);
+                System.out.println("mesaj primit "+inMsg);
+                System.out.println(message);
+//                String outMsg = inMsg;
+                String outMsg = message.convertMessage();
+                System.out.println("mesaj translatat "+outMsg);
                 socketWriter.write(outMsg);
                 socketWriter.write("\n");
                 socketWriter.flush();
