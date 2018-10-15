@@ -64,6 +64,6 @@ public class ConverterTest {
     public void when_convertLocalDateTime_expect_returnLocalDateTime() {
         Converter converter = new Converter();
         assertEquals(LocalDateTime.of(2018, 10, 11, 13, 15,0, 0),
-                    converter.convert("2018-10-11T13:15:0.0", LocalDate.class));
+                    converter.convert(LocalDateTime.of(2018, 10, 11, 13, 15,0, 0).toString(), LocalDateTime.class));
     }
 }

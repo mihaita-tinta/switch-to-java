@@ -27,7 +27,14 @@ public class Converter {
                 genericConverter = new BooleanConverter();
                 return genericConverter.GetConvertedValue(from);
             }
-
+            case "LocalDate": {
+                genericConverter = new LocalDateConverter();
+                return genericConverter.GetConvertedValue(from);
+            }
+            case "LocalDateTime":{
+                genericConverter = new LocalDateTimeConverter();
+                return genericConverter.GetConvertedValue(from);
+            }
             default:
                 return null;
         }
