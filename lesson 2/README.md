@@ -273,5 +273,3 @@ public class MathApplicationTester {
 Besides mocking behavior, Mockito can also check any interactions with mocks using the [verify functionality](https://static.javadoc.io/org.mockito/mockito-core/2.15.0/org/mockito/Mockito.html#verification).
 
 You can find more extensive docs here: [Mockito](https://static.javadoc.io/org.mockito/mockito-core/2.15.0/org/mockito/Mockito.html)
-
-## Excercise
