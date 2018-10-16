@@ -60,8 +60,7 @@ public class Part2_7_StreamTest {
 
     @Test
     public void testReduce() {
-        int sum = 0;// FIXME compute the sum of first 100 integers [0, 100) DONE
-        sum = IntStream.range(1, 100).sum();
+        int sum = 0;// FIXME compute the sum of first 100 integers [0, 100)
 
         assertEquals(4950, sum);
 
