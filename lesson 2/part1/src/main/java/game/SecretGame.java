@@ -21,7 +21,9 @@ public class SecretGame extends JComponent {
         container.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent ev){
                 System.out.println("mouseClicked - " + ev);
-                // TODO 1 create a new ball everytime the user clicks something
+                Ball ball = Ball.random(ev.getX(), ev.getY());
+                world.add(ball);
+                repaint();
             }
         });
     }
@@ -36,7 +38,13 @@ public class SecretGame extends JComponent {
 
         // TODO 2 render all objects from the world
 
-        // TODO 2 draw the ground. Hint: upper right corner is has the 2D coordinates: (x,y) ->(0,0)
+        g.setColor(Color.magenta);
+        world.getObjects()
+                    .forEach(ball -> {
+                        g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+                    });
+        g.setColor(Color.BLACK);
+        g.fillRect(0,  getHeight() - 10, getWidth(), 200);
 
     }
 
@@ -51,12 +59,27 @@ public class SecretGame extends JComponent {
     }
 
 
-    public static void main(String args[]) {
+    public static void main(String... args) {
         JFrame mainFrame = new JFrame("Graphics demo");
         mainFrame.getContentPane().add(new SecretGame(mainFrame));
         mainFrame.pack();
         mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // FIXME after working on the App class can you change this implementation so that
+        // every ball instance is actually created only when a file is processed successfully?
+        // can you write the filepath in the center of the ball?
+//        TODO does any of the principles below help you?
+//        Single responsibility principle[6]
+//        a class should have only a single responsibility (i.e. changes to only one part of the software's specification should be able to affect the specification of the class).
+//        Open/closed principle[7]
+//        "software entities … should be open for extension, but closed for modification."
+//        Liskov substitution principle[8]
+//        "objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program." See also design by contract.
+//                Interface segregation principle[9]
+//        "many client-specific interfaces are better than one general-purpose interface."[4]
+//        Dependency inversion principle[10]
+//        one should "depend upon abstractions, [not] concretions."[4]
     }
 }
            
