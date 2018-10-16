@@ -11,9 +11,8 @@ public class DriverDeserializerTest {
     @Test
     public void when_jsonProvided_expect_carWithAllFieldsIsCreated() throws DeserializationException {
 
+        Driver driver = deserializer.deserialize(""); // FIXME provide valid JSON
 
-        Driver driver = deserializer.deserialize("{\"firstname\":\"Alex\",\"lastname\":\"Hagiu\", \"firstname\":\"Alex\"");
-
-
+        //TODO 6 assert the instance properties
     }
 }
