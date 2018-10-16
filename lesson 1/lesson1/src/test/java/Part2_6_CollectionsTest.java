@@ -32,8 +32,8 @@ public class Part2_6_CollectionsTest {
         ObjectWithEquals second = new ObjectWithEquals(2);
         list.add(second);
 
-        list.remove(new ObjectWithNoEqualsImplemented(2));
-        assertEquals(1, list.size()); // TODO size should be 1 after removing the second element
+        list.remove(new ObjectWithEquals(2));
+        assertEquals(1, list.size()); // TODO size should be 1 after removing the second element DONE
 
     }
 
@@ -44,14 +44,14 @@ public class Part2_6_CollectionsTest {
 
         map.put(first, 1);
         assertEquals(1, map.get(first).intValue());
-        assertEquals(1, map.get(new ObjectWithEqualsAndHashCode(1)).intValue()); // FIXME implement equals and hashcode to make this pass
+        assertEquals(1, map.get(new ObjectWithEqualsAndHashCode(1)).intValue()); // FIXME implement equals and hashcode to make this pass DONE
 
     }
 
     @Test
     public void testReadAboutCollections() {
-        boolean iJustReadEverything = false;
-        // FIXME you need to read more about collections https://www.tutorialspoint.com/java/java_collections.htm
+        boolean iJustReadEverything = true;
+        // FIXME you need to read more about collections https://www.tutorialspoint.com/java/java_collections.htm DONE
         // you should change this to true after you get more insights about what other collections are there :P
         assertTrue(iJustReadEverything);
     }
@@ -62,14 +62,20 @@ public class Part2_6_CollectionsTest {
         public ObjectWithNoEqualsImplemented(int a) {
             this.a = a;
         }
+
     }
     class ObjectWithEquals {
         private int a;
         public ObjectWithEquals(int a) {
             this.a = a;
         }
-        // FIXME you need to implement equals
+        // FIXME you need to implement equals DONE
 
+        @Override
+        public boolean equals(Object obj) {
+            if(obj == null) return false;
+            return a == ((ObjectWithEquals) obj).a;
+        }
     }
 
     class ObjectWithEqualsAndHashCode {
@@ -77,7 +83,19 @@ public class Part2_6_CollectionsTest {
         public ObjectWithEqualsAndHashCode(int a) {
             this.a = a;
         }
-        // FIXME you need to implement equals and hashcode
+        // FIXME you need to implement equals and hashcode DONE
 
+        @Override
+        public boolean equals(Object obj) {
+
+            if(obj == null) return false;
+
+            return a == ((ObjectWithEqualsAndHashCode) obj).a;
+        }
+
+        @Override
+        public int hashCode() {
+            return a%100;
+        }
     }
 }
