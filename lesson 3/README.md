@@ -25,18 +25,13 @@ You can find more information about DataSources here: https://docs.oracle.com/ja
 
 Tasks:
 * Create a new project for this lesson with dependencies for junit, h2 and logger.
-
- <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.197</version>
-        </dependency>
         
 * Set up H2 database :
 
  Download last stable Platform-Independent Zip from here: http://www.h2database.com/html/download.html
  
- Unzip and copy h2-1.4.196.jar to /libs folder in the lesson's project
+ Unzip and copy h2-1.4.196.jar to /libs folder in the lesson's project. Start h2:
+ java -jar libs/h2-1.4.196.jar -baseDir ~/tmp/h2dbs
  
 * Check H2 console at url: http://localhost:8082, using jdbc connection url: jdbc:h2:tcp://localhost:9092/testdb
 
