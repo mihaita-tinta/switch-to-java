@@ -1,7 +1,28 @@
 # Switch to Java
 ## Part 1 - JDBC API
 
-JDBC
+JDBC (Java Database Connectivity)
+
+The ODBC implementation in Java is called JDBC. It is the lowest level on which we can interact with a database.
+
+![spring_container](https://camo.githubusercontent.com/5274e7e9a0309a7288660d472f822ede1127c7f3/68747470733a2f2f7777772e7475746f7269616c73706f696e742e636f6d2f6a6462632f696d616765732f6a6462632d6172636869746563747572652e6a7067)
+
+JDBC components:
+* DriverManager: This class manages a list of database drivers. Matches connection requests from the java application with the proper database driver using communication sub protocol. The first driver that recognizes a certain subprotocol under JDBC will be used to establish a database Connection.
+* Driver: This interface handles the communications with the database server. You will interact directly with Driver objects very rarely. Instead, you use DriverManager objects, which manages objects of this type. It also abstracts the details associated with working with Driver objects.
+* Connection: This interface with all methods for contacting a database. The connection object represents communication context, i.e., all communication with database is through connection object only.
+* Statement: You use objects created from this interface to submit the SQL statements to the database. Some derived interfaces accept parameters in addition to executing stored procedures.
+* ResultSet: These objects hold data retrieved from a database after you execute an SQL query using Statement objects. It acts as an iterator to allow you to move through its data.
+* SQLException: This class handles any errors that occur in a database application.
+
+DataSource
+
+The DataSource object is the standard method of connecting to a db (instead of using the DriverManager): https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html
+
+Objects instantiated by classes that implement the DataSource represent a particular DBMS or some other data source, such as a file. A DataSource object represents a particular DBMS or some other data source, such as a file. If a company uses more than one data source, it will deploy a separate DataSource object for each of them. The DataSource interface is implemented by a driver vendor.
+
+You can find more information about DataSources here: https://docs.oracle.com/javase/tutorial/jdbc/basics/sqldatasources.html
+
 
 ## Part 2 - Spring framework
 ### Spring container
