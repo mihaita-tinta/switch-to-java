@@ -25,6 +25,13 @@ You can find more information about DataSources here: https://docs.oracle.com/ja
 
 Tasks:
 * Create a new project for this lesson with dependencies for junit, h2 and logger.
+
+ <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+        </dependency>
+        
 * Set up H2 database :
 
  Download last stable Platform-Independent Zip from here: http://www.h2database.com/html/download.html
