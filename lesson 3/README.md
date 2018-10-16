@@ -23,6 +23,12 @@ Objects instantiated by classes that implement the DataSource represent a partic
 
 You can find more information about DataSources here: https://docs.oracle.com/javase/tutorial/jdbc/basics/sqldatasources.html
 
+Tasks:
+* Create a new project for this lesson.
+* Set up H2 database : 
+- Download last stable Platform-Independent Zip from here: http://www.h2database.com/html/download.html
+- Unzip and copy h2-1.4.196.jar to /libs folder in the lesson's project
+* Check H2 console at url: http://localhost:8082, using jdbc connection url: jdbc:h2:tcp://localhost:9092/testdb
 
 ## Part 2 - Spring framework
 ### Spring container
