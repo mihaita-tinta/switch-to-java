@@ -29,8 +29,8 @@ public class HomeworkService {
         log.info("postConstruct - you need to add: \n" +
                 "     - a driver with one car\n" +
                 "     - a ride from a to b\n" +
-                "     - 2 passengers, 2 of them have the RideRequest accepted and one pending and one rejected\n" +
-                "     - list all the rides from today");
+                "     - 2 passengers, 1 of them have the RideRequest accepted and one rejected\n" +
+                "     - the ride is started and then finished");
         Location from = createFrom();
         Location to = createTo();
 
