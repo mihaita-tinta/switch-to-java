@@ -111,8 +111,13 @@ In the **lesson 3/part2/springannotations** path you can find the skeleton for t
 
 ![main_log](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/main.PNG)
 
+* Before starting the application you need to start the H2 instance: java -jar h2-1.4.196.jar -baseDir ~/tmp/h2dbs.
+	The application connects to **jdbc:h2:~/tmp/h2dbs/carpooling**
 * The **com.ing.carpooling.Application** can be used to start the application
 * **DatabaseConfig** contains the beans used to access the database. We will not use JDBC API directly.
 	It's time for now to use Spring's abstraction done with JdbcTemplate 
 * An example on how to do it can be found in LocationRepository
-* 
+* You need to implement CRUD operations for the other entities. This will help you with the next tasks.
+	You can find the TODOs in the panel below:
+![create_tables](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/create_tables.PNG)
+
