@@ -47,32 +47,33 @@ public class HomeworkService {
         rideService.approve(requestForAlexa);
         rideService.reject(requestForJohn);
 
-        rideService.start(caesar, ride);
+        rideService.start(ride);
 
-        rideService.finish(caesar, ride);
+        rideService.finish(ride);
 
 
     }
 
     private Passenger getPassengerJohn() {
-        // return first passenger
+        // TODO 1 create first passenger
         return null;
     }
 
     private Passenger getPassengerAlexa() {
-        // return first passenger
+        // TODO 1 create second passenger
         return null;
     }
 
 
     private Driver getDriverWithCar() {
+        // TODO 1 create car and driver
         Car car = new Car();
         car.setNumber("IL11OIS");
         Driver driver = new Driver();
         driver.setCars(Arrays.asList(car));
 
         if (driver.getId() == null || car.getId() == null) {
-            // TODO use the repositories to save the 2 instances
+            // TODO 1 use the repositories to save the 2 instances
             log.info("getDriverWithCar - you need to create a car and a driver. You also need to build the relation between the 2 tables");
         }
         return driver;

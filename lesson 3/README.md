@@ -123,3 +123,4 @@ In the **lesson 3/part2/springannotations** path you can find the skeleton for t
 
 * **LocationRepositoryTest** is used to test the functionality of the LocationRepository. You need to test your code in the same way.
 	Don't forget **to extend RepositoryIntegrationTest** when you do it.
+* The next step is to go into the **HomeworkService** class and fix the TODOs

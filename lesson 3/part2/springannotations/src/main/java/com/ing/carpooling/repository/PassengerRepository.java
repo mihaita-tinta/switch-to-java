@@ -10,24 +10,24 @@ public class PassengerRepository implements CrudRepository<Passenger, Long> {
 
     @Override
     public Passenger save(Passenger instance) {
-        // TODO implement Passenger crud
+        // TODO 0 implement Passenger crud
         return null;
     }
 
     @Override
     public List<Passenger> findAll() {
-        // TODO implement Passenger crud
+        // TODO 0 implement Passenger crud
         return null;
     }
 
     @Override
     public Optional<Passenger> findOne(Long id){
-        // TODO implement Passenger crud
+        // TODO 0 implement Passenger crud
         return Optional.empty();
     }
 
     @Override
     public void delete(Long id) {
-        // TODO implement Passenger crud
+        // TODO 0 implement Passenger crud
     }
 }

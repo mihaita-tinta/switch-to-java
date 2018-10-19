@@ -8,25 +8,25 @@ public class RideRepository implements CrudRepository<Ride, Long> {
 
     @Override
     public Ride save(Ride instance) {
-        // TODO implement Ride crud
+        // TODO 0 implement Ride crud
         return null;
     }
 
     @Override
     public List<Ride> findAll() {
-        // TODO implement Ride crud
+        // TODO 0 implement Ride crud
         return null;
     }
 
     @Override
     public Optional<Ride> findOne(Long id) {
-        // TODO implement Ride crud
+        // TODO 0 implement Ride crud
         return Optional.empty();
     }
 
     @Override
     public void delete(Long id) {
-        // TODO implement Ride crud
+        // TODO 0 implement Ride crud
 
     }
 }

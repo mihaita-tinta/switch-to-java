@@ -26,34 +26,35 @@ public class RideService {
     }
 
     public Ride save(Driver driver, Car car, Location from, Location to, ZonedDateTime when) {
+        // TODO 2 create a ride based on what was received and save it into the database
 
         return null;
     }
 
     public RideRequest join(Passenger passenger, Ride ride) {
-
+        // TODO 3 add a RideRequst for the ride and that passenger
         return null;
     }
 
     public RideRequest approve(RideRequest rideRequest) {
-
+        // TODO 4 RideRequest status needs to be moved to ACCEPTED and the passenger added to the ride
         return rideRequest;
     }
 
 
     public RideRequest reject(RideRequest rideRequest) {
-
+        // TODO 5 RideRequest status needs to be moved to REJECTED
         return rideRequest;
     }
 
 
-    public Ride start(Driver driver, Ride ride) {
-
+    public Ride start(Ride ride) {
+        // TODO 6 Ride status needs to be moved to IN_PROGRESS
         return ride;
     }
 
-    public Ride finish(Driver driver, Ride ride) {
-
+    public Ride finish(Ride ride) {
+        // TODO 7 Ride status needs to be moved to COMPLETED
         return ride;
     }
 }
