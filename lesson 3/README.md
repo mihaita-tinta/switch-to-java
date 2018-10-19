@@ -102,6 +102,13 @@ Injection can happen:
 We need to create our first spring application.
 This represents a very simple carpooling application that alows us to do a couple of things:
 * Apply CRUD operations to serveral entities: Passenger, Car, Driver, Ride, RideRequest, Location
-* A driver can create a new Ride and approve or reject RideRequests received from other passengers.
+* A driver can create a new Ride, approve or reject RideRequests received from other passengers.
 * A passenger can add a RideRequest for a specific Ride.
 * A driver can start a ride and move it to status completed.
+
+In the **lesson 3/part2/springannotations** path you can find the skeleton for this project.
+
+
+![main_log](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/main.PNG)
+
+* The **com.ing.carpooling.Application** is the starting point
