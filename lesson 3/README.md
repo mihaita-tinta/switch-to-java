@@ -108,7 +108,6 @@ This represents a very simple carpooling application that alows us to do a coupl
 
 In the **lesson 3/part2/springannotations** path you can find the skeleton for this project.
 
-
 ![main_log](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/main.PNG)
 
 * Before starting the application you need to start the H2 instance: **java -jar h2-1.4.196.jar -baseDir ~/tmp/h2dbs**
@@ -119,5 +118,8 @@ In the **lesson 3/part2/springannotations** path you can find the skeleton for t
 * An example on how to do it can be found in LocationRepository
 * You need to implement CRUD operations for the other entities. This will help you with the next tasks.
 	You can find the TODOs in the panel below:
+
 ![create_tables](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/create_tables.PNG)
 
+* **LocationRepositoryTest** is used to test the functionality of the LocationRepository. You need to test your code in the same way.
+	Don't forget **to extend RepositoryIntegrationTest** when you do it.
