@@ -26,34 +26,40 @@ public class RideService {
     }
 
     public Ride save(Driver driver, Car car, Location from, Location to, ZonedDateTime when) {
+        log.info("save - you need to implement this");
         // TODO 2 create a ride based on what was received and save it into the database
 
         return null;
     }
 
     public RideRequest join(Passenger passenger, Ride ride) {
+        log.info("join - you need to implement this");
         // TODO 3 add a RideRequst for the ride and that passenger
         return null;
     }
 
     public RideRequest approve(RideRequest rideRequest) {
+        log.info("approve - you need to implement this");
         // TODO 4 RideRequest status needs to be moved to ACCEPTED and the passenger added to the ride
         return rideRequest;
     }
 
 
     public RideRequest reject(RideRequest rideRequest) {
+        log.info("reject - you need to implement this");
         // TODO 5 RideRequest status needs to be moved to REJECTED
         return rideRequest;
     }
 
 
     public Ride start(Ride ride) {
+        log.info("start - you need to implement this");
         // TODO 6 Ride status needs to be moved to IN_PROGRESS
         return ride;
     }
 
     public Ride finish(Ride ride) {
+        log.info("finish - you need to implement this");
         // TODO 7 Ride status needs to be moved to COMPLETED
         return ride;
     }
