@@ -111,4 +111,8 @@ In the **lesson 3/part2/springannotations** path you can find the skeleton for t
 
 ![main_log](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/main.PNG)
 
-* The **com.ing.carpooling.Application** is the starting point
+* The **com.ing.carpooling.Application** can be used to start the application
+* **DatabaseConfig** contains the beans used to access the database. We will not use JDBC API directly.
+	It's time for now to use Spring's abstraction done with JdbcTemplate 
+* An example on how to do it can be found in LocationRepository
+* 
