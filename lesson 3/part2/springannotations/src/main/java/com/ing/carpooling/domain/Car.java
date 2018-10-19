@@ -1,4 +1,4 @@
-package com.ing.ayo.domain;
+package com.ing.carpooling.domain;
 
 public class Car {
 

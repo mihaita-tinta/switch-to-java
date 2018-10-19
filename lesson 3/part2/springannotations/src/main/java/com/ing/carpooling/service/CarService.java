@@ -1,14 +1,14 @@
-package com.ing.ayo.service;
+package com.ing.carpooling.service;
 
-import com.ing.ayo.domain.Car;
-import com.ing.ayo.repository.CarRepository;
+import com.ing.carpooling.domain.Car;
+import com.ing.carpooling.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CarService {
 
-    @Value("${ayo.car.default-seats}")
+    @Value("${application.car.default-seats}")
     int defaultSeats;
 
     private final CarRepository carRepository;
@@ -24,4 +24,5 @@ public class CarService {
 
         return carRepository.save(car);
     }
+
 }
