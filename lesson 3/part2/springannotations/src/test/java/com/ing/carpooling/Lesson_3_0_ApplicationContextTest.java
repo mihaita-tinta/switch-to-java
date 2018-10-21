@@ -41,7 +41,7 @@ public class Lesson_3_0_ApplicationContextTest {
         String applicationName = context.getBean("applicationName", String.class);
 
         // TODO 0 what is the correct value?
-        assertEquals("", applicationName);
+        assertEquals("springApplication", applicationName);
 
     }
 

@@ -55,13 +55,17 @@ public class HomeworkService {
     }
 
     private Passenger getPassengerJohn() {
-        // TODO 1 create first passenger
-        return null;
+        Passenger passenger = new Passenger();
+        passenger.setFirstName("John");
+        passenger.setLastName("JohnJ");
+        return passenger;
     }
 
     private Passenger getPassengerAlexa() {
-        // TODO 1 create second passenger
-        return null;
+        Passenger passenger = new Passenger();
+        passenger.setFirstName("Alexa");
+        passenger.setLastName("AlexaJ");
+        return passenger;
     }
 
 
