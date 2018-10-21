@@ -19,14 +19,14 @@ public class App {
                     "This program can be configured to lookup for any new files in the input folder.\n" +
                     "Once a file is detected, the program reads the content and converts it to uppercase.\n" +
                     "The result is saved into a new file with the extension .transformed.\n" +
-                    "Both files are moved to the output directory\n\n" +
-                            "java -cp lesson2-1.0-SNAPSHOT.jar App input/ output/ \n\n" +
+                    "Both files are moved to the getText directory\n\n" +
+                            "java -cp lesson2-1.0-SNAPSHOT.jar App input/ getText/ \n\n" +
                     "--------------------------------------------------------------\n" +
                     "--------------------------------------------------------------\n");
         }
 
         String input                = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_input";//TODO 0  first argument is input directory
-        String output               = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_output";// TODO 0 second argument is the output directory
+        String output               = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_output";// TODO 0 second argument is the getText directory
 
         DirectoryScanner scanner    = new DirectoryScanner(input);
         FileProcessor processor     = new FileProcessor(output);
