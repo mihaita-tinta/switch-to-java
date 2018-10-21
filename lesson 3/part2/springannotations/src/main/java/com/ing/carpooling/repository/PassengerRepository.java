@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class PassengerRepository implements CrudRepository<Passenger, Long> {
-
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS PASSENGER ( \n" +
+            "   id INT NOT NULL auto_increment, \n" +
+            "   firstname VARCHAR(50) NOT NULL, \n" +
+            "   lastname VARCHAR(50) NOT NULL, \n" +
+            ");";
 
     @Override
     public Passenger save(Passenger instance) {

@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class DriverRepository implements CrudRepository<Driver, Long> {
-
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS DRIVER ( \n" +
+            "   id INT NOT NULL auto_increment, \n" +
+            "   firstname VARCHAR(50) NOT NULL, \n" +
+            "   lastname VARCHAR(50) NOT NULL, \n" +
+            "   seats INT NOT NULL, \n" +
+            ");";
 
     @Override
     public Driver save(Driver instance) {

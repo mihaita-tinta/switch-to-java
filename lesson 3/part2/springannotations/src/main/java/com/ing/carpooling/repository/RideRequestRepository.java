@@ -8,6 +8,12 @@ import java.util.Optional;
 
 public class RideRequestRepository implements CrudRepository<RideRequest, Long> {
 
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS RIDE_REQUEST ( \n" +
+            "   id INT NOT NULL auto_increment, \n" +
+            "   passenger_id INT NOT NULL,\n" +
+            "   ride_id INT NOT NULL,\n" +
+            "   status ENUM('PENDING', 'ACCEPTED', 'REJECTED', 'CANCELED') NOT NULL, \n" +
+            ");";
 
     @Override
     public RideRequest save(RideRequest instance) {
