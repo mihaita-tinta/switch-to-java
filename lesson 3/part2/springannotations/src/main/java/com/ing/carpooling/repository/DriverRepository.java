@@ -3,8 +3,13 @@ package com.ing.carpooling.repository;
 import com.ing.carpooling.domain.Driver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
@@ -48,27 +53,46 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
 
     //region CRUD
     @Override
-    public Driver save(Driver instance) {
-        // TODO 0 implement Driver crud
-        return null;
+    public Driver save(Driver driver) {
+        log.info("DriverRepository -> save");
+        if(driver.getId() == null){
+            KeyHolder keyHolder = new GeneratedKeyHolder();
+            SqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("firstName", driver.getFirstName())
+                    .addValue("lastName", driver.getLastName());
+            namedParameterJdbcTemplate.update("insert into DRIVER (firstName, lastName)\n" +
+                    "values(firstName, lastName)", parameters, keyHolder);
+            driver.setId(keyHolder.getKey().longValue());
+        }
+        return driver;
     }
 
     @Override
     public List<Driver> findAll() {
-        // TODO 0 implement Driver crud
-        return null;
+        log.info("DriveRepository -> findAll");
+        return namedParameterJdbcTemplate.query("select * from CAR", mapper);
     }
 
     @Override
     public Optional<Driver> findOne(Long id) {
-        // TODO 0 implement Driver crud
+        log.info("DriverRepository -> findOne - id {}", id);
+        SqlParameterSource parameter = new MapSqlParameterSource()
+                .addValue("id",id);
+        try{
+            return Optional.of(
+                    namedParameterJdbcTemplate.queryForObject("select from DRIVER where id = :id", parameter, mapper));
+        }catch (EmptyResultDataAccessException e){
+            log.info("DriverRepository -> findOne - id {} no Drive found", id);
+        }
         return Optional.empty();
     }
 
     @Override
     public void delete(Long id) {
-        // TODO 0 implement Driver crud
-
+        log.info("DriverRepository -> delete - id {}", id);
+        SqlParameterSource paramater = new MapSqlParameterSource()
+                .addValue("id", id);
+        namedParameterJdbcTemplate.update("delete from DRIVER where id = :id", paramater);
     }
     //endregion
 }
