@@ -1,7 +1,10 @@
-import java.io.*;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import filex.DirectoryScanner;
+import filex.FileHandler;
+import filex.FileProcessor;
+
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class App {
 
@@ -22,47 +25,19 @@ public class App {
                     "--------------------------------------------------------------\n");
         }
 
-        String input = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_input";//TODO 0  first argument is input directory
-        String output = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_output";// TODO 0 second argument is the output directory
+        String input                = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_input";//TODO 0  first argument is input directory
+        String output               = "D:\\java\\projects\\switch-to-java\\switch-to-java\\_output";// TODO 0 second argument is the output directory
 
-        File fi = new File(input);
-        File fo = new File(output);
+        DirectoryScanner scanner    = new DirectoryScanner(input);
+        FileProcessor processor     = new FileProcessor(output);
 
-        FileOutputStream out = null;
+        FileHandler handler         = FileHandler.getInstance(scanner, processor);
 
-        if (fi.isDirectory() && fo.isDirectory()) {
-            List<File> fls = Arrays.asList(fi.listFiles());
-
-            Iterator<File> it = fls.iterator();
-            while (it.hasNext()) {
-                try {
-                    File in = it.next();
-                    FileInputStream in1 = new FileInputStream(in);
-                    out = new FileOutputStream(new File(output + "//" + in.getName()));
-
-                    int c;
-                    while ((c = in1.read()) != -1) {
-                        c=Character.toUpperCase(c);
-                        out.write(c);
-                    }
-                    out.close();
-                    in1.close();
-                    String newFileName = in.getName().substring(in.getName().lastIndexOf(".") + 1) + ".csv";
-                    System.out.println(newFileName);
-
-                    in.renameTo(new File(output + "//" + newFileName));
-
-                } catch (FileNotFoundException e) {
-                    System.out.println("File not found");
-                } catch (IOException e) {
-
-                } finally {
-
-                }
-
-            }
-
-        }
-
+        ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(2);
+        Runnable task = () -> {
+            System.out.println("Process Files - thread: " + Thread.currentThread().getName());
+            handler.scan().process();
+        };
+        executorService.scheduleAtFixedRate(task, 0, 10, TimeUnit.SECONDS);
     }
 }
