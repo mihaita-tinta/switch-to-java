@@ -61,7 +61,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
                     .addValue("firstName", driver.getFirstName())
                     .addValue("lastName", driver.getLastName());
             namedParameterJdbcTemplate.update("insert into DRIVER (firstName, lastName)\n" +
-                    "values(firstName, lastName)", parameters, keyHolder);
+                    "values(:firstName, :lastName)", parameters, keyHolder);
             driver.setId(keyHolder.getKey().longValue());
         }
         return driver;
@@ -70,14 +70,14 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
     @Override
     public List<Driver> findAll() {
         log.info("DriveRepository -> findAll");
-        return namedParameterJdbcTemplate.query("select * from CAR", mapper);
+        return namedParameterJdbcTemplate.query("select * from Driver", mapper);
     }
 
     @Override
     public Optional<Driver> findOne(Long id) {
         log.info("DriverRepository -> findOne - id {}", id);
         SqlParameterSource parameter = new MapSqlParameterSource()
-                .addValue("id",id);
+                .addValue("id", id);
         try{
             return Optional.of(
                     namedParameterJdbcTemplate.queryForObject("select from DRIVER where id = :id", parameter, mapper));
