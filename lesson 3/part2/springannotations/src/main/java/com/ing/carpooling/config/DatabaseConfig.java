@@ -46,7 +46,7 @@ public class DatabaseConfig {
 
         // TODO 0 here you need to add your create table statements
         jdbcTemplate.update(CarRepository.CREATE_TABLE);
-        jdbcTemplate.update(DriverRepository.CREATE_TABLE);
+        jdbcTemplate.update(DriverRepository.CREATE_TABLES);
         jdbcTemplate.update(PassengerRepository.CREATE_TABLE);
         jdbcTemplate.update(RideRepository.CREATE_TABLE);
         jdbcTemplate.update(RideRequestRepository.CREATE_TABLE);
