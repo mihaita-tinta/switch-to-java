@@ -17,7 +17,7 @@ public class App {
                     "--------------------------------------------------------------\n");
         }
 
-        String input = "";//TODO 0  first argument is input directory
-        String output = "";// TODO 0 second argument is the output directory
+        String input = args[0];//TODO 0  first argument is input directory
+        String output = args[1];// TODO 0 second argument is the output directory
     }
 }

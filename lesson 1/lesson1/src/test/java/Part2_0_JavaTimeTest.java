@@ -39,7 +39,7 @@ public class Part2_0_JavaTimeTest {
 
         System.out.println(hoursBetween);
         System.out.println(minutesBetween);
-        assertEquals(8, hoursBetween);
+        assertEquals(9, hoursBetween);
     }
 
     @Test

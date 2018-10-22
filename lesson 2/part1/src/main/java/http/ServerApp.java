@@ -13,11 +13,17 @@ import java.net.Socket;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class ServerApp {
+
     private static final Logger log = LoggerFactory.getLogger(ClientApp.class);
 
     public static void main(String[] args) throws Exception {
+
+        List<Socket> clients = new ArrayList<Socket>();
 
         ServerSocket serverSocket = new ServerSocket(9090, 100, InetAddress.getByName("localhost"));
         log.info("Server started  at:  " + serverSocket);
@@ -25,6 +31,7 @@ public class ServerApp {
             log.info("Waiting for a  connection...");
 
             final Socket activeSocket = serverSocket.accept();
+            clients.add(activeSocket);
 
             log.info("Received a  connection from  " + activeSocket);
             Runnable runnable = () -> handleClientRequest(activeSocket);
@@ -56,16 +63,41 @@ public class ServerApp {
                 //                              see ZoneId.getAvailableZoneIds()
                 // if the message has the format: "path:<absolute_path>" list all filenames, otherwise print content of the file
                 //                              Can you reuse some classes you created in your homework?
-                String outMsg = inMsg;
+
+
+
+                String outMsg = interpret(inMsg);
                 socketWriter.write(outMsg);
                 socketWriter.write("\n");
                 socketWriter.flush();
+                log.info("A scris la output " + inMsg);
             }
+            socket.getInputStream().close();
+            socket.getOutputStream().close();
+            socketReader.close();
+            socketWriter.close();
             socket.close();
         } catch(Exception e){
             // FIXME what happens if we just print the error?
             e.printStackTrace();
         }
 
+    }
+
+    private static String interpret (String msg) {
+        String[] value = msg.split(":");
+        String content =  String.join(":", IntStream.range(1, value.length).mapToObj(i -> (String) value[i]).toArray(String[]::new));
+        Interpreter interpreter = null;
+        switch (value[0]) {
+            case("lowercase"): {
+                interpreter = new Lowercase(content);
+                break;
+            }
+            case("uppercase"): {
+                interpreter = new Uppercase(content);
+            }
+        }
+
+        return interpreter.interpret(new Context());
     }
 }

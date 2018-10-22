@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a93a8b6-53d0-485e-847c-d69ba149aaeb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/lesson1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_5_OptionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_5_OptionalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_6_CollectionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/src/test/java/Part2_6_CollectionsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest$SmartCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest$SmartCalculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_5_OptionalTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest$ObjectWithEqualsAndHashCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest$ObjectWithEqualsAndHashCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_6_CollectionsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest$Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest$Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 1/lesson1/target/test-classes/Part2_7_StreamTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/game/SecretGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/game/SecretGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/game/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../lesson 2/part1/src/main/java/game/World.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="78939092">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+          <entry key="java" value="1" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
+          <entry key="JAVA" value="1" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="3540" />
+          <entry key="properties" value="16" />
+          <entry key="xml" value="104" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="3540" />
+          <entry key="Properties" value="16" />
+          <entry key="XML" value="104" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ApplicationContextTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="200" column="81" lean-forward="true" selection-start-line="200" selection-start-column="81" selection-end-line="200" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
+                <element signature="e#1436#1437#0" expanded="true" />
+                <element signature="e#1487#1488#0" expanded="true" />
+                <element signature="e#1539#1540#0" expanded="true" />
+                <element signature="e#1590#1591#0" expanded="true" />
+                <element signature="e#2280#2281#0" expanded="true" />
+                <element signature="e#2312#2313#0" expanded="true" />
+                <element signature="e#4191#4192#0" expanded="true" />
+                <element signature="e#4242#4243#0" expanded="true" />
+                <element signature="e#4863#4864#0" expanded="true" />
+                <element signature="e#4911#4912#0" expanded="true" />
+                <element signature="e#5356#5357#0" expanded="true" />
+                <element signature="e#5396#5397#0" expanded="true" />
+                <element signature="e#5683#5684#0" expanded="true" />
+                <element signature="e#5722#5723#0" expanded="true" />
+                <element signature="e#5844#5845#0" expanded="true" />
+                <element signature="e#5895#5896#0" expanded="true" />
+                <element signature="e#6357#6358#0" expanded="true" />
+                <element signature="e#6399#6400#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/target/test-classes/ApplicationContextTest.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#8300#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.1.RELEASE/spring-beans-5.1.1.RELEASE.jar!/org/springframework/beans/factory/BeanFactory.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/ApplicationContextTest.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/application.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="25" />
+    <option name="width" value="993" />
+    <option name="height" value="962" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="part3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540027974613" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.ApplicationContextTest.testApplicationContext_properties">
+    <configuration name="ApplicationContextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApplicationContextTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest.testApplicationContext_applicationListener" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApplicationContextTest" />
+      <option name="METHOD_NAME" value="testApplicationContext_applicationListener" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest.testApplicationContext_getBeanByType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApplicationContextTest" />
+      <option name="METHOD_NAME" value="testApplicationContext_getBeanByType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest.testApplicationContext_postProcessBeans" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApplicationContextTest" />
+      <option name="METHOD_NAME" value="testApplicationContext_postProcessBeans" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest.testApplicationContext_properties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="part3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ApplicationContextTest" />
+      <option name="METHOD_NAME" value="testApplicationContext_properties" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_getBeanByType" />
+      <item itemvalue="JUnit.ApplicationContextTest" />
+      <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_postProcessBeans" />
+      <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_applicationListener" />
+      <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_properties" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_properties" />
+        <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_applicationListener" />
+        <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_postProcessBeans" />
+        <item itemvalue="JUnit.ApplicationContextTest" />
+        <item itemvalue="JUnit.ApplicationContextTest.testApplicationContext_getBeanByType" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a93a8b6-53d0-485e-847c-d69ba149aaeb" name="Default Changelist" comment="" />
+      <created>1539877770010</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539877770010</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ApplicationContextTest_testApplicationContext_getBeanByName - 2018.10.18 at 19h 12m 46s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_getBeanByName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_getBeanByType - 2018.10.18 at 19h 21m 18s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_getBeanByType" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest - 2018.10.18 at 19h 41m 49s.xml">
+      <configuration name="ApplicationContextTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_postProcessBeans - 2018.10.18 at 19h 42m 09s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_postProcessBeans" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_postProcessBeans - 2018.10.18 at 19h 44m 30s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_postProcessBeans" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_postProcessBeans - 2018.10.18 at 19h 53m 28s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_postProcessBeans" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_applicationListener - 2018.10.18 at 20h 14m 41s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_applicationListener" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_applicationListener - 2018.10.18 at 20h 19m 55s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_applicationListener" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_properties - 2018.10.18 at 20h 45m 12s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_properties" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationContextTest_testApplicationContext_properties - 2018.10.18 at 20h 45m 29s.xml">
+      <configuration name="ApplicationContextTest.testApplicationContext_properties" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="25" width="993" height="962" extended-state="0" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2849632" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32988507" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.1.RELEASE/spring-beans-5.1.1.RELEASE.jar!/org/springframework/beans/factory/BeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ApplicationContextTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="200" column="81" lean-forward="true" selection-start-line="200" selection-start-column="81" selection-end-line="200" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1539#1540#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+            <element signature="e#2312#2313#0" expanded="true" />
+            <element signature="e#4191#4192#0" expanded="true" />
+            <element signature="e#4242#4243#0" expanded="true" />
+            <element signature="e#4863#4864#0" expanded="true" />
+            <element signature="e#4911#4912#0" expanded="true" />
+            <element signature="e#5356#5357#0" expanded="true" />
+            <element signature="e#5396#5397#0" expanded="true" />
+            <element signature="e#5683#5684#0" expanded="true" />
+            <element signature="e#5722#5723#0" expanded="true" />
+            <element signature="e#5844#5845#0" expanded="true" />
+            <element signature="e#5895#5896#0" expanded="true" />
+            <element signature="e#6357#6358#0" expanded="true" />
+            <element signature="e#6399#6400#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/test-classes/ApplicationContextTest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#8300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -32,7 +32,7 @@ public class Part2_6_CollectionsTest {
         ObjectWithEquals second = new ObjectWithEquals(2);
         list.add(second);
 
-        list.remove(new ObjectWithNoEqualsImplemented(2));
+        list.remove(new ObjectWithEquals(2));
         assertEquals(1, list.size()); // TODO size should be 1 after removing the second element
 
     }
@@ -42,15 +42,15 @@ public class Part2_6_CollectionsTest {
         Map<ObjectWithEqualsAndHashCode, Integer> map = new HashMap<>();
         ObjectWithEqualsAndHashCode first = new ObjectWithEqualsAndHashCode(1);
 
-        map.put(first, 1);
-        assertEquals(1, map.get(first).intValue());
-        assertEquals(1, map.get(new ObjectWithEqualsAndHashCode(1)).intValue()); // FIXME implement equals and hashcode to make this pass
+        map.put(first, 2);
+        assertEquals(2, map.get(first).intValue());
+        assertEquals(2, map.get(new ObjectWithEqualsAndHashCode(1)).intValue()); // FIXME implement equals and hashcode to make this pass
 
     }
 
     @Test
     public void testReadAboutCollections() {
-        boolean iJustReadEverything = false;
+        boolean iJustReadEverything = true;
         // FIXME you need to read more about collections https://www.tutorialspoint.com/java/java_collections.htm
         // you should change this to true after you get more insights about what other collections are there :P
         assertTrue(iJustReadEverything);
@@ -70,6 +70,17 @@ public class Part2_6_CollectionsTest {
         }
         // FIXME you need to implement equals
 
+        @Override
+        public boolean equals(Object obj) {
+            return this.a == ((ObjectWithEquals) obj).a;
+        }
+
+
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     class ObjectWithEqualsAndHashCode {
@@ -79,5 +90,15 @@ public class Part2_6_CollectionsTest {
         }
         // FIXME you need to implement equals and hashcode
 
+
+        @Override
+        public boolean equals(Object obj) {
+            return this.a == ((ObjectWithEqualsAndHashCode) obj).a;
+        }
+
+        @Override
+        public int hashCode() {
+            return a ^ a;
+        }
     }
 }

@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Supplier;
 
 import static org.junit.Assert.assertEquals;
@@ -49,7 +50,8 @@ public class Part2_5_OptionalTest {
 
         public int add(Optional<Integer> a, Optional<Integer> b) {
             // FIXME make SmartCalculator great again
-            return 0;
+
+            return a.orElse(0) + b.orElse(0);
         }
     }
 }

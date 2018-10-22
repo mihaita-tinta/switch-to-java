@@ -21,9 +21,11 @@ public class SecretGame extends JComponent {
         container.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent ev){
                 System.out.println("mouseClicked - " + ev);
+                // TODO 1 create a new ball everytime the user clicks something
                 Ball ball = Ball.random(ev.getX(), ev.getY());
                 world.add(ball);
                 repaint();
+
             }
         });
     }
@@ -36,15 +38,19 @@ public class SecretGame extends JComponent {
         g.setColor(Color.white);
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        // TODO 2 render all objects from the world
 
+        // TODO 2 render all objects from the world
         g.setColor(Color.magenta);
-        world.getObjects()
-                    .forEach(ball -> {
-                        g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
-                    });
-        g.setColor(Color.BLACK);
-        g.fillRect(0,  getHeight() - 10, getWidth(), 200);
+        world.getObjects().forEach(ball -> {
+                              g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+                          });
+
+        // TODO 2 draw the ground. Hint: upper right corner is has the 2D coordinates: (x,y) ->(0,0)
+
+        g.setColor(Color.black);
+        g.fillRect(0, getHeight() - 30, getWidth(), 30);
+
+
 
     }
 
@@ -59,7 +65,7 @@ public class SecretGame extends JComponent {
     }
 
 
-    public static void main(String... args) {
+    public static void main(String args[]) {
         JFrame mainFrame = new JFrame("Graphics demo");
         mainFrame.getContentPane().add(new SecretGame(mainFrame));
         mainFrame.pack();
@@ -76,7 +82,7 @@ public class SecretGame extends JComponent {
 //        "software entities … should be open for extension, but closed for modification."
 //        Liskov substitution principle[8]
 //        "objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program." See also design by contract.
-//                Interface segregation principle[9]
+//        Interface segregation principle[9]
 //        "many client-specific interfaces are better than one general-purpose interface."[4]
 //        Dependency inversion principle[10]
 //        one should "depend upon abstractions, [not] concretions."[4]
