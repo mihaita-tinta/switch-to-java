@@ -1,8 +1,7 @@
 package com.ing.carpooling.config;
 
-import com.ing.carpooling.repository.CarRepository;
-import com.ing.carpooling.repository.LocationRepository;
-import com.ing.carpooling.repository.RideRepository;
+import com.ing.carpooling.domain.Passenger;
+import com.ing.carpooling.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +21,16 @@ public class RepositoryConfig {
     }
 
     // TODO here you need to add your repository beans and modify if needed the declarations below
+
+    @Bean
+    public DriverRepository driverRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
+        return new DriverRepository(namedParameterJdbcTemplate);
+    }
+
+    @Bean
+    public PassengerRepository passengerRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate){
+        return new PassengerRepository(namedParameterJdbcTemplate);
+    }
 
     @Bean
     public CarRepository carRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {

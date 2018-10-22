@@ -2,6 +2,8 @@ package com.ing.carpooling.service;
 
 
 import com.ing.carpooling.domain.*;
+import com.ing.carpooling.repository.CarRepository;
+import com.ing.carpooling.repository.DriverRepository;
 import com.ing.carpooling.repository.LocationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +19,15 @@ public class HomeworkService {
 
     private final RideService rideService;
     private final LocationRepository locationRepository;
+    private final DriverRepository driverRepository;
+    private final CarRepository carRepository;
 
-
-    public HomeworkService(RideService rideService, LocationRepository locationRepository) {
+    public HomeworkService(RideService rideService, LocationRepository locationRepository,
+                           DriverRepository driverRepository, CarRepository carRepository) {
         this.rideService = rideService;
         this.locationRepository = locationRepository;
+        this.carRepository = carRepository;
+        this.driverRepository = driverRepository;
     }
 
     @PostConstruct
@@ -70,14 +76,19 @@ public class HomeworkService {
 
 
     private Driver getDriverWithCar() {
-        // TODO 1 create car and driver
         Car car = new Car();
         car.setNumber("IL11OIS");
+        car.setSeats(4);
+
         Driver driver = new Driver();
+        driver.setFirstName("NeeD");
+        driver.setLastName("Sir");
         driver.setCars(Arrays.asList(car));
 
         if (driver.getId() == null || car.getId() == null) {
-            // TODO 1 use the repositories to save the 2 instances
+            driver =  driverRepository.save(driver);
+            car.setDriverId(driver.getId());
+            carRepository.save(car);
             log.info("getDriverWithCar - you need to create a car and a driver. You also need to build the relation between the 2 tables");
         }
         return driver;
