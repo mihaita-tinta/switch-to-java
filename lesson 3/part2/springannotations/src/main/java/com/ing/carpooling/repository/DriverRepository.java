@@ -113,14 +113,19 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
         // TODO 0 implement Driver crud
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);
-        return Optional.of(
-                namedJdbcTemplate.query(
-                        "SELECT d.*, c.id as car_id, c.number, c.seats " + "FROM DRIVER AS d " +
-                                    "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
-                                    "JOIN CAR AS c ON c.id = dc.car_id " +
-                                    "WHERE d.id = :id",
-                        parameters,
-                        resultSetExtractor).get(0));
+        try {
+            return Optional.of(
+                    namedJdbcTemplate.query(
+                            "SELECT d.*, c.id as car_id, c.number, c.seats " + "FROM DRIVER AS d " +
+                                        "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
+                                        "JOIN CAR AS c ON c.id = dc.car_id " +
+                                        "WHERE d.id = :id",
+                            parameters,
+                            resultSetExtractor).get(0));
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("findOne - no driver found id: {}, ", id);
+            return Optional.empty();
+        }
     }
 
     @Override
