@@ -126,3 +126,6 @@ Bootstrap a new Spring Boot project: https://start.spring.io/
 Open the project in your favorite IDE. There are several things generated for us. We will go over each. 
 
 * application.properties (Available options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+	You may need to install the Spring Assistant plugin:
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/intellij-spring-assistant.PNG)
+
