@@ -120,7 +120,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
                                     "JOIN CAR AS c ON c.id = dc.car_id " +
                                     "WHERE d.id = :id",
                         parameters,
-                        resultSetExtractor).get(id.intValue()));
+                        resultSetExtractor).get(0));
     }
 
     @Override
