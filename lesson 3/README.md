@@ -96,3 +96,31 @@ Injection can happen:
 * in the constructor
 * in setters
 * in fields.
+
+## Homework
+
+We need to create our first spring application.
+This represents a very simple carpooling application that alows us to do a couple of things:
+* Apply CRUD operations to serveral entities: Passenger, Car, Driver, Ride, RideRequest, Location
+* A driver can create a new Ride, approve or reject RideRequests received from other passengers.
+* A passenger can add a RideRequest for a specific Ride.
+* A driver can start a ride and move it to status completed.
+
+In the **lesson 3/part2/springannotations** path you can find the skeleton for this project.
+
+![main_log](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/main.PNG)
+
+* Before starting the application you need to start the H2 instance: **java -jar h2-1.4.196.jar -baseDir ~/tmp/h2dbs**
+	The application connects to **jdbc:h2:~/tmp/h2dbs/carpooling**
+* The **com.ing.carpooling.Application** can be used to start the application
+* **DatabaseConfig** contains the beans used to access the database. We will not use JDBC API directly.
+	It's time for now to use Spring's abstraction done with JdbcTemplate 
+* An example on how to do it can be found in LocationRepository
+* You need to implement CRUD operations for the other entities. This will help you with the next tasks.
+	You can find the TODOs in the panel below:
+
+![create_tables](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%203/part2/create_tables.PNG)
+
+* **LocationRepositoryTest** is used to test the functionality of the LocationRepository. You need to test your code in the same way.
+	Don't forget **to extend RepositoryIntegrationTest** when you do it.
+* The next step is to go into the **HomeworkService** class and fix the TODOs
