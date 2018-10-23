@@ -3,6 +3,8 @@ package com.ing.carpooling;
 import com.ing.carpooling.domain.Location;
 import com.ing.carpooling.repository.LocationRepository;
 import com.ing.carpooling.repository.RepositoryIntegrationTest;
+import com.ing.carpooling.service.LocationService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +49,7 @@ public class Lesson_4_0_PlatformTransactionManagerTest extends RepositoryIntegra
     PlatformTransactionManager transactionManager = context.getBean(PlatformTransactionManager.class);
     LocationRepository repository = context.getBean(LocationRepository.class);
     TransactionTemplate transactionTemplate = context.getBean(TransactionTemplate.class);
+    LocationService locationService = context.getBean(LocationService.class);
 
     @Test
     public void testPlatformTransactionManager() {
@@ -99,6 +102,14 @@ public class Lesson_4_0_PlatformTransactionManagerTest extends RepositoryIntegra
 
         repository.findAll().forEach(l -> log.info(l.getAddress()));
 
+    }
+
+    @Test
+    public void testTransactional() {
+
+        Location saved = locationService.save(getSomeLocation());
+
+        Assert.assertNotNull(saved.getId());
     }
 
 

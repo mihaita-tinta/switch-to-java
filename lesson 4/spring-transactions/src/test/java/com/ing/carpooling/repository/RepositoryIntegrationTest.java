@@ -1,5 +1,6 @@
 package com.ing.carpooling.repository;
 
+import com.ing.carpooling.Application;
 import com.ing.carpooling.config.DatabaseConfig;
 import com.ing.carpooling.config.PropertiesConfig;
 import com.ing.carpooling.config.RepositoryConfig;
@@ -20,8 +21,7 @@ public class RepositoryIntegrationTest {
 
     @BeforeClass
     public static void beforeClass() {
-        context = new AnnotationConfigApplicationContext(PropertiesConfig.class, DatabaseConfig.class,
-                                                        RepositoryConfig.class);
+        context = new AnnotationConfigApplicationContext(Application.class);
     }
 
     @AfterClass

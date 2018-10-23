@@ -1,5 +1,6 @@
 package com.ing.carpooling.service;
 
+import com.ing.carpooling.aop.Timed;
 import com.ing.carpooling.domain.*;
 import com.ing.carpooling.repository.CarRepository;
 import com.ing.carpooling.repository.RideRepository;
@@ -8,8 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
-import java.util.Collections;
-import java.util.List;
 
 @Service
 public class RideService {
@@ -35,7 +34,7 @@ public class RideService {
     public RideRequest join(Passenger passenger, Ride ride) {
         log.info("join - you need to implement this");
         // TODO 3 add a RideRequst for the ride and that passenger
-        return null;
+        return new RideRequest();
     }
 
     public RideRequest approve(RideRequest rideRequest) {
@@ -58,6 +57,7 @@ public class RideService {
         return ride;
     }
 
+    @Timed
     public Ride finish(Ride ride) {
         log.info("finish - you need to implement this");
         // TODO 7 Ride status needs to be moved to COMPLETED

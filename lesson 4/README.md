@@ -70,6 +70,54 @@ This template handles the transaction lifecycle and possible exceptions such tha
 ```java
         transactionTemplate.execute(transactionStatus -> repository.save(getSomeLocation()));
 ```
+
+## Declarative transaction management
+One can also enable transactions at methods level by adding *@Transactional* annotation, add *@EnableTransactionManagement* to your configuration.
+
+```java
+	@Transactional
+    public Location save(Location location) {
+        return repository.save(location);
+    }
+```
+
+We can see that we are no longer calling directly our service. Some Spring AOP instances are involved now:
+![create_tables](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/spring-transactions/transactions_call_stack.PNG)
+
+More information about how AOP works here:
+https://docs.spring.io/spring/docs/5.1.1.RELEASE/spring-framework-reference/core.html#aop
+
+Some things you need to know:
+* A **join point** represents the execution of a method
+* A **pointcut** is the condition to identify join points
+* The **pointcut expression language** is a way of defining pointcuts programatically
+* The Spring Pointcut Designators keywords are: execution() - method execution join points, within() - match join points of different type
+	this() - the bean reference is of given type, target() - the target bean reference is of given type,
+	@target() - join points where the class has the given annotation,
+	@args() - join points where the arguments are of the given type,
+	@within() - join points where the type has the given annotation
+	@annotation() - join points where the subject has the given annotation
+
+https://www.baeldung.com/spring-aop-pointcut-tutorial
+
 ## Part 2 - Spring Boot
 
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+
+Spring Boot's goal is to simplify the configuration of Java applications. It is built on numerous conventions which 
+greatly reduce boilerplate needed to start new applications.
+
+Some features:
+* has a spring-boot-starter parent which sets up the pom.xml in a commonly used configuration
+* uses special spring-boot-starter dependencies which handle commonly used dependenciesS
+* comes with new auto-configuration mechanism which are used to set up some commonly used beans in sensible ways 
+(DataSources, HttpServers, JSONSerialization etc)
+* creates and configures beans based on properties defined in config files.
+
+Basically, Spring Boot is a usability layer over Spring Framework. You can always disable the Spring Boot 
+auto-configuration of certain beans and create them in the traditional way.
+
+### Spring Initializr
+
+Bootstrap a new Spring Boot project:
+https://start.spring.io/
