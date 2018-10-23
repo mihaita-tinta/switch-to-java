@@ -99,7 +99,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
 
     @Override
     public List<Driver> findAll() {
-        // TODO 0 implement Driver crud (to be modified :< )
+        // TODO 0 implement Driver crud
         return namedJdbcTemplate.query(
                 "SELECT d.*, c.id as car_id, c.number, c.seats " +
                                 "FROM DRIVER AS d " +
