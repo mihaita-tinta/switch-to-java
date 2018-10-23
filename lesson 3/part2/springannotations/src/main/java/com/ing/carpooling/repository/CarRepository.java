@@ -20,8 +20,8 @@ public class CarRepository implements CrudRepository<Car, Long> {
 
     private static final Logger log = LoggerFactory.getLogger(LocationRepository.class);
 
-    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS CAR ( \n" +
-            "   id INT NOT NULL auto_increment, \n" +
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS car ( \n" +
+            "   id BIGINT NOT NULL auto_increment, \n" +
             "   number VARCHAR(7) NOT NULL, \n" +
             "   seats INT NOT NULL, \n" +
             ");";
@@ -55,9 +55,16 @@ public class CarRepository implements CrudRepository<Car, Long> {
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("number", car.getNumber())
                     .addValue("seats", car.getSeats());
-            namedJdbcTemplate.update("insert into CAR (number, seats)\n" +
+            namedJdbcTemplate.update("INSERT INTO car (number, seats)\n" +
                     "values (:number, :seats)", parameters, holder);
             car.setId(holder.getKey().longValue());
+        } else {
+            SqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("id", car.getId())
+                    .addValue("number", car.getNumber())
+                    .addValue("seats", car.getSeats());
+            namedJdbcTemplate.update("UPDATE car SET number = :number, seats = :seats \n" +
+                    "WHERE id = :id", parameters);
         }
         return car;
     }
@@ -66,7 +73,7 @@ public class CarRepository implements CrudRepository<Car, Long> {
     public List<Car> findAll() {
         // TODO 0  implement Car crud
         log.info("findAll");
-        return namedJdbcTemplate.query("select * from CAR", mapper);
+        return namedJdbcTemplate.query("SELECT * FROM car", mapper);
     }
 
     @Override
@@ -76,7 +83,7 @@ public class CarRepository implements CrudRepository<Car, Long> {
                 .addValue("id", id);
         try {
             return Optional.of(
-                    namedJdbcTemplate.queryForObject("select * from CAR where id = :id", parameters, mapper));
+                    namedJdbcTemplate.queryForObject("SELECT * FROM car WHERE id = :id", parameters, mapper));
         } catch (EmptyResultDataAccessException e) {
             log.warn("findOne - no car found id: {}, ", id);
             return Optional.empty();
@@ -89,6 +96,6 @@ public class CarRepository implements CrudRepository<Car, Long> {
         log.info("delete - id: {}, ", id);
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);
-        namedJdbcTemplate.update("delete from CAR where id = :id", parameters);
+        namedJdbcTemplate.update("DELETE FROM car WHERE id = :id", parameters);
     }
 }

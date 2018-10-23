@@ -25,16 +25,16 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
 
     private final CarRepository carRepository;
 
-    public static final String CREATE_TABLES = "CREATE TABLE IF NOT EXISTS DRIVER ( \n" +
-            "   id INT NOT NULL auto_increment, \n" +
+    public static final String CREATE_TABLES = "CREATE TABLE IF NOT EXISTS driver ( \n" +
+            "   id BIGINT NOT NULL auto_increment, \n" +
             "   firstname VARCHAR(50) NOT NULL, \n" +
             "   lastname VARCHAR(50) NOT NULL \n" +
             "); \n " +
-            "   CREATE TABLE IF NOT EXISTS DRIVER_CARS ( \n" +
+            "   CREATE TABLE IF NOT EXISTS driver_cars ( \n" +
             "   car_id INT NOT NULL, \n" +
             "   driver_id INT NOT NULL \n" +
             "); \n" +
-            "   ALTER TABLE DRIVER_CARS ADD CONSTRAINT DRIVER_CAR UNIQUE(car_id, driver_id); \n";
+            "   ALTER TABLE driver_cars ADD CONSTRAINT u_driver_car UNIQUE(car_id, driver_id); \n";
 
     private final ResultSetExtractor<List<Driver>> resultSetExtractor = new ResultSetExtractor<List<Driver>>() {
         @Override
@@ -82,7 +82,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("firstname", driver.getFirstName())
                     .addValue("lastname", driver.getLastName());
-            namedJdbcTemplate.update("INSERT INTO DRIVER (firstname, lastname)\n" +
+            namedJdbcTemplate.update("INSERT INTO driver (firstname, lastname)\n" +
                     "values (:firstname, :lastname)", parameters, holder);
             driver.setId(holder.getKey().longValue());
             driver.getCars().forEach(car -> {
@@ -90,8 +90,26 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
                 SqlParameterSource parametersDriverCar = new MapSqlParameterSource()
                         .addValue("car", savedCar.getId())
                         .addValue("driver", driver.getId());
-                namedJdbcTemplate.update("INSERT INTO DRIVER_CARS (car_id, driver_id)\n" +
+                namedJdbcTemplate.update("INSERT INTO driver_cars (car_id, driver_id)\n" +
                         "VALUES (:car, :driver)", parametersDriverCar);
+            });
+        } else {
+            SqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("firstname", driver.getFirstName())
+                    .addValue("lastname", driver.getLastName());
+            namedJdbcTemplate.update("UPDATE driver SET firstname = :firstname \n" +
+                    "lastname = :lastname)", parameters);
+            driver.getCars().forEach(car -> {
+                if (car.getId() == null) {
+                    Car savedCar = carRepository.save(car);
+                    SqlParameterSource parametersDriverCar = new MapSqlParameterSource()
+                            .addValue("car", savedCar.getId())
+                            .addValue("driver", driver.getId());
+                    namedJdbcTemplate.update("INSERT INTO driver_cars (car_id, driver_id)\n" +
+                            "VALUES (:car, :driver)", parametersDriverCar);
+                } else {
+                    carRepository.save(car);
+                }
             });
         }
         return driver;
@@ -101,10 +119,10 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
     public List<Driver> findAll() {
         // TODO 0 implement Driver crud
         return namedJdbcTemplate.query(
-                "SELECT d.*, c.id as car_id, c.number, c.seats " +
-                                "FROM DRIVER AS d " +
-                                "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
-                                "JOIN CAR AS c ON c.id = dc.car_id",
+                "SELECT d.*, c.id AS car_id, c.number, c.seats " +
+                                "FROM driver AS d " +
+                                "JOIN driver_cars AS dc ON dc.driver_id = d.id " +
+                                "JOIN car AS c ON c.id = dc.car_id",
                 resultSetExtractor);
     }
 
@@ -116,9 +134,9 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
         try {
             return Optional.of(
                     namedJdbcTemplate.query(
-                            "SELECT d.*, c.id as car_id, c.number, c.seats " + "FROM DRIVER AS d " +
-                                        "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
-                                        "JOIN CAR AS c ON c.id = dc.car_id " +
+                            "SELECT d.*, c.id as car_id, c.number, c.seats " + "FROM driver AS d " +
+                                        "JOIN driver_cars AS dc ON dc.driver_id = d.id " +
+                                        "JOIN car AS c ON c.id = dc.car_id " +
                                         "WHERE d.id = :id",
                             parameters,
                             resultSetExtractor).get(0));
@@ -134,7 +152,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
         log.info("delete - id: {}, ", id);
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);
-        namedJdbcTemplate.update("DELETE FROM DRIVER WHERE id = :id", parameters);
-        namedJdbcTemplate.update("DELETE FROM DRIVER_CARS WHERE driver_id = :id", parameters);
+        namedJdbcTemplate.update("DELETE FROM driver WHERE id = :id", parameters);
+        namedJdbcTemplate.update("DELETE FROM driver_cars WHERE driver_id = :id", parameters);
     }
 }
