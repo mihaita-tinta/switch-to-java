@@ -36,33 +36,36 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
             "); \n" +
             "   ALTER TABLE DRIVER_CARS ADD CONSTRAINT DRIVER_CAR UNIQUE(car_id, driver_id); \n";
 
-    private final ResultSetExtractor<Driver> resultSetExtractor = new ResultSetExtractor<Driver>() {
+    private final ResultSetExtractor<List<Driver>> resultSetExtractor = new ResultSetExtractor<List<Driver>>() {
         @Override
-        public Driver extractData(ResultSet resultSet) throws SQLException, DataAccessException {
+        public List<Driver> extractData(ResultSet resultSet) throws SQLException, DataAccessException {
+            Map<Long, Driver> map = new HashMap<>();
             Driver driver = null;
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
+                driver = map.get(id);
                 if (driver == null) {
                     driver = new Driver();
                     driver.setId(id);
                     driver.setFirstName(resultSet.getString("firstname"));
                     driver.setLastName(resultSet.getString("lastname"));
-                } else if (driver.getId().equals(id)) {
-                    List<Car> carsList = driver.getCars();
-                    if (carsList == null) {
-                        carsList = new ArrayList<>();
-                        driver.setCars(carsList);
-                    }
-
-                    Car car = new Car();
-                    car.setId(resultSet.getLong("car_id"));
-                    car.setNumber(resultSet.getString("number"));
-                    car.setSeats(resultSet.getInt("seats"));
-                    carsList.add(car);
+                    map.put(id, driver);
                 }
+
+                List<Car> carsList = driver.getCars();
+                if (carsList == null) {
+                    carsList = new ArrayList<>();
+                    driver.setCars(carsList);
+                }
+
+                Car car = new Car();
+                car.setId(resultSet.getLong("car_id"));
+                car.setNumber(resultSet.getString("number"));
+                car.setSeats(resultSet.getInt("seats"));
+                carsList.add(car);
             }
 
-            return driver;
+            return new ArrayList<>(map.values());
         }
     };
 
@@ -97,11 +100,12 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
     @Override
     public List<Driver> findAll() {
         // TODO 0 implement Driver crud (to be modified :< )
-        return namedJdbcTemplate.queryForList(
-                        "SELECT d.*, c.id as car_id, c.number, c.seats " +
+        return namedJdbcTemplate.query(
+                "SELECT d.*, c.id as car_id, c.number, c.seats " +
                                 "FROM DRIVER AS d " +
                                 "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
-                                "JOIN CAR AS c ON c.id = dc.car_id", resultSetExtractor);
+                                "JOIN CAR AS c ON c.id = dc.car_id",
+                resultSetExtractor);
     }
 
     @Override
@@ -109,18 +113,14 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
         // TODO 0 implement Driver crud
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);
-        try {
-            return Optional.of(
-                    namedJdbcTemplate.query(
-                            "SELECT d.*, c.id as car_id, c.number, c.seats " +
-                                    "FROM DRIVER AS d " +
+        return Optional.of(
+                namedJdbcTemplate.query(
+                        "SELECT d.*, c.id as car_id, c.number, c.seats " + "FROM DRIVER AS d " +
                                     "JOIN DRIVER_CARS AS dc ON dc.driver_id = d.id " +
                                     "JOIN CAR AS c ON c.id = dc.car_id " +
-                                    "WHERE d.id = :id", parameters, resultSetExtractor));
-        } catch (EmptyResultDataAccessException e) {
-            log.warn("findOne - no driver found for id: {}, ", id);
-            return Optional.empty();
-        }
+                                    "WHERE d.id = :id",
+                        parameters,
+                        resultSetExtractor).get(id.intValue()));
     }
 
     @Override
