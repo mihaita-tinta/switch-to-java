@@ -75,7 +75,7 @@ This template handles the transaction lifecycle and possible exceptions such tha
 One can also enable transactions at methods level by adding *@Transactional* annotation, add *@EnableTransactionManagement* to your configuration.
 
 ```java
-	@Transactional
+    @Transactional
     public Location save(Location location) {
         return repository.save(location);
     }
@@ -117,7 +117,12 @@ Some features:
 Basically, Spring Boot is a usability layer over Spring Framework. You can always disable the Spring Boot 
 auto-configuration of certain beans and create them in the traditional way.
 
-### Spring Initializr
+### CarPoolingAPI with Spring Boot
 
-Bootstrap a new Spring Boot project:
-https://start.spring.io/
+Bootstrap a new Spring Boot project: https://start.spring.io/
+
+![starter](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/spring-boot-1.PNG)
+
+Open the project in your favorite IDE. There are several things generated for us. We will go over each. 
+
+* application.properties (Available options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)

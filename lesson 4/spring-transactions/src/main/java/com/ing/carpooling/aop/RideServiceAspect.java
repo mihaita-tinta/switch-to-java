@@ -27,11 +27,13 @@ public class RideServiceAspect {
         log.info("aroundRideRequest - method: {}", proceedingJoinPoint.getSignature().getName());
         return proceedingJoinPoint.proceed();
     }
+
     @Before("rideServiceAllMethods() && returnRideRequestMethod() &&" +
             "args(request,..)")
     public void beforeRideRequest(RideRequest request) {
         log.info("beforeRideRequest - rideRequest: {}", request);
     }
+
     @AfterReturning(
             pointcut="rideServiceAllMethods() && returnRideRequestMethod()",
             returning="request")
