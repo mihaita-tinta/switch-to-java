@@ -1,9 +1,7 @@
 package com.ing.carpooling.config;
 
-import com.ing.carpooling.repository.CarRepository;
-import com.ing.carpooling.repository.DriverRepository;
-import com.ing.carpooling.repository.LocationRepository;
-import com.ing.carpooling.repository.RideRepository;
+import com.ing.carpooling.domain.Car;
+import com.ing.carpooling.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -37,7 +35,19 @@ public class RepositoryConfig {
     }
 
     @Bean
-    public RideRepository rideRepository() {
-        return new RideRepository();
+    @DependsOn({"carRepository", "locationRepository"})
+    public RideRepository rideRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate, CarRepository carRepository, LocationRepository locationRepository) {
+        return new RideRepository(namedParameterJdbcTemplate, carRepository, locationRepository);
+    }
+
+    @Bean
+    @DependsOn({"rideRepository", "passengerRepository"})
+    public RideRequestRepository rideRequestRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate, PassengerRepository passengerRepository, RideRepository rideRepository) {
+        return new RideRequestRepository(namedParameterJdbcTemplate, passengerRepository, rideRepository);
+    }
+
+    @Bean
+    public PassengerRepository passengerRepository(NamedParameterJdbcTemplate namedJdbcTemplate) {
+        return new PassengerRepository(namedJdbcTemplate);
     }
 }

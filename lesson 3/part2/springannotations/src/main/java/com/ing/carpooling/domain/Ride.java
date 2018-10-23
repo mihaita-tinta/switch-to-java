@@ -5,12 +5,21 @@ import java.util.List;
 
 public class Ride {
 
+    private Long id;
     private Location from;
     private Location to;
     private ZonedDateTime when;
     private Car car;
     private Status status;
     private List<Passenger> passengers;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Location getFrom() {
         return from;

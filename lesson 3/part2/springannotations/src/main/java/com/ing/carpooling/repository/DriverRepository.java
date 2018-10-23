@@ -88,10 +88,10 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
             driver.getCars().forEach(car -> {
                 Car savedCar = carRepository.save(car);
                 SqlParameterSource parametersDriverCar = new MapSqlParameterSource()
-                        .addValue("car_id", savedCar.getId())
-                        .addValue("driver_id", driver.getId());
+                        .addValue("car", savedCar.getId())
+                        .addValue("driver", driver.getId());
                 namedJdbcTemplate.update("INSERT INTO DRIVER_CARS (car_id, driver_id)\n" +
-                        "VALUES (:car_id, :driver_id)", parametersDriverCar);
+                        "VALUES (:car, :driver)", parametersDriverCar);
             });
         }
         return driver;
