@@ -19,10 +19,10 @@ import java.util.Optional;
 public class PassengerRepository implements CrudRepository<Passenger, Long> {
     //region properties
     private static final Logger log = LoggerFactory.getLogger(PassengerRepository.class);
-    public static final String CREATE_TABLE ="CREATE TABLE IF NOT EXITS PASSENGER (\n" +
+    public static final String CREATE_TABLE ="CREATE TABLE IF NOT EXISTS PASSENGER (\n" +
             "id INT NOT NULL auto_increment, \n" +
             "firstName VARCHAR(20) NOT NULL, \n" +
-            "lastName VARCHAR(20) NOT NULL, \n" +
+            "lastName VARCHAR(20) NOT NULL \n" +
             ");";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;

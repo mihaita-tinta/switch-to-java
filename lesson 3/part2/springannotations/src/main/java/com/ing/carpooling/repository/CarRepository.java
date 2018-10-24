@@ -23,7 +23,7 @@ public class CarRepository implements CrudRepository<Car, Long> {
             "id INT NOT NULL auto_increment, \n"  +
             "number VARCHAR(8) NOT NULL, \n" +
             "seats INT NOT NULL, \n" +
-            "idDriver INT NOT NULL \n" +
+            "idDriver INT \n" +
             ");";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
