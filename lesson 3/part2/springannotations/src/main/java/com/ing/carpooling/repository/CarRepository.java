@@ -29,7 +29,6 @@ public class CarRepository implements CrudRepository<Car, Long> {
         @Override
         public Car mapRow(ResultSet resultSet, int i) {
             Car car = new Car();
-
             try {
                 car.setId(resultSet.getLong("id"));
                 car.setNumber(resultSet.getString("number"));
@@ -45,36 +44,48 @@ public class CarRepository implements CrudRepository<Car, Long> {
     private final NamedParameterJdbcTemplate namedJdbcTemplate;
 
     public CarRepository(NamedParameterJdbcTemplate namedJdbcTemplate) {
+
         this.namedJdbcTemplate = namedJdbcTemplate;
     }
 
+
+
+
+
+
+    // ##################### CRUD ######################
+
     @Override
     public Car save(Car car) {
-        // TODO 0 implement Car crud
-
         if (car.getId() == null) {
             KeyHolder holder = new GeneratedKeyHolder();
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("number", car.getNumber())
                     .addValue("seats", car.getSeats())
                     .addValue("driverId", car.getDriverId());
-            namedJdbcTemplate.update("insert into car (number, seats)\n" +
+            namedJdbcTemplate.update("insert into car (number, seats, driverId)\n" +
                     "values (:number, :seats, :driverId)", parameters, holder);
             car.setId(holder.getKey().longValue());
+        }
+        else{
+            SqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("number",car.getNumber())
+                    .addValue("seats",car.getSeats())
+                    .addValue("driverId",car.getDriverId());
+            namedJdbcTemplate.update("update car set number = :number, seats = :seats, driverId = :driverId)\n" +
+                    " where id =:id", parameters);
         }
         return car;
     }
 
     @Override
     public List<Car> findAll() {
-        // TODO 0  implement Car crud
         log.info("findAll");
         return namedJdbcTemplate.query("select * from car", mapper);
     }
 
     @Override
     public Optional<Car> findOne(Long id) {
-        // TODO 0  implement Car crud
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);
         try {
@@ -88,7 +99,6 @@ public class CarRepository implements CrudRepository<Car, Long> {
 
 
     public List<Car> findCarsByDriverId(Long driverId) {
-
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("driverId", driverId);
         log.info("Find cars by driver");
@@ -97,7 +107,6 @@ public class CarRepository implements CrudRepository<Car, Long> {
 
     @Override
     public void delete(Long id) {
-        // TODO 0 implement Car crud
         log.info("delete - id: {}, ", id);
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("id", id);

@@ -5,7 +5,6 @@ public class Car {
     private Long id;
     private String number;
     private int seats;
-    private Long driverId;
 
     public Long getId() {
         return id;
@@ -30,10 +29,4 @@ public class Car {
     public void setSeats(int seats) {
         this.seats = seats;
     }
-
-    public Long getDriverId() {
-        return driverId; }
-
-    public void setDriverId(Long driverId) {
-        this.driverId = driverId; }
 }

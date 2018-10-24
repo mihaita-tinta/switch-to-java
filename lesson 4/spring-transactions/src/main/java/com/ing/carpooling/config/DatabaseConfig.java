@@ -1,8 +1,6 @@
 package com.ing.carpooling.config;
 
 import com.ing.carpooling.domain.Location;
-import com.ing.carpooling.repository.CarRepository;
-import com.ing.carpooling.repository.DriverRepository;
 import com.ing.carpooling.repository.LocationRepository;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.slf4j.Logger;
@@ -11,11 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@EnableTransactionManagement
 public class DatabaseConfig {
     private static final Logger log = LoggerFactory.getLogger(DatabaseConfig.class);
 
@@ -41,11 +45,26 @@ public class DatabaseConfig {
         return jdbcTemplate;
     }
 
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+
+    @Bean
+    public TransactionTemplate transactionTemplate(PlatformTransactionManager transactionManager) {
+        TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
+
+        // the transaction settings can be set here explicitly if so desired
+        transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_READ_COMMITTED);
+        transactionTemplate.setTimeout(30);
+
+        return transactionTemplate;
+    }
+
     private void initSchema(JdbcTemplate jdbcTemplate) {
         log.info("initSchema - start");
         jdbcTemplate.update(LocationRepository.CREATE_TABLE);
-        jdbcTemplate.update(CarRepository.CREATE_TABLE);
-        jdbcTemplate.update(DriverRepository.CREATE_TABLE);
+
         // TODO 0 here you need to add your create table statements
 
         log.info("initSchema - completed");
