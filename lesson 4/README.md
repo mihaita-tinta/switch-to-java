@@ -146,5 +146,10 @@ so that we can boostrap our application with one line of code
 
 ### Database access
 
-#### The first 
+#### Domain 
+
+Our domain entities are represented in the diagram below:
+
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/schema.PNG)
+
+We need to create repositories for every entity
