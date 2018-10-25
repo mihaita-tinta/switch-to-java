@@ -1,10 +1,12 @@
 package com.ing.carpooling.domain;
 
-import java.time.ZonedDateTime;
 import java.util.List;
+
+import java.time.ZonedDateTime;
 
 public class Ride {
 
+    private long id;
     private Location from;
     private Location to;
     private ZonedDateTime when;
@@ -50,6 +52,14 @@ public class Ride {
 
     public void setWhen(ZonedDateTime when) {
         this.when = when;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Status getStatus() {

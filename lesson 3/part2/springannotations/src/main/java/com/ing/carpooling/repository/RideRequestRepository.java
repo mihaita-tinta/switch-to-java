@@ -1,13 +1,26 @@
 package com.ing.carpooling.repository;
 
-import com.ing.carpooling.domain.Passenger;
-import com.ing.carpooling.domain.RideRequest;
-
 import java.util.List;
 import java.util.Optional;
 
-public class RideRequestRepository implements CrudRepository<RideRequest, Long> {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import com.ing.carpooling.domain.RideRequest;
+
+public class RideRequestRepository extends Repository implements CrudRepository<RideRequest, Long> {
+
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS CAR ( \n" +
+        "   ID INT NOT NULL auto_increment, \n" +
+        "   NUMBER VARCHAR(50) NOT NULL,\n" +
+        "   SEATS INT NOT NULL, \n" +
+        ");";
+    private static final Logger log = LoggerFactory.getLogger(LocationRepository.class);
+
+    public RideRequestRepository(NamedParameterJdbcTemplate namedJdbcTemplate) {
+        super(namedJdbcTemplate);
+    }
 
     @Override
     public RideRequest save(RideRequest instance) {

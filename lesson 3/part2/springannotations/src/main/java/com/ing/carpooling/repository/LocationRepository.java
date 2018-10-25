@@ -1,10 +1,11 @@
 package com.ing.carpooling.repository;
 
-import com.ing.carpooling.domain.Location;
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -12,22 +13,21 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import javax.annotation.PostConstruct;
+import com.ing.carpooling.domain.Location;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
-public class LocationRepository implements CrudRepository<Location, Long> {
+public class LocationRepository extends Repository implements CrudRepository<Location, Long> {
     private static final Logger log = LoggerFactory.getLogger(LocationRepository.class);
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS LOCATION ( \n" +
-            "   id INT NOT NULL auto_increment, \n" +
-            "   latitude DOUBLE NOT NULL,\n" +
-            "   longitude DOUBLE NOT NULL,\n" +
-            "   address VARCHAR(50) NOT NULL, \n" +
-            "   city VARCHAR(20) NOT NULL, \n" +
-            "   state VARCHAR(20) NOT NULL, \n" +
-            "   zip VARCHAR(20) NOT NULL\n" +
+        "   ID INT NOT NULL auto_increment, \n" +
+        "   LATITUDE DOUBLE NOT NULL,\n" +
+        "   LONGITUDE DOUBLE NOT NULL,\n" +
+        "   ADDRESS VARCHAR(50) NOT NULL, \n" +
+        "   CITY VARCHAR(20) NOT NULL, \n" +
+        "   STATE VARCHAR(20) NOT NULL, \n" +
+        "   ZIP VARCHAR(20) NOT NULL\n" +
             ");";
 
     private final RowMapper<Location> mapper = new RowMapper<Location>() {
@@ -49,10 +49,8 @@ public class LocationRepository implements CrudRepository<Location, Long> {
         }
     };
 
-    private final NamedParameterJdbcTemplate namedJdbcTemplate;
-
     public LocationRepository(NamedParameterJdbcTemplate namedJdbcTemplate) {
-        this.namedJdbcTemplate = namedJdbcTemplate;
+        super(namedJdbcTemplate);
     }
 
     @Override

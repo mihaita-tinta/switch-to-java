@@ -18,6 +18,7 @@ public class Application {
         watch.start("Main");
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
+
         context.registerShutdownHook();
         watch.stop();
         log.info("main - stop {}", watch.prettyPrint());
