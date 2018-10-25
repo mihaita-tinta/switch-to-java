@@ -23,7 +23,7 @@ public class CarRepository implements CrudRepository<Car, Long> {
             "id INT NOT NULL auto_increment, \n"  +
             "number VARCHAR(8) NOT NULL, \n" +
             "seats INT NOT NULL, \n" +
-            "idDriver INT \n" +
+            "idDriver INT REFERENCES Driver(id) \n" +
             ");";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -59,9 +59,10 @@ public class CarRepository implements CrudRepository<Car, Long> {
             KeyHolder holder = new GeneratedKeyHolder();
             SqlParameterSource parameters =  new MapSqlParameterSource()
                     .addValue("number", car.getNumber())
-                    .addValue("seats", car.getSeats());
-            namedParameterJdbcTemplate.update("INSERT into CAR (number, seats) \n" +
-                    "values (:number, :seats)",parameters, holder);
+                    .addValue("seats", car.getSeats())
+                    .addValue("idDriver", car.getDriverId());
+            namedParameterJdbcTemplate.update("INSERT into CAR (number, seats, idDriver) \n" +
+                    "values (:number, :seats, :idDriver)",parameters, holder);
             car.setId(holder.getKey().longValue());
         }
         return car;

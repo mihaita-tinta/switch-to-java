@@ -1,8 +1,12 @@
 package com.ing.carpooling.repository;
 
+import com.ing.carpooling.config.DatabaseConfig;
+import com.ing.carpooling.config.PropertiesConfig;
+import com.ing.carpooling.config.RepositoryConfig;
 import com.ing.carpooling.domain.Driver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -25,6 +29,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
             " firstName VARCHAR(20) NOT NULL, \n" +
             " lastName VARCHAR(20) NOT NULL" +
             ")";
+    AnnotationConfigApplicationContext context;
 
     private final RowMapper<Driver> mapper =  new RowMapper<Driver>() {
         @Override
@@ -55,6 +60,10 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
     @Override
     public Driver save(Driver driver) {
         log.info("DriverRepository -> save");
+        context = new AnnotationConfigApplicationContext(PropertiesConfig.class, DatabaseConfig.class,
+                RepositoryConfig.class);
+        CarRepository carRepository = context.getBean(CarRepository.class);
+
         if(driver.getId() == null){
             KeyHolder keyHolder = new GeneratedKeyHolder();
             SqlParameterSource parameters = new MapSqlParameterSource()
@@ -63,6 +72,11 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
             namedParameterJdbcTemplate.update("insert into DRIVER (firstName, lastName)\n" +
                     "values(:firstName, :lastName)", parameters, keyHolder);
             driver.setId(keyHolder.getKey().longValue());
+            if(driver.getCars() != null)
+            {    driver.getCars().forEach(car ->
+                 {  car.setDriverId(driver.getId());
+                    carRepository.save(car);});
+            }
         }
         return driver;
     }

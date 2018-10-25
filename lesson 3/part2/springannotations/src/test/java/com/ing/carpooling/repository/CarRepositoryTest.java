@@ -29,6 +29,6 @@ public class CarRepositoryTest extends RepositoryIntegrationTest {
 
         repository.findAll().forEach(carItem -> log.info("found car with id {}", carItem.getId()));
 
-        repository.delete(savedCar.getId());
+       // repository.delete(savedCar.getId());
     }
 }
