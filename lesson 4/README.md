@@ -162,6 +162,6 @@ We need to create:
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo.PNG)
 
-and the tests
+and the tests. We will explore the CrudRepository methods to understand how spring data helps us.
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo-test.PNG)
