@@ -98,7 +98,7 @@ Some things you need to know:
 	@within() - join points where the type has the given annotation
 	@annotation() - join points where the subject has the given annotation
 * Aspect is the first class citizen in Aspect Oriented Programming, it is a modularization of a concern that cuts across multiple classes
-* Advice represents the action taken by an aspect at a particular join point. Different types of advice include “around”, “before” and “after” advice
+* Advice represents the a+ction taken by an aspect at a particular join point. Different types of advice include “around”, “before” and “after” advice
 https://www.baeldung.com/spring-aop-pointcut-tutorial
 
 ## Part 2 - Spring Boot
