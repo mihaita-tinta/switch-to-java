@@ -144,7 +144,7 @@ so that we can boostrap our application with one line of code
 
 * CarPoolingApiApplicationTests - as a good developer, you need to test your code and Spring Boot creates this class for you.
 
-* We will focus today on domain objects, repositories and services (business logic)
+* We will focus today on domain objects, repositories and services (business logic). Starting next week we will focus on the REST part
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/rest.PNG)
 
