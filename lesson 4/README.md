@@ -130,8 +130,15 @@ Open the project in your favorite IDE. There are several things generated for us
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/pom.PNG)
 
-* application.properties (Available options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
-	You may need to install the Spring Assistant plugin:
+* application.properties - this is where the application looks for configuration properties. (But this is not the only place, for example
+in an microservices environment the application could search the properties from a remote location - using the Spring Config Client)
+Long story short the available options can be found here: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+You may need to install the Spring Assistant plugin to have autocomplete for different properties:
+	
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/intellij-spring-assistant.PNG)
 
+
+### Database access
+
+#### The first 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/schema.PNG)
