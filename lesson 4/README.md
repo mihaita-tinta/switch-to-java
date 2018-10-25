@@ -152,4 +152,16 @@ Our domain entities are represented in the diagram below:
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/schema.PNG)
 
-We need to create repositories for every entity
+We need to create:
+
+* The entities with all the annotations to represent the relation between them
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car.PNG)
+
+* The repositories
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo.PNG)
+
+and the tests
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo-test.PNG)
