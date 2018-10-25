@@ -140,6 +140,10 @@ You may need to install the Spring Assistant plugin to have autocomplete for dif
 * CarPoolingApiApplication.java - this is the main class. Until now we had to manually create the ApplicationContext. Spring Boot has this out-of-the box solution
 so that we can boostrap our application with one line of code
 
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/main-class.PNG)
+
+* CarPoolingApiApplicationTests - as a good developer, you need to test your code and Spring Boot creates this class for you.
+
 ### Database access
 
 #### The first 
