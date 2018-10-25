@@ -165,3 +165,18 @@ We need to create:
 and the tests. We will explore the CrudRepository methods to understand how spring data helps us.
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo-test.PNG)
+
+
+### Business logic
+
+For our MVP, we have some basic features we need to develop:
+
+* Create users.
+* An user can enroll as a driver and/or Passenger
+* The drivers can create rides
+* A ride starts from Location A and ends to Location B and a given time
+* The ride has a status and only the driver should change it
+* Any passenger can create a RideRequest to join a ride
+* The driver of a given car can approve or reject a RideRequest. When all the seats are booked no more requests can be approved.
+* No other RideRequests can be created for a ride without any free seat.
+* After the ride started or moved from status Pending, new passengers can't request to join
