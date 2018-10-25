@@ -147,6 +147,7 @@ so that we can boostrap our application with one line of code
 * We will focus today on domain objects, repositories and services (business logic)
 
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/rest.PNG)
+
 (Diagram was taken from: https://dzone.com/articles/creating-a-rest-api-with-java-and-spring)
 
 ### Database access
