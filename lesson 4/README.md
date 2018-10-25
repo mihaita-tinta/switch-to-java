@@ -137,6 +137,8 @@ You may need to install the Spring Assistant plugin to have autocomplete for dif
 	
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/intellij-spring-assistant.PNG)
 
+* CarPoolingApiApplication.java - this is the main class. Until now we had to manually create the ApplicationContext. Spring Boot has this out-of-the box solution
+so that we can boostrap our application with one line of code
 
 ### Database access
 
