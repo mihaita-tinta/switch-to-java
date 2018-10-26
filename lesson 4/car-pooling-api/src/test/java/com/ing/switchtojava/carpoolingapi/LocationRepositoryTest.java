@@ -26,7 +26,7 @@ public class LocationRepositoryTest {
         location.setAddress("aleea lacul morii nr. 4");
         location.setCity("Bucuresti");
         location.setZip("123-123");
-        Location dbLocation = repository.save(location);
+        Location dbLocation = repository.saveAndFlush(location);
         Assert.assertNotNull(dbLocation.getId());
     }
 
