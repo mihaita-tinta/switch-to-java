@@ -3,6 +3,7 @@ package com.ing.switchtojava.carpoolingapi.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Location {
@@ -10,19 +11,25 @@ public class Location {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private double latitude;
+    @NotNull
     private double longitude;
+    @NotNull
     private String address;
+    @NotNull
     private String city;
+    @NotNull
     private String state;
+    @NotNull
     private String zip;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public double getLatitude() {

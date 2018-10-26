@@ -42,14 +42,20 @@ public class CarPoolingApiApplication {
 	CommandLineRunner onStartup() {
 		return args -> {
 			Location a = new Location();
-			a.setAddress("aleea lacul morii nr. 4");
+			a.setLatitude(44.4513003);
+			a.setLongitude(26.0415585);
+			a.setAddress("Crangasi");
 			a.setCity("Bucuresti");
 			a.setZip("123-123");
+			a.setState("B");
 			locationRepository.save(a);
 
 			Location b = new Location();
-			b.setAddress("aleea lacul morii nr. 10");
+			b.setLatitude(44.4581351);
+			b.setLongitude(26.0542499);
+			b.setAddress("Arcul de Triumf");
 			b.setCity("Bucuresti");
+			b.setState("B");
 			b.setZip("123-125");
 			locationRepository.save(b);
 

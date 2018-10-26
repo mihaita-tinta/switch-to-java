@@ -39,13 +39,23 @@ You can map endpoints (URLs) to methods using the **@RequestMapping** annotation
 
 Path params are defined like this:
 ```java
-@GetMapping("/{id}")
-public MyResource getMyResource(@PathVariable Long id)
+@GetMapping("{id}")
+public Location findById(@PathVariable Long id) {
+	return repository.findById(id)
+			.orElseThrow(() -> new LocationNotFoundException());
+}
 ```
 
 Query params are defined with the **@RequestParam** annotation.
 
 Body params are defined with the  **@RequestBody** annotation.
+
+```java
+@PutMapping
+public Location save(@RequestBody Location location) {
+	return repository.save(location);
+}
+```
 
 ### Parameter validation
 
@@ -62,3 +72,6 @@ You can use the various annotations from the *javax.validation.constraints* pack
 
 In order to apply the validations in a rest controller you have to decorate the parameters with the *@Valid* annotation.
 
+```sh
+curl -X PUT -H "Content-Type: application/json" -d '{"address":"Crangasi"}' "http://localhost:8080/locations/"
+```
