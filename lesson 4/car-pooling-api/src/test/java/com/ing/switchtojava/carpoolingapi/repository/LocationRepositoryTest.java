@@ -23,9 +23,12 @@ public class LocationRepositoryTest {
     public void test() {
 
         Location location = new Location();
+        location.setLatitude(44.4513003);
+        location.setLongitude(26.0415585);
         location.setAddress("aleea lacul morii nr. 4");
         location.setCity("Bucuresti");
         location.setZip("123-123");
+        location.setState("B");
         Location dbLocation = repository.saveAndFlush(location);
         Assert.assertNotNull(dbLocation.getId());
     }
@@ -34,9 +37,12 @@ public class LocationRepositoryTest {
     public void testFind() {
 
         Location location = new Location();
-        location.setAddress("aleea lacul morii nr. 4");
+        location.setLatitude(44.4513003);
+        location.setLongitude(26.0415585);
+        location.setAddress("Crangasi");
         location.setCity("Bucuresti");
         location.setZip("123-123");
+        location.setState("B");
         Location dbLocation = repository.save(location);
 
         Optional<Location> fromFind = repository.findById(dbLocation.getId());
