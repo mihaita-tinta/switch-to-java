@@ -7,10 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class CarPoolingApiApplication {
-	private static final Logger log = LoggerFactory.getLogger(CarPoolingApiApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(CarPoolingApiApplication.class);
 
-	public static void main(String[] args) {
+
+    public static void main(String[] args) {
         log.debug("main - start");
-		SpringApplication.run(CarPoolingApiApplication.class, args);
-	}
+        SpringApplication.run(CarPoolingApiApplication.class, args);
+    }
 }

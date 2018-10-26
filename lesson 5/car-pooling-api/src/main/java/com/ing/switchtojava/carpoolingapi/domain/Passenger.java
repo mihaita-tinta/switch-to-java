@@ -1,27 +1,17 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-public class Driver {
+public class Passenger {
 
     @Id
     @GeneratedValue
     private Long id;
     private String firstName;
     private String lastName;
-
-    @OneToMany
-    private List<Car> cars;
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
 
     public Long getId() {
         return id;
@@ -47,12 +37,4 @@ public class Driver {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "Driver{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }
