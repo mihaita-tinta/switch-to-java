@@ -72,6 +72,78 @@ You can use the various annotations from the *javax.validation.constraints* pack
 
 In order to apply the validations in a rest controller you have to decorate the parameters with the *@Valid* annotation.
 
+```java
+@PutMapping
+public Location save(@Valid @RequestBody Location location) {
+	return repository.save(location);
+}
+```
+
+We need to add our validation annotations in the domain class
+
+```java
+@Entity
+public class Location {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @NotNull
+    private double latitude;
+    @NotNull
+    private double longitude;
+    @NotNull
+    private String address;
+    @NotNull
+    private String city;
+    @NotNull
+    private String state;
+    @NotNull
+    private String zip;
+	// ... getter and setters
+}
+```
+
+After we start the application, we can send a request
+
 ```sh
-curl -X PUT -H "Content-Type: application/json" -d '{"address":"Crangasi"}' "http://localhost:8080/locations/"
+curl -X PUT -H "Content-Type: application/json" -d '{"address":"Crangasi", "city":"Bucuresti", "zip":"123-123"}' "http://localhost:8080/locations/"
+```
+
+We get in return a Bad Request status
+```json
+{
+   "timestamp":"2018-10-26T07:17:27.759+0000",
+   "status":400,
+   "error":"Bad Request",
+   "errors":[
+      {
+         "codes":[
+            "NotNull.location.state",
+            "NotNull.state",
+            "NotNull.java.lang.String",
+            "NotNull"
+         ],
+         "arguments":[
+            {
+               "codes":[
+                  "location.state",
+                  "state"
+               ],
+               "arguments":null,
+               "defaultMessage":"state",
+               "code":"state"
+            }
+         ],
+         "defaultMessage":"must not be null",
+         "objectName":"location",
+         "field":"state",
+         "rejectedValue":null,
+         "bindingFailure":false,
+         "code":"NotNull"
+      }
+   ],
+   "message":"Validation failed for object='location'. Error count: 1",
+   "path":"/locations/"
+}
 ```
