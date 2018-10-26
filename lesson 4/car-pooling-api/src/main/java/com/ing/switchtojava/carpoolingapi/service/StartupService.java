@@ -9,8 +9,7 @@ import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
@@ -18,6 +17,7 @@ import java.time.ZonedDateTime;
 import static java.util.Arrays.asList;
 
 @Service
+@ConditionalOnProperty(value = "carpooling.database.sampleData.enable", matchIfMissing = true)
 public class StartupService implements CommandLineRunner {
     @Autowired
     RideService rideService;

@@ -154,7 +154,7 @@ independent from database
 ```java
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class LocationRestTest {
+public class LocationControllerMockTest {
 
     @Autowired
     private MockMvc mvc;
@@ -178,10 +178,64 @@ public class LocationRestTest {
         mvc.perform(MockMvcRequestBuilders.get("/locations/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("[{\"id\":1,\"latitude\":44.4513003,\"longitude\":26.0415585,\"address\":\"Crangasi\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123-123\"}]"))
+                .andExpect(MockMvcResultMatchers.content()
+                                        .string("[{" +
+                                        "\"id\":1," +
+                                        "\"latitude\":44.4513003," +
+                                        "\"longitude\":26.0415585," +
+                                        "\"address\":\"Crangasi\"," +
+                                        "\"city\":\"Bucuresti\"," +
+                                        "\"state\":\"B\"," +
+                                        "\"zip\":\"123-123\"" +
+                                        "}]"))
                 .andDo(MockMvcResultHandlers.print());
 
         Mockito.verify(repository).findAll();
+    }
+}
+```
+
+The same scenario we can test by using the real repository
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class LocationControllerIntegrationTest {
+
+    @Autowired
+    private MockMvc mvc;
+
+    @Sql("/location.sql")
+    @Test
+    public void getLocations() throws Exception {
+
+        mvc.perform(MockMvcRequestBuilders.get("/locations/")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                        .string("[" +
+                                "{" +
+                                "\"id\":1," +
+                                "\"latitude\":11.11," +
+                                "\"longitude\":12.12," +
+                                "\"address\":\"loc1 \"," +
+                                "\"city\":\"buc\"," +
+                                "\"state\":\"B\"," +
+                                "\"zip\":\"123\"" +
+                                "}," +
+                                "{" +
+                                "\"id\":2," +
+                                "\"latitude\":13.13," +
+                                "\"longitude\":14.14," +
+                                "\"address\":\"loc2 \"," +
+                                "\"city\":\"buc\"," +
+                                "\"state\":\"B\"," +
+                                "\"zip\":\"124\"" +
+                                "}" +
+                                "]"))
+                .andDo(MockMvcResultHandlers.print());
+
     }
 }
 ```
