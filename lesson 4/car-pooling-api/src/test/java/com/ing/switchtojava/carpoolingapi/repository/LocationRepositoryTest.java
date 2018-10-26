@@ -1,4 +1,4 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Location;

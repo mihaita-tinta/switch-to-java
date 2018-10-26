@@ -147,3 +147,41 @@ We get in return a Bad Request status
    "path":"/locations/"
 }
 ```
+
+We can test our *LocationController* with the *MockMvc* class. We are using Mockito to create Mock Spring Beans for our dependencies. This makes our tests
+independent from database
+
+```java
+@RunWith(SpringRunner.class)
+@WebMvcTest
+public class LocationRestTest {
+
+    @Autowired
+    private MockMvc mvc;
+
+    @MockBean
+    LocationRepository repository;
+
+    @Test
+    public void getLocations() throws Exception {
+        Location a = new Location();
+        a.setId(1L);
+        a.setLatitude(44.4513003);
+        a.setLongitude(26.0415585);
+        a.setAddress("Crangasi");
+        a.setCity("Bucuresti");
+        a.setZip("123-123");
+        a.setState("B");
+        Mockito.when(repository.findAll())
+                .thenReturn(asList(a));
+
+        mvc.perform(MockMvcRequestBuilders.get("/locations/")
+                                            .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("[{\"id\":1,\"latitude\":44.4513003,\"longitude\":26.0415585,\"address\":\"Crangasi\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123-123\"}]"))
+                .andDo(MockMvcResultHandlers.print());
+
+        Mockito.verify(repository).findAll();
+    }
+}
+```
