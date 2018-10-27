@@ -98,7 +98,7 @@ Some things you need to know:
 	@within() - join points where the type has the given annotation
 	@annotation() - join points where the subject has the given annotation
 * Aspect is the first class citizen in Aspect Oriented Programming, it is a modularization of a concern that cuts across multiple classes
-* Advice represents the action taken by an aspect at a particular join point. Different types of advice include “around”, “before” and “after” advice
+* Advice represents the a+ction taken by an aspect at a particular join point. Different types of advice include “around”, “before” and “after” advice
 https://www.baeldung.com/spring-aop-pointcut-tutorial
 
 ## Part 2 - Spring Boot
@@ -126,7 +126,63 @@ Bootstrap a new Spring Boot project: https://start.spring.io/
 
 Open the project in your favorite IDE. There are several things generated for us. We will go over each. 
 
-* application.properties (Available options: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
-	You may need to install the Spring Assistant plugin:
+* pom.xml - as you know by know, here we describe our project.
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/pom.PNG)
+
+* application.properties - this is where the application looks for configuration properties. (But this is not the only place, for example
+in an microservices environment the application could search the properties from a remote location - using the Spring Config Client)
+Long story short the available options can be found here: https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
+You may need to install the Spring Assistant plugin to have autocomplete for different properties:
+	
 ![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/intellij-spring-assistant.PNG)
 
+* CarPoolingApiApplication.java - this is the main class. Until now we had to manually create the ApplicationContext. Spring Boot has this out-of-the box solution
+so that we can boostrap our application with one line of code
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/main-class.PNG)
+
+* CarPoolingApiApplicationTests - as a good developer, you need to test your code and Spring Boot creates this class for you.
+
+* We will focus today on domain objects, repositories and services (business logic). Starting next week we will focus on the REST part
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/rest.PNG)
+
+(Diagram was taken from: https://dzone.com/articles/creating-a-rest-api-with-java-and-spring)
+
+### Database access
+
+#### Domain 
+
+Our domain entities are represented in the diagram below:
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/schema.PNG)
+
+We need to create:
+
+* The entities with all the annotations to represent the relation between them
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car.PNG)
+
+* The repositories
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo.PNG)
+
+and the tests. We will explore the CrudRepository methods to understand how spring data helps us.
+
+![plugin](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%204/images/car-repo-test.PNG)
+
+
+### Business logic
+
+For our MVP, we have some basic features we need to develop:
+
+* Create users.
+* An user can enroll as a driver and/or Passenger
+* The drivers can create rides
+* A ride starts from Location A and ends to Location B and a given time
+* The ride has a status and only the driver should change it
+* Any passenger can create a RideRequest to join a ride
+* The driver of a given car can approve or reject a RideRequest. When all the seats are booked no more requests can be approved.
+* No other RideRequests can be created for a ride without any free seat.
+* After the ride started or moved from status Pending, new passengers can't request to join
