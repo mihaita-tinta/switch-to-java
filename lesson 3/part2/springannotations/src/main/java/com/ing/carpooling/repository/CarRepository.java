@@ -58,6 +58,7 @@ public class CarRepository implements CrudRepository<Car, Long> {
     @Override
     public Car save(Car car) {
         if (car.getId() == null) {
+            System.out.println("Am intrat pe if");
             KeyHolder holder = new GeneratedKeyHolder();
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("number", car.getNumber())
@@ -68,12 +69,15 @@ public class CarRepository implements CrudRepository<Car, Long> {
             car.setId(holder.getKey().longValue());
         }
         else{
+            System.out.println("Am intrat pe else");
             SqlParameterSource parameters = new MapSqlParameterSource()
+                    .addValue("id",car.getId())
                     .addValue("number",car.getNumber())
                     .addValue("seats",car.getSeats())
                     .addValue("driverId",car.getDriverId());
-            namedJdbcTemplate.update("update car set number = :number, seats = :seats, driverId = :driverId)\n" +
-                    " where id =:id", parameters);
+            namedJdbcTemplate.update("UPDATE car SET number = :number, seats = :seats, driverId = :driverId\n" +
+                    " WHERE id =:id", parameters);
+
         }
         return car;
     }
@@ -112,4 +116,6 @@ public class CarRepository implements CrudRepository<Car, Long> {
                 .addValue("id", id);
         namedJdbcTemplate.update("delete from car where id = :id", parameters);
     }
+
+
 }

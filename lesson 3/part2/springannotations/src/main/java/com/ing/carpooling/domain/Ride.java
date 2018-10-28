@@ -5,12 +5,15 @@ import java.util.List;
 
 public class Ride {
 
+    private Long id;
     private Location from;
     private Location to;
     private ZonedDateTime when;
     private Car car;
     private Status status;
+
     private List<Passenger> passengers;
+
 
     public Location getFrom() {
         return from;
@@ -59,6 +62,15 @@ public class Ride {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public static enum Status {
         PENDING,

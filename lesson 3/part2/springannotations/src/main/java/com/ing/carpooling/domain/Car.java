@@ -36,4 +36,14 @@ public class Car {
 
     public void setDriverId(Long driverId) {
         this.driverId = driverId; }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", seats=" + seats +
+                ", driverId=" + driverId +
+                '}';
+    }
 }

@@ -5,6 +5,7 @@ public class Passenger {
         private Long id;
         private String firstName;
         private String lastName;
+        private Long rideId;
 
         public Long getId() {
             return id;
@@ -29,4 +30,21 @@ public class Passenger {
             this.lastName = lastName;
         }
 
+    public Long getRideId() {
+        return rideId;
+    }
+
+    public void setRideId(Long rideId) {
+        this.rideId = rideId;
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", rideId'" + rideId + '\'' +
+                '}';
+    }
 }
