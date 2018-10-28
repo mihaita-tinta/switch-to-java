@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import com.ing.carpooling.repository.CarRepository;
+import com.ing.carpooling.repository.DriverRepository;
 import com.ing.carpooling.repository.LocationRepository;
+import com.ing.carpooling.repository.PassengerRepository;
 import com.ing.carpooling.repository.RideRepository;
 
 @Configuration
@@ -24,6 +26,16 @@ public class RepositoryConfig {
     @Bean
     public CarRepository carRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         return new CarRepository(namedParameterJdbcTemplate);
+    }
+
+    @Bean
+    public DriverRepository driverRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate, CarRepository carRepository) {
+        return new DriverRepository(namedParameterJdbcTemplate, carRepository);
+    }
+
+    @Bean
+    public PassengerRepository passengerRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        return new PassengerRepository(namedParameterJdbcTemplate);
     }
 
     @Bean

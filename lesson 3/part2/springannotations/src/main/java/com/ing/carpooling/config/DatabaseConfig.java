@@ -53,6 +53,7 @@ public class DatabaseConfig {
         jdbcTemplate.update(PassengerRepository.CREATE_TABLE);
         jdbcTemplate.update(RideRepository.CREATE_TABLE);
         jdbcTemplate.update(RideRequestRepository.CREATE_TABLE);
+        jdbcTemplate.update(DriverRepository.CREATE_TABLE_DRIVER_CAR);
         // TODO 0 here you need to add your create table statements
 
         log.info("initSchema - completed");

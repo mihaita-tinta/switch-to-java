@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lesson 1/jsonparser/src/main/main.iml" filepath="$PROJECT_DIR$/lesson 1/jsonparser/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 4/car-pooling-api/src/main/main1.iml" filepath="$PROJECT_DIR$/lesson 4/car-pooling-api/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 2/part2/src/main/main2.iml" filepath="$PROJECT_DIR$/lesson 2/part2/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 3/part2/springannotations/src/main/main3.iml" filepath="$PROJECT_DIR$/lesson 3/part2/springannotations/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 4/spring-transactions/src/main/main4.iml" filepath="$PROJECT_DIR$/lesson 4/spring-transactions/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 1/lesson1/src/main/main5.iml" filepath="$PROJECT_DIR$/lesson 1/lesson1/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 2/part1/src/main/main6.iml" filepath="$PROJECT_DIR$/lesson 2/part1/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 4/spring-transactions/src/test/test.iml" filepath="$PROJECT_DIR$/lesson 4/spring-transactions/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 1/lesson1/src/test/test1.iml" filepath="$PROJECT_DIR$/lesson 1/lesson1/src/test/test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 2/part1/src/test/test2.iml" filepath="$PROJECT_DIR$/lesson 2/part1/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 3/part2/springannotations/src/test/test3.iml" filepath="$PROJECT_DIR$/lesson 3/part2/springannotations/src/test/test3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 2/part2/src/test/test4.iml" filepath="$PROJECT_DIR$/lesson 2/part2/src/test/test4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 4/car-pooling-api/src/test/test5.iml" filepath="$PROJECT_DIR$/lesson 4/car-pooling-api/src/test/test5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson 1/jsonparser/src/test/test6.iml" filepath="$PROJECT_DIR$/lesson 1/jsonparser/src/test/test6.iml" />
+    </modules>
+  </component>
+</project>

@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 public class PassengerRepository extends Repository implements CrudRepository<Passenger, Long> {
 
-    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS CAR ( \n" +
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS PASSENGER ( \n" +
         "   ID INT NOT NULL auto_increment, \n" +
         "   FIRST_NAME VARCHAR(50) NOT NULL,\n" +
         "   LAST_NAME VARCHAR(50) NOT NULL, \n" +

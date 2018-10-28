@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="h2-1.4.1961">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lesson 4/spring-transactions/libs/h2-1.4.196.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

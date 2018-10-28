@@ -44,7 +44,6 @@ public class Lesson_3_0_ApplicationContextTest {
 
         String applicationName = context.getBean("applicationName", String.class);
 
-        // TODO 0 what is the correct value?
         assertEquals("springApplication", applicationName);
 
     }
@@ -63,9 +62,7 @@ public class Lesson_3_0_ApplicationContextTest {
     public void testApplicationContext_getBeanByType() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyFirstSpringApplication2.class);
 
-        // TODO 1 NoUniqueBeanDefinitionException is thrown in the situation below.
-        // FIXME Explore the methods from BeanFactory. Is there at least one that could help us?
-        String applicationName = context.getBean(String.class);
+        String applicationName = context.getBeansOfType(String.class).get("applicationName1");
 
         assertEquals("springApplication1", applicationName);
     }
@@ -93,50 +90,30 @@ public class Lesson_3_0_ApplicationContextTest {
 
     }
 
-    @Configuration
-    public static class MyFirstSpringApplication3 {
+    @Test
+    public void testApplicationContext_applicationListener() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyFirstSpringApplication4.class);
+        InMemoryApplicationListener applicationListener = context.getBean(InMemoryApplicationListener.class);
+        // TODO 4 what can we call on the context instance so that we receive also the shutdown event;
 
-        @Bean
-        public String applicationName() {
-            return "springApplication";
-        }
+        context.close();
+        assertEquals(2, applicationListener.getEvents().size());
+        // TODO 4 how can we tell the context to be sure it closes when the jvm stops?
 
-        @Bean
-        public MySpringBean mySpringBean() {
-            MySpringBean bean = new MySpringBean();
-            bean.value = applicationName();
-            return bean;
-        }
-
-        @Bean
-        public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
-            return new BeanFactoryPostProcessor() {
-                @Override
-                public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
-                    log.info("postProcessBeanFactory - {} beans found", configurableListableBeanFactory.getBeanDefinitionCount());
-                    configurableListableBeanFactory.getBeanNamesIterator()
-                            .forEachRemaining(beanName -> log.info("postProcessBeanFactory - found {} ", beanName));
-                    // TODO 3 we need the value from the MySpringBean to be uppercase so that the test will pass
-
-                }
-            };
-        }
     }
 
     static class MySpringBean {
         String value;
     }
 
-
-
     @Test
-    public void testApplicationContext_applicationListener() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyFirstSpringApplication4.class);
-        InMemoryApplicationListener applicationListener = context.getBean(InMemoryApplicationListener.class);
-        // TODO 4 what can we call on the context instance so that we receive also the shutdown event;
-        context.close();
-        assertEquals(2, applicationListener.getEvents().size());
-        // TODO 4 how can we tell the context to be sure it closes when the jvm stops?
+    public void testApplicationContext_beanEvents() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyFirstSpringApplication5.class);
+
+        WiseBean wiseBean = context.getBean(WiseBean.class);
+
+        // TODO 0 what is the correct value?
+        assertEquals(null, wiseBean.postCreatedValue);
 
     }
 
@@ -164,13 +141,19 @@ public class Lesson_3_0_ApplicationContextTest {
     }
 
     @Test
-    public void testApplicationContext_beanEvents() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyFirstSpringApplication5.class);
+    public void testApplicationContext_profiles() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
-        WiseBean wiseBean = context.getBean(WiseBean.class);
+        ConfigurableEnvironment environment = new StandardEnvironment();
+        environment.addActiveProfile("prod");
+        context.setEnvironment(environment);
 
+        context.register(
+            MyFirstSpringApplication9.class,
+            MyFirstSpringApplication10.class);
+        context.refresh();
         // TODO 0 what is the correct value?
-        assertEquals("afterConstructor", wiseBean.postCreatedValue);
+        assertEquals("prod", context.getBean("profileDependentBean"));
 
     }
 
@@ -292,22 +275,30 @@ public class Lesson_3_0_ApplicationContextTest {
         String developer;
     }
 
+    @Configuration
+    public static class MyFirstSpringApplication3 {
 
-    @Test
-    public void testApplicationContext_profiles() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        @Bean
+        public String applicationName() {
+            return "springApplication";
+        }
 
-        ConfigurableEnvironment environment = new StandardEnvironment();
-        environment.addActiveProfile("prod");
-        context.setEnvironment(environment);
+        @Bean
+        public MySpringBean mySpringBean() {
+            MySpringBean bean = new MySpringBean();
+            bean.value = applicationName();
+            return bean;
+        }
 
-        context.register(
-                MyFirstSpringApplication9.class,
-                MyFirstSpringApplication10.class);
-        context.refresh();
-        // TODO 0 what is the correct value?
-        assertEquals("dev", context.getBean("profileDependentBean"));
+        @Bean
+        public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
+            return configurableListableBeanFactory -> {
+                log.info("postProcessBeanFactory - {} beans found", configurableListableBeanFactory.getBeanDefinitionCount());
+                String asd = configurableListableBeanFactory.getBean("applicationName", String.class);
+                asd.toUpperCase();
 
+            };
+        }
     }
 
     @Configuration
