@@ -24,11 +24,8 @@ public class RideRequestRepository implements CrudRepository<RideRequest, Long> 
             "id INT NOT NULL auto_increment, \n" +
             "id_passenger INT NOT NULL, \n" +
             "id_ride INT NOT NULL , \n" +
-            "status VARCHAR(50) NOT NULL, \n" +
+            "status ENUM('PENDING', 'ACCEPTED', 'REJECTED', 'CANCELED') NOT NULL, \n" +
             ");";
-    //need to create other table for enumerations
-    //https://stackoverflow.com/questions/40879835/inserting-enum-values-to-table-using-hibernate
-    //https://softwareengineering.stackexchange.com/questions/305148/why-would-you-store-an-enum-in-db
 
     private final RowMapper<RideRequest> mapper = new RowMapper<RideRequest>() {
         @Override
@@ -71,12 +68,13 @@ public class RideRequestRepository implements CrudRepository<RideRequest, Long> 
     public RideRequest save(RideRequest rideRequest) {
         if(rideRequest.getId() == null){
             KeyHolder holder = new GeneratedKeyHolder();
+            System.out.println("save id ride "+rideRequest.getRide().getId()+"  ##");
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("id_passenger", rideRequest.getPassenger().getId())
                     .addValue("id_ride", rideRequest.getRide().getId())
-                    .addValue("status",rideRequest.getStatus());
+                    .addValue("status",rideRequest.getStatus().toString());
             namedJdbcTemplate.update("insert into RIDEREQUEST (id_passenger, id_ride, status)"+
-                    "values (:id_passenger, :id_rider, :status)",parameters,holder);
+                    "values (:id_passenger, :id_ride, :status)",parameters,holder);
             rideRequest.setId(holder.getKey().longValue());
         }
         else{

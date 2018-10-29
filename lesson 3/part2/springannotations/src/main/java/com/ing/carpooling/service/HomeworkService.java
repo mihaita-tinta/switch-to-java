@@ -2,7 +2,7 @@ package com.ing.carpooling.service;
 
 
 import com.ing.carpooling.domain.*;
-import com.ing.carpooling.repository.LocationRepository;
+import com.ing.carpooling.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,20 @@ public class HomeworkService {
 
     private final RideService rideService;
     private final LocationRepository locationRepository;
+    private final DriverRepository driverRepository;
+    private final PassengerRepository passengerRepository;
+//    private final RideRepository rideRepository;
+//    private final RideRequestRepository rideRequestRepository;
 
 
-    public HomeworkService(RideService rideService, LocationRepository locationRepository) {
+    public HomeworkService(RideService rideService, LocationRepository locationRepository, DriverRepository driverRepository,
+                           PassengerRepository passengerRepository) {
         this.rideService = rideService;
         this.locationRepository = locationRepository;
+        this.driverRepository = driverRepository;
+        this.passengerRepository = passengerRepository;
+//        this.rideRepository = rideRepository;
+//        this.rideRequestRepository = rideRequestRepository;
     }
 
     @PostConstruct
@@ -55,24 +64,33 @@ public class HomeworkService {
     }
 
     private Passenger getPassengerJohn() {
-        // TODO 1 create first passenger
-        return null;
+        Passenger passenger = new Passenger();
+        passenger.setFirstName("John");
+        passenger.setLastName("John");
+        passengerRepository.save(passenger);
+        return passenger;
     }
 
     private Passenger getPassengerAlexa() {
         // TODO 1 create second passenger
-        return null;
+        Passenger passenger = new Passenger();
+        passenger.setFirstName("Alexa");
+        passenger.setLastName("Alexa");
+        passengerRepository.save(passenger);
+        return passenger;
     }
 
 
     private Driver getDriverWithCar() {
         // TODO 1 create car and driver
         Car car = new Car();
+        car.setDriverId(2l);
         car.setNumber("IL11OIS");
         Driver driver = new Driver();
         driver.setCars(Arrays.asList(car));
 
         if (driver.getId() == null || car.getId() == null) {
+            driverRepository.save(driver);
             // TODO 1 use the repositories to save the 2 instances
             log.info("getDriverWithCar - you need to create a car and a driver. You also need to build the relation between the 2 tables");
         }

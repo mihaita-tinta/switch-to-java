@@ -71,6 +71,18 @@ public class Ride {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Ride{" +
+                "id=" + id +
+                ", from=" + from +
+                ", to=" + to +
+                ", when=" + when +
+                ", car=" + car +
+                ", status=" + status +
+                ", passengers=" + passengers +
+                '}';
+    }
 
     public static enum Status {
         PENDING,

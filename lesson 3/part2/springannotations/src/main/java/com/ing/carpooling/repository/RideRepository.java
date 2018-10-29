@@ -17,7 +17,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import javax.swing.plaf.basic.BasicTreeUI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,11 +40,9 @@ public class RideRepository implements CrudRepository<Ride, Long> {
             "id_locationTo INT NOT NULL , \n" +
             "when TIMESTAMP WITH TIME ZONE , \n" +
             "id_car INT NOT NULL , \n" +
-            "status VARCHAR(50) NOT NULL, \n" +
+            "status ENUM('PENDING', 'IN_PROGRESS', 'COMPLETED', 'CANCELED') NOT NULL, \n" +
             ");";
-    //need to create other table for enumerations
-    //https://stackoverflow.com/questions/40879835/inserting-enum-values-to-table-using-hibernate
-    //https://softwareengineering.stackexchange.com/questions/305148/why-would-you-store-an-enum-in-db
+
 
     private final NamedParameterJdbcTemplate namedJdbcTemplate;
     private PassengerRepository passengerRepository;
@@ -73,7 +73,8 @@ public class RideRepository implements CrudRepository<Ride, Long> {
                     ride.setTo(locationTo.get());
                 }
 
-                ride.setWhen(ZonedDateTime.parse(rs.getString("when")));
+//              //ride.setWhen(ZonedDateTime.parse(rs.getString("when")));
+                ride.setWhen(OffsetDateTime.parse(rs.getString("when"), DateTimeFormatter.ofPattern ( "yyyy-MM-dd HH:mm:ss.SSSX" )).toZonedDateTime());
 
                 Optional<Car> car = carRepository.findOne(rs.getLong("id_car"));
                 if(car.isPresent()){
@@ -101,7 +102,7 @@ public class RideRepository implements CrudRepository<Ride, Long> {
             SqlParameterSource parameters = new MapSqlParameterSource()
                     .addValue("id_locationFrom",ride.getFrom().getId())
                     .addValue("id_locationTo",ride.getTo().getId())
-                    .addValue("when",ride.getWhen())
+                    .addValue("when",ride.getWhen().toOffsetDateTime())
                     .addValue("id_car",ride.getCar().getId())
                     .addValue("status",ride.getStatus().toString()); //SasASasdsada
 

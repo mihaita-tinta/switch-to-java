@@ -1,0 +1,2 @@
+insert into location (address, city, latitude, longitude, state, zip, id) values ('loc1 ', 'buc', 11.11, 12.12, 'B', '123', 1);
+insert into location (address, city, latitude, longitude, state, zip, id) values ('loc2 ', 'buc', 13.13, 14.14, 'B', '124', 2);

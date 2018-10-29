@@ -39,6 +39,16 @@ public class RideRequest {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "RideRequest{" +
+                "id=" + id +
+                ", passenger=" + passenger +
+                ", ride=" + ride +
+                ", status=" + status +
+                '}';
+    }
+
     public static enum Status {
         PENDING,
         ACCEPTED,

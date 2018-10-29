@@ -1,6 +1,8 @@
 package com.ing.carpooling.repository;
 
 import com.ing.carpooling.domain.*;
+import com.ing.carpooling.service.HomeworkService;
+import com.ing.carpooling.service.RideService;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +11,7 @@ import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
+import java.util.Optional;
 
 public class AllClassesTest extends RepositoryIntegrationTest{
 
@@ -21,6 +24,7 @@ public class AllClassesTest extends RepositoryIntegrationTest{
     RideRepository rideRepository=context.getBean(RideRepository.class,passengerRepository,
             locationRepository,carRepository);
     RideRequestRepository rideRequestRepository = context.getBean(RideRequestRepository.class, rideRepository, passengerRepository);
+
 
     @Test
     public void testt(){
@@ -76,10 +80,23 @@ public class AllClassesTest extends RepositoryIntegrationTest{
         ride.setFrom(locationFrom);
         ride.setTo(locationTo);
         ride.setStatus(Ride.Status.COMPLETED);
-        //ride.setStatus(Ride.Status.valueOf("COMPLETED"));
-        //ride.setWhen(ZonedDateTime.now(ZoneId.of("UTC")));
+        ride.setWhen(ZonedDateTime.now());
         ride.setPassengers(Arrays.asList(passenger, passenger2));
         rideRepository.save(ride);
+
+        System.out.println(ride);
+
+        Optional<Ride> ridee = rideRepository.findOne(1L);
+
+        System.out.println(ridee);
+        RideRequest rideRequest = new RideRequest();
+        rideRequest.setRide(ride);
+        rideRequest.setPassenger(passenger);
+        rideRequest.setStatus(RideRequest.Status.PENDING);
+        System.out.println("ride request "+ rideRequest);
+        rideRequestRepository.save(rideRequest);
     }
+
+
 
 }

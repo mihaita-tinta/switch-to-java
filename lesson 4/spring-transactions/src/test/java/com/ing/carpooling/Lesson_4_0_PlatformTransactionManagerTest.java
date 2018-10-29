@@ -97,7 +97,6 @@ public class Lesson_4_0_PlatformTransactionManagerTest extends RepositoryIntegra
     @Test
     public void testTransactionTemplate() {
 
-
         transactionTemplate.execute(transactionStatus -> repository.save(getSomeLocation()));
 
         repository.findAll().forEach(l -> log.info(l.getAddress()));
