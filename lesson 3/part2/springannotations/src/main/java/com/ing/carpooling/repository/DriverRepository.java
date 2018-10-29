@@ -93,7 +93,7 @@ public class DriverRepository implements CrudRepository<Driver, Long> {
         SqlParameterSource parameter = new MapSqlParameterSource()
                 .addValue("id", id);
         try{
-            return Optional.ofNullable(
+            return Optional.of(
                     namedParameterJdbcTemplate.queryForObject("select * from DRIVER d join CAR c on c.idDriver = d.id where d.id = :id", parameter, mapper));
         }catch (EmptyResultDataAccessException e){
             log.info("DriverRepository -> findOne - id {} no Drive found", id);
