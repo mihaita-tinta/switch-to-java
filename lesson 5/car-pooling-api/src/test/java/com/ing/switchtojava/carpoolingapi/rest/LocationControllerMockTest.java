@@ -20,7 +20,7 @@ import static java.util.Arrays.asList;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class LocationRestTest {
+public class LocationControllerMockTest {
 
     @Autowired
     private MockMvc mvc;
@@ -44,7 +44,16 @@ public class LocationRestTest {
         mvc.perform(MockMvcRequestBuilders.get("/locations/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string("[{\"id\":1,\"latitude\":44.4513003,\"longitude\":26.0415585,\"address\":\"Crangasi\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123-123\"}]"))
+                .andExpect(MockMvcResultMatchers.content()
+                                        .string("[{" +
+                                        "\"id\":1," +
+                                        "\"latitude\":44.4513003," +
+                                        "\"longitude\":26.0415585," +
+                                        "\"address\":\"Crangasi\"," +
+                                        "\"city\":\"Bucuresti\"," +
+                                        "\"state\":\"B\"," +
+                                        "\"zip\":\"123-123\"" +
+                                        "}]"))
                 .andDo(MockMvcResultHandlers.print());
 
         Mockito.verify(repository).findAll();

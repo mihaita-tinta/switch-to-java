@@ -1,11 +1,8 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.domain.RideRequest;
-import com.ing.switchtojava.carpoolingapi.repository.PassengerRepository;
-import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
-import com.ing.switchtojava.carpoolingapi.repository.RideRequestRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

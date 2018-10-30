@@ -1,10 +1,7 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Car;
-import com.ing.switchtojava.carpoolingapi.domain.Location;
-import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
-import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +17,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

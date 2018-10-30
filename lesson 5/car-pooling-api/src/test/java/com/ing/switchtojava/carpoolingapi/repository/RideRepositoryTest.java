@@ -1,9 +1,7 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
-import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
-import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 

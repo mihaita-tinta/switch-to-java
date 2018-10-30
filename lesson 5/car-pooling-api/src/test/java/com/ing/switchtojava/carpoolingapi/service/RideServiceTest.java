@@ -1,9 +1,8 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.service;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
-import com.ing.switchtojava.carpoolingapi.service.RideService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

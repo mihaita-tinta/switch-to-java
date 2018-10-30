@@ -1,9 +1,7 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Passenger;
-import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
-import com.ing.switchtojava.carpoolingapi.repository.PassengerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
