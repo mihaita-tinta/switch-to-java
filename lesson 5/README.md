@@ -1,5 +1,5 @@
 # Switch to Java
-## Part 1 - Spring Web-MVC
+## Part 1 - Spring Web
 
 Official documentation: https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html
 
@@ -239,3 +239,122 @@ public class LocationControllerIntegrationTest {
     }
 }
 ```
+
+## Part 1 - Spring Security
+Official documentation: https://spring.io/guides/topicals/spring-security-architecture/
+
+### Context
+
+In many applications we need to deal with at least two problems:
+* Authentication - Who are you?
+* Authorization - What can you do?
+
+Spring Security has strategies and extension points for both:
+
+* *AuthenticationManager* can determine the Principal (Who are you?), throw an AuthenticationException or return null to let other managers to decide.
+
+```java
+public interface AuthenticationManager {
+
+  Authentication authenticate(Authentication authentication)
+    throws AuthenticationException;
+
+}
+```
+
+* *ProviderManager* is an implementation of *AuthenticationManager*. It delegates the authentication to a chain of *AuthenticationProvider*s.
+The *ProviderManager* has an optional parent that will be used if all authentication providers return null.
+
+```java
+public interface AuthenticationProvider {
+
+	Authentication authenticate(Authentication authentication)
+			throws AuthenticationException;
+
+	boolean supports(Class<?> authentication);
+
+}
+```
+
+* We can customize our authentication manager using the *AuthenticationManagerBuilder*
+
+```java
+@Configuration
+public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
+
+  @Autowired
+  DataSource dataSource;
+
+   ... // web stuff here
+
+  @Override
+  public configure(AuthenticationManagerBuilder builder) {
+    builder.jdbcAuthentication().dataSource(dataSource).withUser("dave")
+      .password("secret").roles("USER");
+  }
+
+}
+```
+
+* Once the authentication is successfully done, the core authorization strategy is used: *AccessDecisionManager* to decide the access control decision
+for the given parameters. All three implementations delegates to a chain of *AccessDecisionVoter*. Usually all voters should be *AffirmativeBased*
+
+```java
+public interface AccessDecisionManager{
+	boolean supports(ConfigAttribute attribute);
+
+	boolean supports(Class<?> clazz);
+
+	void decide(Authentication authentication, Object object,
+			Collection<ConfigAttribute> attributes);
+}
+```
+
+* *AccessDecisionVoter* can return a ACCESS_GRANTED, ACCESS_DENIED or ACCESS_ABSTAIN for the voting decision related to the given attributes
+ 
+```java
+public interface AccessDecisionVoter{
+	boolean supports(ConfigAttribute attribute);
+
+	boolean supports(Class<?> clazz);
+
+	int vote(Authentication authentication, S object,
+			Collection<ConfigAttribute> attributes);
+}
+```
+
+* In an web application, Spring Security is activated by the *FilterChainProxy* Filter. By default it applies to all requests and it has a default order.
+It is actually a *@Bean* named *springSecurityFilterChain*. It contains a list of filter chains an dispatches a request to the first chain that matched it.
+In Spring Boot there are some predefined filter chains to ignore static resources: css, images or error pages
+
+```java
+@Configuration
+@Order(SecurityProperties.BASIC_AUTH_ORDER - 10)
+public class ApplicationConfigurerAdapter extends WebSecurityConfigurerAdapter {
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.antMatcher("/foo/**")
+      .authorizeRequests()
+        .antMatchers("/foo/bar").hasRole("BAR")
+        .antMatchers("/foo/spam").hasRole("SPAM")
+        .anyRequest().isAuthenticated();
+  }
+}
+```
+
+* Method execution can be protected with access rules too. We need to add *@EnableGlobalMethodSecurity* in our Java Config.
+There are several annotations we can use: @PreAuthorize, @PostAuthorize, @Secured
+
+```java
+@Service
+public class MyService {
+
+  @Secured("ROLE_USER")
+  public String secure() {
+    return "Hello Security";
+  }
+
+}
+```
+
+Exercise: add @Secured("ROLE_USER") on a method annotated with @Async
