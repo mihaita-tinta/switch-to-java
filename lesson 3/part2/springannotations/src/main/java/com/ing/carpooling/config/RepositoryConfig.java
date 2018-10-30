@@ -24,8 +24,8 @@ public class RepositoryConfig {
     // TODO here you need to add your repository beans and modify if needed the declarations below
 
     @Bean
-    public CarRepository carRepository() {
-        return new CarRepository();
+    public CarRepository carRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        return new CarRepository(namedParameterJdbcTemplate);
     }
 
     @Bean

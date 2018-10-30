@@ -1,6 +1,7 @@
 package com.ing.switchtojava.serialization;
 
 import com.ing.switchtojava.domain.Car;
+import com.ing.switchtojava.domain.CarBuilder;
 import com.ing.switchtojava.domain.Driver;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +20,8 @@ public class DriverDeserializerTest {
         String driverJson   = "";
         // Create Car List
         List<Car> myCars    = new ArrayList<Car>();
-        myCars.add(Car.build().setId(1L).setNumber("B-10-ALX").setSeats(4));
+        CarBuilder carBuilder = new CarBuilder();
+        myCars.add(carBuilder.setId(1L).setNumber("B-10-ALX").setSeats(4).build());
         // Create Driver
         Driver driver1      = new Driver();
         driver1.setFirstName("Cosmin");
