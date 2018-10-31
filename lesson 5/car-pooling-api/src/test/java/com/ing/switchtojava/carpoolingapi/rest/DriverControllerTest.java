@@ -44,8 +44,6 @@ public class DriverControllerTest {
 
     @Test
     public void testSaveDriver() throws Exception {
-        // TODO 0 save driver
-
         mvc.perform(MockMvcRequestBuilders.put("/drivers/")
                 .content("{" +
                         "\"firstName\":\"Marcela\"," +
@@ -67,8 +65,6 @@ public class DriverControllerTest {
 
     @Test
     public void testFindCarsByDriver() throws Exception {
-        // TODO 0 cars for a driver.
-
         mvc.perform(MockMvcRequestBuilders.get("/drivers/1/cars")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -79,8 +75,6 @@ public class DriverControllerTest {
 
     @Test
     public void testSaveCarForADriver() throws Exception {
-        // TODO 0 cars for a driver.
-
         mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
                 .content("{\"carList\":[{" +
                         "\"number\":\"IL11ABC\"," +
