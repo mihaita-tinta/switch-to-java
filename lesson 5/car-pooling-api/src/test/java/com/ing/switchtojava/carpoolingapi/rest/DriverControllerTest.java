@@ -1,6 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.rest;
 
 
+import com.ing.switchtojava.carpoolingapi.domain.Driver;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,63 +16,58 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = "logging.level.org.springframework.web=DEBUG")
 @AutoConfigureMockMvc
 public class DriverControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
+
+
+    @Sql("/driver.sql")
     @Test
     public void testFindAll() throws Exception {
-        // TODO 0 list all drivers.
-
         mvc.perform(MockMvcRequestBuilders.get("/drivers/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[]"))
+                                        .string("[{\"id\":1,\"firstName\":\"Cosmin\",\"lastName\":\"Z\",\"cars\":[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     public void testSaveDriver() throws Exception {
         // TODO 0 save driver
-
         mvc.perform(MockMvcRequestBuilders.put("/drivers/")
                 .content("{" +
                         "\"firstName\":\"Marcela\"," +
                         "\"lastName\":\"Popescu\"" +
                         "}")
                 .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
+                .accept(MediaType.APPLICATION_JSON)
+        )
+
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("{" +
-                                "\"id\":1," +
-                                "\"firstName\":\"Marcela\"," +
-                                "\"lastName\":\"Popescu\"" +
-                                "}"))
+                        .string("{\"id\":1,\"firstName\":\"Marcela\",\"lastName\":\"Popescu\",\"cars\":null}"))
                 .andDo(MockMvcResultHandlers.print());
 
     }
+    @Sql("/driver.sql")
     @Test
     public void testFindCarsByDriver() throws Exception {
-        // TODO 0 cars for a driver.
-
-        mvc.perform(MockMvcRequestBuilders.get("/drivers/1/cars")
+        mvc.perform(MockMvcRequestBuilders.get("/drivers/cars/1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("[]"))
+                        .string("[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     public void testSaveCarForADriver() throws Exception {
-        // TODO 0 cars for a driver.
-
-        mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
+        mvc.perform(MockMvcRequestBuilders.put("/drivers/save_cars/1")
                 .content("{" +
                         "\"number\":\"IL11ABC\"," +
                         "\"seats\":2" +
