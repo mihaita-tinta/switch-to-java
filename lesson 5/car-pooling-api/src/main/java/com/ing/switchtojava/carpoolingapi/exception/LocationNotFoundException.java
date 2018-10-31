@@ -1,4 +1,4 @@
-package com.ing.switchtojava.carpoolingapi.rest;
+package com.ing.switchtojava.carpoolingapi.exception;
 
 public class LocationNotFoundException extends RuntimeException {
 }

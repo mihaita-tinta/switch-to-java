@@ -5,14 +5,14 @@ import com.ing.switchtojava.carpoolingapi.domain.Car;
 import java.util.List;
 
 public class CarListRequest {
-    private List<Car> carList;
+    private List<Car> cars;
 
     public List<Car> getCarList() {
-        return carList;
+        return cars;
     }
 
     public void setCarList(List<Car> carList) {
-        this.carList = carList;
+        this.cars = carList;
     }
 }
 

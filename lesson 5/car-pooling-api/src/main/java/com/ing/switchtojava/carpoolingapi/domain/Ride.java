@@ -1,5 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Ride {
     private List<Passenger> passengers;
 
     @OneToMany(mappedBy = "ride" )
+    @JsonBackReference
     private List<RideRequest> requests;
 
 

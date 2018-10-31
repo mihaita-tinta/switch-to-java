@@ -76,7 +76,7 @@ public class DriverControllerTest {
     @Test
     public void testSaveCarForADriver() throws Exception {
         mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
-                .content("{\"carList\":[{" +
+                .content("{\"cars\":[{" +
                         "\"number\":\"IL11ABC\"," +
                         "\"seats\":2" +
                         "}]}")

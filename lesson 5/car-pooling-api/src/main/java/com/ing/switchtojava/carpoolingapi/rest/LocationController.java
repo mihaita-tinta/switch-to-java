@@ -1,6 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.rest;
 
 import com.ing.switchtojava.carpoolingapi.domain.Location;
+import com.ing.switchtojava.carpoolingapi.exception.LocationNotFoundException;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,11 +35,5 @@ public class LocationController {
     @PutMapping
     public Location save(@Valid @RequestBody Location location) {
         return repository.save(location);
-    }
-
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public void handleLocationNotFound(LocationNotFoundException e) {
-        log.warn("handleLocationNotFound - " + e);
     }
 }
