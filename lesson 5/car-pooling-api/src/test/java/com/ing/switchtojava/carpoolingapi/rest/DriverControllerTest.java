@@ -15,13 +15,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = "logging.level.org.springframework.web=DEBUG")
 @AutoConfigureMockMvc
 public class DriverControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
+
+    @Sql("/driver.sql")
     @Test
     public void testFindAll() throws Exception {
         // TODO 0 list all drivers.
@@ -30,7 +32,13 @@ public class DriverControllerTest {
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[]"))
+                                        .string("[{" +
+                                                "\"id\":1," +
+                                                "\"firstName\":\"Cosmin\"," +
+                                                "\"lastName\":\"Z\"," +
+                                                "\"cars\":" +
+                                                "[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]" +
+                                                "}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
@@ -50,11 +58,13 @@ public class DriverControllerTest {
                         .string("{" +
                                 "\"id\":1," +
                                 "\"firstName\":\"Marcela\"," +
-                                "\"lastName\":\"Popescu\"" +
+                                "\"lastName\":\"Popescu\"," +
+                                "\"cars\":null" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
 
     }
+
     @Test
     public void testFindCarsByDriver() throws Exception {
         // TODO 0 cars for a driver.
@@ -72,19 +82,13 @@ public class DriverControllerTest {
         // TODO 0 cars for a driver.
 
         mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
-                .content("{" +
+                .content("{\"carList\":[{" +
                         "\"number\":\"IL11ABC\"," +
                         "\"seats\":2" +
-                        "}")
+                        "}]}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content()
-                        .string("{" +
-                                "\"id\":1," +
-                                "\"number\":\"IL11ABC\"," +
-                                "\"seats\":2" +
-                                "}"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound())
                 .andDo(MockMvcResultHandlers.print());
 
     }
