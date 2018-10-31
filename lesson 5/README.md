@@ -240,8 +240,10 @@ public class LocationControllerIntegrationTest {
 }
 ```
 
-## Part 1 - Spring Security
-Official documentation: https://spring.io/guides/topicals/spring-security-architecture/
+## Part 2 - Spring Security
+Official documentation:
+https://spring.io/guides/topicals/spring-security-architecture/
+https://spring.io/guides/gs/securing-web/
 
 ### Context
 
