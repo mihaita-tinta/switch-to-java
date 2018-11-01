@@ -1,15 +1,14 @@
 package com.ing.switchtojava.carpoolingapi.service;
 
-import com.ing.switchtojava.carpoolingapi.domain.Car;
-import com.ing.switchtojava.carpoolingapi.domain.Driver;
-import com.ing.switchtojava.carpoolingapi.domain.Location;
-import com.ing.switchtojava.carpoolingapi.domain.Ride;
+import com.ing.switchtojava.carpoolingapi.domain.*;
 import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
 import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
+import com.ing.switchtojava.carpoolingapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
@@ -31,9 +30,19 @@ public class StartupService implements CommandLineRunner {
     @Autowired
     CarRepository carRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
     @Override
     public void run(String... args) {
+
+        User user = new User();
+        user.setUsername("sandu");
+        user.setPassword(encoder.encode("123123"));
+
 
         Location a = new Location();
         a.setLatitude(44.4513003);

@@ -12,7 +12,6 @@ public class Driver {
     private Long id;
     @NotNull
     private String firstName;
-    @NotNull
     private String lastName;
 
     @OneToMany
