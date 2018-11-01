@@ -74,7 +74,6 @@ public class PassengerControllerTest {
     @Test
     @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     public void testListRequestsByPassenger() throws Exception {
-        // TODO 2 requests for a passenger.
 
         mvc.perform(MockMvcRequestBuilders.get("/passengers/1/ride-requests/")
                 .accept(MediaType.APPLICATION_JSON))
@@ -90,7 +89,7 @@ public class PassengerControllerTest {
                                         "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"loc1 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"123\"}," +
                                     "\"to\":" +
                                         "{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"loc2 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"124\"}," +
-                                    "\"when\":\"1970-01-01T23:29:46.123+02:00\"," +
+                                    "\"when\":\"2019-11-01T23:29:46.123+02:00\"," +
                                     "\"car\":" +
                                         "{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}," +
                                     "\"status\":\"PENDING\"," +
@@ -127,6 +126,14 @@ public class PassengerControllerTest {
     @Test
     public void testCancelRideRequest() throws Exception {
         // TODO 2 what should we do to cancel a ride request?
+        mvc.perform(MockMvcRequestBuilders.delete("/passengers/1/ride-requests/")
+                .content("{" +
+                        "\"rideId\":2" +
+                        "}")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print());
     }
 
 }

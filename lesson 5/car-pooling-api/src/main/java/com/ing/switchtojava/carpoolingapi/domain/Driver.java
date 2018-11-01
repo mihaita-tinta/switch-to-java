@@ -1,6 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -9,7 +10,9 @@ public class Driver {
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
 
     @OneToMany

@@ -1,6 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -18,6 +19,7 @@ public class Ride {
     @OneToOne
     private Location to;
 
+    @DateTimeFormat
     private ZonedDateTime when;
 
     @OneToOne
