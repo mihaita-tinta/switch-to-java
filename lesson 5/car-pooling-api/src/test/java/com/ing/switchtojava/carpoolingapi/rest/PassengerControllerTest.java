@@ -126,9 +126,9 @@ public class PassengerControllerTest {
     @Test
     public void testCancelRideRequest() throws Exception {
         // TODO 2 what should we do to cancel a ride request?
-        mvc.perform(MockMvcRequestBuilders.delete("/passengers/1/ride-requests/")
+        mvc.perform(MockMvcRequestBuilders.patch("/passengers/1/ride-requests/1")
                 .content("{" +
-                        "\"rideId\":2" +
+                        "\"status\":CANCELED" +
                         "}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
