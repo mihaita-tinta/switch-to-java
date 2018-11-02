@@ -1,23 +1,26 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
-public class User implements UserDetails{
+public class User {
     @Id
     @GeneratedValue
     private Long id;
+
     @NotNull
     private String username;
+
     @NotNull
     private String password;
+
+    @OneToMany
+    private List<UserRole> roles;
 
     public Long getId() {
         return id;
@@ -31,33 +34,16 @@ public class User implements UserDetails{
         return username;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<UserRole> roles) {
+        this.roles = roles;
     }
 
     public String getPassword() {
