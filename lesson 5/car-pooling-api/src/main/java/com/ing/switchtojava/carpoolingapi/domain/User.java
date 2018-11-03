@@ -1,22 +1,28 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class User implements UserDetails {
-    @GeneratedValue
+
     @Id
+    @GeneratedValue
     private Long id;
 
-
-    private String userName;
-    private String userPassword;
+    private String username;
+    private String password;
+    private String[] roles;
 
     public void setId(Long id)
     {
@@ -25,12 +31,22 @@ public class User implements UserDetails {
 
     public void setUserName(String userName)
     {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public void setUserPassword(String userPassword)
     {
-        this.userPassword = userPassword;
+        this.password = getPasswordEncoder().encode(userPassword);
+    }
+
+    public String[] getRoles()
+    {
+        return this.roles;
+    }
+
+    public void setRoles(String... roles)
+    {
+        this.roles = roles;
     }
 
     public Long getId(){
@@ -39,46 +55,58 @@ public class User implements UserDetails {
 
     public String getUserName()
     {
-        return userName;
+        return username;
     }
 
     public String getUserPassword(){
-        return  userPassword;
+        return  password;
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+        for (String role : roles) {
+            list.add(new SimpleGrantedAuthority( role));
+        }
+        return list;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
+
+    @Bean
+    public PasswordEncoder getPasswordEncoder()
+    {
+        return  new BCryptPasswordEncoder();
+    }
+    /*public enum UserRole{
+        USER, ADMIN;
+    }*/
 }

@@ -65,20 +65,21 @@ public class DriverControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    @Sql("/driver.sql")
     @Test
     public void testSaveCarForADriver() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.put("/drivers/save_cars/1")
-                .content("{" +
-                        "\"number\":\"IL11ABC\"," +
+        mvc.perform(MockMvcRequestBuilders.put("/drivers/save_car/1")
+                .content("[{" +
+                        "\"number\":\"IL11BBC\"," +
                         "\"seats\":2" +
-                        "}")
+                        "}]")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{" +
-                                "\"id\":1," +
-                                "\"number\":\"IL11ABC\"," +
+                                "\"id\":2," +
+                                "\"number\":\"IL11bBC\"," +
                                 "\"seats\":2" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());

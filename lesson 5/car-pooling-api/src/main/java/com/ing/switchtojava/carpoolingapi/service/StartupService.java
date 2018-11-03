@@ -1,9 +1,6 @@
 package com.ing.switchtojava.carpoolingapi.service;
 
-import com.ing.switchtojava.carpoolingapi.domain.Car;
-import com.ing.switchtojava.carpoolingapi.domain.Driver;
-import com.ing.switchtojava.carpoolingapi.domain.Location;
-import com.ing.switchtojava.carpoolingapi.domain.Ride;
+import com.ing.switchtojava.carpoolingapi.domain.*;
 import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
 import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
@@ -34,8 +31,7 @@ public class StartupService implements CommandLineRunner {
     CarRepository carRepository;
 
     @Autowired
-    UserService userService;
-
+    UserRepository userRepository;
 
     @Override
     public void run(String... args) {
@@ -72,6 +68,12 @@ public class StartupService implements CommandLineRunner {
         ride.setFrom(a);
         ride.setTo(b);
         ride.setWhen(ZonedDateTime.now());
+
+        User user = new User();
+        user.setUserName("Admin");
+        user.setUserPassword("Admin");
+        user.setRoles("ADMIN");
+        userRepository.save(user);
 
         rideService.save(ride);
 
