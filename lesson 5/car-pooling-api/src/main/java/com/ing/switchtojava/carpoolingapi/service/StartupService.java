@@ -7,9 +7,11 @@ import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
 import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
+import com.ing.switchtojava.carpoolingapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
@@ -30,6 +32,9 @@ public class StartupService implements CommandLineRunner {
 
     @Autowired
     CarRepository carRepository;
+
+    @Autowired
+    UserService userService;
 
 
     @Override
@@ -69,6 +74,7 @@ public class StartupService implements CommandLineRunner {
         ride.setWhen(ZonedDateTime.now());
 
         rideService.save(ride);
+
     }
 
 }
