@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = "logging.level.org.spring.framework.web=DEBUG")
 @AutoConfigureMockMvc
 public class DriverControllerTest {
 
@@ -23,6 +23,7 @@ public class DriverControllerTest {
     private MockMvc mvc;
 
     @Test
+    //@Sql("/driver.sql")
     public void testFindAll() throws Exception {
         // TODO 0 list all drivers.
 
@@ -38,10 +39,14 @@ public class DriverControllerTest {
     public void testSaveDriver() throws Exception {
         // TODO 0 save driver
 
-        mvc.perform(MockMvcRequestBuilders.put("/drivers/")
+        mvc.perform(MockMvcRequestBuilders.post("/drivers/")
                 .content("{" +
                         "\"firstName\":\"Marcela\"," +
-                        "\"lastName\":\"Popescu\"" +
+                        "\"lastName\":\"Popescu\"," +
+                        "\"cars\":\"[{" +
+                            "\"number\":\"B357WEB\"," +
+                            "\"seats\": 4" +
+                            "}]" +
                         "}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
@@ -50,7 +55,8 @@ public class DriverControllerTest {
                         .string("{" +
                                 "\"id\":1," +
                                 "\"firstName\":\"Marcela\"," +
-                                "\"lastName\":\"Popescu\"" +
+                                "\"lastName\":\"Popescu\"," +
+                                "\"cars\":null" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
 
