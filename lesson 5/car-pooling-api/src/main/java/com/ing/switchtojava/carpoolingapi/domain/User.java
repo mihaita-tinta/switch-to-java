@@ -16,6 +16,8 @@ import java.util.List;
 @Entity
 public class User implements UserDetails {
 
+    private static final String rolePrefix = "ROLE_";
+
     @Id
     @GeneratedValue
     private Long id;
@@ -64,11 +66,13 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         for (String role : roles) {
-            list.add(new SimpleGrantedAuthority( role));
+            grantedAuthorities.add(new SimpleGrantedAuthority(rolePrefix + role));
         }
-        return list;
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+        return grantedAuthorities;
     }
 
     @Override
@@ -106,7 +110,4 @@ public class User implements UserDetails {
     {
         return  new BCryptPasswordEncoder();
     }
-    /*public enum UserRole{
-        USER, ADMIN;
-    }*/
 }

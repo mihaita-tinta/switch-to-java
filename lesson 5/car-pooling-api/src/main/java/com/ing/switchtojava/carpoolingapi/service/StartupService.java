@@ -70,9 +70,15 @@ public class StartupService implements CommandLineRunner {
         ride.setWhen(ZonedDateTime.now());
 
         User user = new User();
-        user.setUserName("Admin");
-        user.setUserPassword("Admin");
+        user.setUserName("admin1");
+        user.setUserPassword("admin1");
         user.setRoles("ADMIN");
+        userRepository.save(user);
+
+        user = new User();
+        user.setUserName("user1");
+        user.setUserPassword("user1");
+        user.setRoles("USER");
         userRepository.save(user);
 
         rideService.save(ride);

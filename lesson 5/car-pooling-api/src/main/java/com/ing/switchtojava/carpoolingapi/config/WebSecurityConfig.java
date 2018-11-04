@@ -23,17 +23,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-        PasswordEncoder passwordEncoder = this.getPasswordEncoder();
-        /*auth
+        /*
+        auth
                 // enable in memory based authentication with a user named "user" and "admin"
                 .inMemoryAuthentication().withUser("user").
                 password(passwordEncoder.encode("user")).roles("USER")
-                .and().withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN")
-        .and().passwordEncoder(passwordEncoder);*/
+                .and().withUser("admin2").password(passwordEncoder.encode("admin2")).roles("USER", "ADMIN")
+        .and().passwordEncoder(passwordEncoder);
+        */
 
+        PasswordEncoder passwordEncoder = this.getPasswordEncoder();
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
-
     }
 
     @Bean
@@ -44,18 +44,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/h2-console").permitAll().anyRequest()
-                .hasRole("ADMIN").and()
-                // Possibly more configuration ...
-                .formLogin() // enable form based log in
-                // set permitAll for all URLs associated with Form Login
+        http.authorizeRequests().antMatchers("/h2-console")
+                .hasRole("ADMIN").anyRequest().authenticated().and()
+                .formLogin()
                 .permitAll();
 
-       // http.authorizeRequests().antMatchers("/locations").permitAll().anyRequest()
-         //       .hasRole("USER").and().formLogin().permitAll();
-
-
+         http.authorizeRequests().antMatchers("/locations")
+               .hasRole("USER").anyRequest().authenticated().and().formLogin().permitAll();
     }
-
-
 }
