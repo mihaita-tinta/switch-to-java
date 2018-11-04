@@ -48,15 +48,27 @@ public class CarRepository implements CrudRepository<Car, Long> {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
-
     @Override
     public Car save(Car instance) {
         if (instance.getId()==null) {
-            SqlParameterSource params = new MapSqlParameterSource();
             KeyHolder holder = new GeneratedKeyHolder();
-            ((MapSqlParameterSource) params).addValue("number", instance.getNumber());
-            ((MapSqlParameterSource) params).addValue("seats", instance.getSeats());
+            SqlParameterSource params = new MapSqlParameterSource()
+                    .addValue("number", instance.getNumber())
+                    .addValue("seats", instance.getSeats());
             namedParameterJdbcTemplate.update("insert into Car (number, seats) values (:number, :seats)", params, holder);
+            instance.setId(holder.getKey().longValue());
+        }
+        return instance;
+    }
+
+    public Car save(Car instance, Long driverId) {
+        if (instance.getId()==null) {
+            KeyHolder holder = new GeneratedKeyHolder();
+            SqlParameterSource params = new MapSqlParameterSource()
+                                            .addValue("driver_id", driverId)
+                                            .addValue("number", instance.getNumber())
+                                            .addValue("seats", instance.getSeats());
+            namedParameterJdbcTemplate.update("insert into Car (driver_id, number, seats) values (:driver_id, :number, :seats)", params, holder);
             instance.setId(holder.getKey().longValue());
         }
         return instance;
@@ -65,7 +77,13 @@ public class CarRepository implements CrudRepository<Car, Long> {
     @Override
     public List<Car> findAll() {
         log.info("findAll");
-        return namedParameterJdbcTemplate.query("select * from location", mapper);
+        return namedParameterJdbcTemplate.query("select * from Car", mapper);
+    }
+
+    public List<Car> findAllByDriver(Long driverId) {
+        log.info("Find all driver cars");
+        SqlParameterSource params = new MapSqlParameterSource().addValue(":driver_id", driverId);
+        return namedParameterJdbcTemplate.query("select * from Car where driver_id = :driver_id", params, mapper);
     }
 
     @Override
@@ -85,9 +103,20 @@ public class CarRepository implements CrudRepository<Car, Long> {
     public void delete(Long id) {
         SqlParameterSource params = new MapSqlParameterSource().addValue("id", id);
         try {
-            namedParameterJdbcTemplate.update("delete from car where id = :id", params);
+            namedParameterJdbcTemplate.update("delete from Car where id = :id", params);
         } catch (DataAccessException e) {
             log.info("Error::" + e.getMessage());
+        }
+    }
+
+    public void deleteByDriver(Long driverId) throws DataAccessException {
+
+        SqlParameterSource params = new MapSqlParameterSource().addValue("driver_id", driverId);
+        try {
+            namedParameterJdbcTemplate.update("delete from Car where driver_id = :driver_id", params);
+        } catch (DataAccessException e) {
+            log.info("Error::" + e.getMessage());
+            throw e;
         }
     }
 }

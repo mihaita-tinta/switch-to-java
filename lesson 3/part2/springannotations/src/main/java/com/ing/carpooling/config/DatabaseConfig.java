@@ -1,8 +1,7 @@
 package com.ing.carpooling.config;
 
 import com.ing.carpooling.domain.Location;
-import com.ing.carpooling.repository.CarRepository;
-import com.ing.carpooling.repository.LocationRepository;
+import com.ing.carpooling.repository.*;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +43,12 @@ public class DatabaseConfig {
         log.info("initSchema - start");
         jdbcTemplate.update(LocationRepository.CREATE_TABLE);
         jdbcTemplate.update(CarRepository.CREATE_TABLE);
+        jdbcTemplate.update(DriverRepository.CREATE_TABLE);
+        jdbcTemplate.update(PassengerRepository.CREATE_TABLE);
+        jdbcTemplate.update(RideRepository.CREATE_TABLE);
+        jdbcTemplate.update(RideRepository.CREATE_TABLE_PASSENGERS);
+        jdbcTemplate.update(RideRequestRepository.CREATE_TABLE);
+
         // TODO 0 here you need to add your create table statements
 
         log.info("initSchema - completed");

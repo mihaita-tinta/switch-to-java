@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Ride {
 
+    private Long id;
     private Location from;
     private Location to;
     private ZonedDateTime when;
@@ -12,6 +13,12 @@ public class Ride {
     private Status status;
     private List<Passenger> passengers;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Long getId() {
+        return id;
+    }
     public Location getFrom() {
         return from;
     }
