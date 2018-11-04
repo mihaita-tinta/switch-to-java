@@ -72,13 +72,13 @@ public class StartupService implements CommandLineRunner {
         User user = new User();
         user.setUserName("admin1");
         user.setUserPassword("admin1");
-        user.setRoles("ADMIN");
+        user.setRoles(User.UserRoles.ADMIN.toString());
         userRepository.save(user);
 
         user = new User();
         user.setUserName("user1");
         user.setUserPassword("user1");
-        user.setRoles("USER");
+        user.setRoles(User.UserRoles.USER.toString());
         userRepository.save(user);
 
         rideService.save(ride);

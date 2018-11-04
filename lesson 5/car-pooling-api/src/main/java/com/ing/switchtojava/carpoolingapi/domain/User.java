@@ -69,9 +69,10 @@ public class User implements UserDetails {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         for (String role : roles) {
             grantedAuthorities.add(new SimpleGrantedAuthority(rolePrefix + role));
+            if(role == UserRoles.ADMIN.toString()){
+                grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            }
         }
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-
         return grantedAuthorities;
     }
 
@@ -109,5 +110,8 @@ public class User implements UserDetails {
     public PasswordEncoder getPasswordEncoder()
     {
         return  new BCryptPasswordEncoder();
+    }
+    public enum UserRoles{
+        ADMIN, USER
     }
 }
