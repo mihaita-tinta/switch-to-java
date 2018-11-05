@@ -36,13 +36,13 @@ public class CarControllerTest {
     @Sql("/car.sql")
     @Test
     public void testFindAll() throws Exception {
-        // TODO 1 list all cars.
-
         mvc.perform(MockMvcRequestBuilders.get("/cars/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[]"))
+                                        .string("[{\"id\":1," +
+                                                "\"number\":\"IL11ABC\"," +
+                                                "\"seats\":2}]"))
                 .andDo(MockMvcResultHandlers.print());
 
     }

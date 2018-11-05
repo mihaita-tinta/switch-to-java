@@ -12,7 +12,7 @@ public class Driver {
     private String firstName;
     private String lastName;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Car> cars;
 
     public List<Car> getCars() {
@@ -53,6 +53,7 @@ public class Driver {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", cars=" + cars +
                 '}';
     }
 }

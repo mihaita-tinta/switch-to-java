@@ -37,4 +37,12 @@ public class Passenger {
         this.lastName = lastName;
     }
 
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

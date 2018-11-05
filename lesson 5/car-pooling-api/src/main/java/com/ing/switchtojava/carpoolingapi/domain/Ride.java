@@ -1,5 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -27,6 +29,7 @@ public class Ride {
     private List<Passenger> passengers;
 
     @OneToMany(mappedBy = "ride" )
+    @JsonManagedReference
     private List<RideRequest> requests;
 
 
@@ -110,6 +113,8 @@ public class Ride {
                 ", when=" + when +
                 ", car=" + car +
                 ", status=" + status +
+                ", passengers=" + passengers +
+                ", requests=" + requests +
                 '}';
     }
 }

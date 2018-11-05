@@ -1,5 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class RideRequest {
     private Passenger passenger;
 
     @ManyToOne
+    @JsonBackReference
     private Ride ride;
 
     @Enumerated(EnumType.STRING)
@@ -56,5 +59,14 @@ public class RideRequest {
         ACCEPTED,
         REJECTED,
         CANCELED
+    }
+
+    @Override
+    public String toString() {
+        return "RideRequest{" +
+                "id=" + id +
+                ", passenger=" + passenger +
+                ", status=" + status +
+                '}';
     }
 }

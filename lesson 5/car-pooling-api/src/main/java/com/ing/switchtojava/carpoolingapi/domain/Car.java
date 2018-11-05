@@ -2,14 +2,16 @@ package com.ing.switchtojava.carpoolingapi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Car {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String number;
     private int seats;
 
@@ -35,5 +37,14 @@ public class Car {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", seats=" + seats +
+                '}';
     }
 }
