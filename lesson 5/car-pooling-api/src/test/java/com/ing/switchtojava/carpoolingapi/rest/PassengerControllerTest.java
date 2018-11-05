@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,6 +25,7 @@ public class PassengerControllerTest {
 
     @Test
     @Sql("/passenger.sql")
+    @WithMockUser
     public void testFindAll() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/passengers/")
@@ -40,6 +42,7 @@ public class PassengerControllerTest {
 
     @Test
     @Sql("/passenger.sql")
+    @WithMockUser
     public void testFindOne() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/passengers/1")
@@ -51,6 +54,7 @@ public class PassengerControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void testSaveDriver() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.put("/passengers/")
@@ -73,6 +77,7 @@ public class PassengerControllerTest {
 
     @Test
     @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
+    @WithMockUser
     public void testListRequestsByPassenger() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/passengers/1/ride-requests/")
@@ -103,6 +108,7 @@ public class PassengerControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void testJoinRide() throws Exception {
         // TODO 2 create a ride request
 
@@ -124,6 +130,7 @@ public class PassengerControllerTest {
     }
 
     @Test
+    @WithMockUser
     public void testCancelRideRequest() throws Exception {
         // TODO 2 what should we do to cancel a ride request?
         mvc.perform(MockMvcRequestBuilders.patch("/passengers/1/ride-requests/1")

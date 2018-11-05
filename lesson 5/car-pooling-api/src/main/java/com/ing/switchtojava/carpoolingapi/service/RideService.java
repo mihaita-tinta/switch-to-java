@@ -8,6 +8,8 @@ import com.ing.switchtojava.carpoolingapi.repository.PassengerRepository;
 import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RideService {
 
@@ -20,6 +22,13 @@ public class RideService {
         this.passengerRepository = passengerRepository;
     }
 
+    public List<Ride> findAll() {
+        return rideRepository.findAll();
+    }
+
+    public Ride findById(Long id) {
+        return rideRepository.findById(id).orElseThrow(RideNotFoundException::new);
+    }
 
     public Ride save(Ride ride) {
 

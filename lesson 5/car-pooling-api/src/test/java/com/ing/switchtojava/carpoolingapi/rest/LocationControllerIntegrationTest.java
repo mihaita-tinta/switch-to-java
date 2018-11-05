@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,6 +29,7 @@ public class LocationControllerIntegrationTest {
 
     @Sql("/location.sql")
     @Test
+    @WithMockUser
     public void testFindAll() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/locations/")
@@ -59,6 +61,7 @@ public class LocationControllerIntegrationTest {
     }
 
     @Test
+    @WithMockUser
     public void testSaveNew() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.put("/locations/")
@@ -89,6 +92,7 @@ public class LocationControllerIntegrationTest {
 
     @Sql("/location.sql")
     @Test
+    @WithMockUser
     public void testSaveExisting() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.put("/locations/")
@@ -115,6 +119,5 @@ public class LocationControllerIntegrationTest {
                                 "\"zip\":\"123\"" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
-
     }
 }

@@ -2,12 +2,10 @@ package com.ing.switchtojava.carpoolingapi.rest;
 
 import com.ing.switchtojava.carpoolingapi.domain.Car;
 import com.ing.switchtojava.carpoolingapi.domain.Driver;
-import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.rest.model.CarListRequest;
 import com.ing.switchtojava.carpoolingapi.service.DriverService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
