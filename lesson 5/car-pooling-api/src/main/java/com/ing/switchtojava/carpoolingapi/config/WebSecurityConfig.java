@@ -1,5 +1,6 @@
 package com.ing.switchtojava.carpoolingapi.config;
 
+import com.ing.switchtojava.carpoolingapi.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,24 +16,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/h2-console/*").hasRole("ADMIN")
+                .antMatchers("/h2-console/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
-                .and().formLogin().permitAll();
+                .and()
+                .formLogin().permitAll();
+
+        //to access h2-console :)
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         String password = encoder().encode("123123");
-        auth.
-                inMemoryAuthentication()
-                .withUser("sandu").password(password).roles("USER", "ADMIN")
-                .and()
-                .withUser("test").password(password).roles("USER")
-                .and().passwordEncoder(encoder());
+        auth.userDetailsService(userService());
     }
 
     @Bean
     public BCryptPasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public UserService userService() {
+        return new UserService();
     }
 }

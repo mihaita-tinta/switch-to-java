@@ -12,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 
@@ -37,7 +39,7 @@ public class StartupService implements CommandLineRunner {
     UserRepository userRepository;
 
     @Autowired
-    UserRoleRepository userRoleRepository;
+    RoleRepository roleRepository;
 
     @Autowired
     BCryptPasswordEncoder encoder;
@@ -45,29 +47,34 @@ public class StartupService implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+        Role roleAdmin = new Role();
+        roleAdmin.setRole(Role.UserRoles.ROLE_ADMIN.toString());
+        roleRepository.save(roleAdmin);
+        Role roleUser = new Role();
+        roleUser.setRole(Role.UserRoles.ROLE_USER.toString());
+        roleRepository.save(roleUser);
+
         log.info("Create user sandu");
         User admin = new User();
         admin.setUsername("sandu");
         admin.setPassword(encoder.encode("123123"));
+
+        Set<Role> adminRoles = new HashSet<>();
+        adminRoles.add(roleAdmin);
+        adminRoles.add(roleUser);
+        admin.setRoles(adminRoles);
         userRepository.save(admin);
-        UserRole roleAdmin = new UserRole();
-        roleAdmin.setRole("ADMIN");
-        roleAdmin.setUser(admin);
-        userRoleRepository.save(roleAdmin);
-        UserRole roleUser = new UserRole();
-        roleUser.setRole("USER");
-        roleUser.setUser(admin);
-        userRoleRepository.save(roleUser);
 
         log.info("Create user test");
         User testUser = new User();
         testUser.setUsername("test");
         testUser.setPassword(encoder.encode("test"));
+
+        Set<Role> testRoles = new HashSet<>();
+        testRoles.add(roleUser);
+        testUser.setRoles(testRoles);
+
         userRepository.save(testUser);
-        UserRole roleTest = new UserRole();
-        roleTest.setRole("USER");
-        roleTest.setUser(testUser);
-        userRoleRepository.save(roleTest);
 
         Location a = new Location();
         a.setLatitude(44.4513003);
