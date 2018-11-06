@@ -75,6 +75,26 @@ public class RideControllerTest {
     @WithMockUser
     public void testSaveOne() throws Exception {
         // TODO 3 save ride
+        mvc.perform(MockMvcRequestBuilders.put("/rides/")
+                .content("{" +
+                        "from\":" + "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"},\"" +
+                        "to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"Arcul de Trimuf\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"124\"},\"" +
+                        "when\":\"2019-11-01T23:29:46.123+02:00\",\"" +
+                        "car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2},\"status\":\"PENDING\",\"" +
+                        "passengers\":[]" +
+                        "}")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                .string("{\"id\":1,\"" +
+                        "from\":" + "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"},\"" +
+                        "to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"Arcul de Trimuf\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"124\"},\"" +
+                        "when\":\"2019-11-01T23:29:46.123+02:00\",\"" +
+                        "car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2},\"status\":\"PENDING\",\"" +
+                        "passengers\":[]" +
+                        "}"))
+                .andDo(MockMvcResultHandlers.print());
     }
 
     @Test

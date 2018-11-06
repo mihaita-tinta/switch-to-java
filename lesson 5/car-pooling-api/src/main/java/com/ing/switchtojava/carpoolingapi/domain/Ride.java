@@ -24,6 +24,7 @@ public class Ride {
 
     @OneToOne
     private Car car;
+
     @Enumerated(EnumType.STRING)
     private Status status;
 
