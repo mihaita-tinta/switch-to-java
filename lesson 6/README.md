@@ -58,3 +58,6 @@ There are some sample files to display a simple google maps tracking a car's pos
 * index.html - main page
 * tracker.js - consuming the events stream
 * car.png - customize the marker in google maps.
+
+![maps](https://github.com/mihaita-tinta/switch-to-java/blob/master/lesson%206/map.PNG)
+
