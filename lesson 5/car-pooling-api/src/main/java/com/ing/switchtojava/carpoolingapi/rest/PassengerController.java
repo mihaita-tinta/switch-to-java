@@ -1,8 +1,10 @@
 package com.ing.switchtojava.carpoolingapi.rest;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.ing.switchtojava.carpoolingapi.domain.Passenger;
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.domain.RideRequest;
+import com.ing.switchtojava.carpoolingapi.domain.View.View;
 import com.ing.switchtojava.carpoolingapi.service.PassengerService;
 import com.ing.switchtojava.carpoolingapi.service.RideService;
 import org.slf4j.Logger;
@@ -40,12 +42,13 @@ public class PassengerController {
     }
 
     @GetMapping("{id}/ride-requests/")
+    @JsonView(View.Public.class)
     public List<RideRequest> findRideRiquests(@PathVariable Long id) {
         return passengerService.findRideRequests(id);
     }
 
     @PutMapping("{id}/ride-requests/")
-    public Ride joinRide(@PathVariable Long id, @RequestBody Long rideId) {
-        return rideService.join(id, rideId);
+    public Ride joinRide(@PathVariable Long id, @RequestBody Ride ride) {
+        return rideService.join(id, ride.getId());
     }
 }

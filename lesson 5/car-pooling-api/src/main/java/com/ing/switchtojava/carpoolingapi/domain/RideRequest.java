@@ -1,6 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ing.switchtojava.carpoolingapi.domain.View.View;
 
 import javax.persistence.*;
 
@@ -9,16 +10,19 @@ public class RideRequest {
 
     @Id
     @GeneratedValue
+    @JsonView(View.Public.class)
     private Long id;
 
     @OneToOne
+    @JsonView(View.Internal.class)
     private Passenger passenger;
 
     @ManyToOne
-    @JsonManagedReference
+    @JsonView(View.Public.class)
     private Ride ride;
 
     @Enumerated(EnumType.STRING)
+    @JsonView(View.Public.class)
     private Status status;
 
     public Long getId() {

@@ -76,7 +76,7 @@ public class PassengerControllerTest {
     }
 
     @Test
-    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
+    @Sql({"/ride.sql", "/ride-request.sql"})
     @WithMockUser
     public void testListRequestsByPassenger() throws Exception {
 
@@ -85,45 +85,76 @@ public class PassengerControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string("[" +
-                                "{\"id\":1,\"" +
-                                "passenger\":" +
-                                    "{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"}," +
-                                "\"ride\":" +
-                                    "{\"id\":1," +
-                                    "\"from\":" +
-                                        "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"loc1 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"123\"}," +
-                                    "\"to\":" +
-                                        "{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"loc2 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"124\"}," +
-                                    "\"when\":\"2019-11-01T23:29:46.123+02:00\"," +
-                                    "\"car\":" +
-                                        "{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}," +
-                                    "\"status\":\"PENDING\"," +
-                                    "\"passengers\":[" +
-                                        "{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"}," +
-                                        "{\"id\":2,\"firstName\":\"Maria\",\"lastName\":\"Z\"}" +
-                                    "]}," +
-                                "\"status\":\"ACCEPTED\"}" +
-                                "]"))
+                                "{" +
+                                    "\"id\":1," +
+                                    "\"ride\":" +
+                                        "{" +
+                                            "\"id\":1," +
+                                            "\"from\":" +
+                                                "{" +
+                                                    "\"id\":1," +
+                                                    "\"latitude\":11.11," +
+                                                    "\"longitude\":12.12," +
+                                                    "\"address\":\"Crangasi \"," +
+                                                    "\"city\":\"Bucuresti\"," +
+                                                    "\"state\":\"B\"," +
+                                                    "\"zip\":\"123\"" +
+                                                "}," +
+                                            "\"to\":" +
+                                                "{" +
+                                                    "\"id\":2," +
+                                                    "\"latitude\":13.13," +
+                                                    "\"longitude\":14.14," +
+                                                    "\"address\":\"Arcul de Trimuf\"," +
+                                                    "\"city\":\"Bucuresti\"," +
+                                                    "\"state\":\"B\"," +
+                                                    "\"zip\":\"124\"" +
+                                                "}," +
+                                            "\"when\":\"2019-11-01T23:29:46.123+02:00\"," +
+                                            "\"car\":" +
+                                                "{" +
+                                                    "\"id\":1," +
+                                                    "\"number\":\"IL11ABC\"," +
+                                                    "\"seats\":2" +
+                                                "}," +
+                                            "\"status\":\"PENDING\"," +
+                                            "\"passengers\":[" +
+                                                "{" +
+                                                    "\"id\":1," +
+                                                    "\"firstName\":\"Ana\"," +
+                                                    "\"lastName\":\"Z\"" +
+                                                "}," +
+                                                "{" +
+                                                    "\"id\":2," +
+                                                    "\"firstName\":\"Maria\"," +
+                                                    "\"lastName\":\"Z\"" +
+                                                "}" +
+                                            "]}," +
+                                    "\"status\":\"ACCEPTED\"}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     @WithMockUser
+    @Sql("/ride.sql")
     public void testJoinRide() throws Exception {
-        // TODO 2 create a ride request
-
-        mvc.perform(MockMvcRequestBuilders.put("/passengers/1/ride-requests/")
-                .content("{" +
-                        "\"rideId\":2" +
-                        "}")
+        mvc.perform(MockMvcRequestBuilders.put("/passengers/3/ride-requests/")
+                .content("{\"id\":1}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{" +
                                 "\"id\":1," +
-                                "\"number\":\"IL11ABC\"," +
-                                "\"seats\":2" +
+                                "\"from\":{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"}," +
+                                "\"to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"Arcul de Trimuf\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"124\"}," +
+                                "\"when\":\"2019-11-01T23:29:46.123+02:00\"," +
+                                "\"car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}," +
+                                "\"status\":\"PENDING\"," +
+                                "\"passengers\":[" +
+                                    "{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"}," +
+                                    "{\"id\":2,\"firstName\":\"Maria\",\"lastName\":\"Z\"}," +
+                                    "{\"id\":3,\"firstName\":\"Ioana\",\"lastName\":\"Z\"}]" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
 
@@ -144,3 +175,4 @@ public class PassengerControllerTest {
     }
 
 }
+

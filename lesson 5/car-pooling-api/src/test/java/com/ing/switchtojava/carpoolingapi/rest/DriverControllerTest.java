@@ -80,13 +80,13 @@ public class DriverControllerTest {
 
     @Test
     @WithMockUser
-    @Sql("/driver.sql")
+    @Sql("/create-driver.sql")
     public void testSaveCarForADriver() throws Exception {
         mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars")
-                .content("{\"cars\":[{" +
-                        "\"number\":\"DJ31ASV\"," +
-                        "\"seats\":5" +
-                        "}]}")
+                .content("{\"cars\":[" +
+                        "{\"number\":\"IL11ABC\",\"seats\":2}," +
+                        "{\"number\":\"DJ31ASV\",\"seats\":5}" +
+                        "]}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())

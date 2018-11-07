@@ -1,7 +1,6 @@
 package com.ing.switchtojava.carpoolingapi.rest;
 
-import com.ing.switchtojava.carpoolingapi.exception.DriverNotFoundException;
-import com.ing.switchtojava.carpoolingapi.exception.LocationNotFoundException;
+import com.ing.switchtojava.carpoolingapi.exception.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -25,5 +24,22 @@ public class AdviceController {
     public void handleDriverNotFound(DriverNotFoundException e) {
         log.warn("handleDriverNotFound - " + e);
     }
-}
 
+    @ExceptionHandler(PassengerNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handlePassengerNotFound(PassengerNotFoundException e) {
+        log.warn("handlePassengerNotFound - " + e);
+    }
+
+    @ExceptionHandler(RideNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleRideNotFound(RideNotFoundException e) {
+        log.warn("handleRideNotFound - " + e);
+    }
+
+    @ExceptionHandler(CarNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleCarNotFound(CarNotFoundException e) {
+        log.warn("handleCarNotFound - " + e);
+    }
+}

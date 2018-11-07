@@ -1,11 +1,15 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ing.switchtojava.carpoolingapi.domain.View.View;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@JsonView(View.Public.class)
 public class Passenger {
 
     @Id

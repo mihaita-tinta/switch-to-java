@@ -1,6 +1,8 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.ing.switchtojava.carpoolingapi.domain.View.View;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -8,6 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
+@JsonView(View.Public.class)
 public class Ride {
 
     @Id
