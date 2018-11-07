@@ -68,26 +68,33 @@ public class DriverControllerTest {
 
     @Test
     @WithMockUser
+    @Sql("/driver.sql")
     public void testFindCarsByDriver() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/drivers/1/cars")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("[]"))
+                        .string("[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     @WithMockUser
+    @Sql("/driver.sql")
     public void testSaveCarForADriver() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
+        mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars")
                 .content("{\"cars\":[{" +
-                        "\"number\":\"IL11ABC\"," +
-                        "\"seats\":2" +
+                        "\"number\":\"DJ31ASV\"," +
+                        "\"seats\":5" +
                         "}]}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                    .string("[" +
+                            "{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}," +
+                            "{\"id\":2,\"number\":\"DJ31ASV\",\"seats\":5}" +
+                            "]"))
                 .andDo(MockMvcResultHandlers.print());
 
     }

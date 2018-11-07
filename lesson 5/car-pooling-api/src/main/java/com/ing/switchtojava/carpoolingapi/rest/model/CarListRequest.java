@@ -7,12 +7,11 @@ import java.util.List;
 public class CarListRequest {
     private List<Car> cars;
 
-    public List<Car> getCarList() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public void setCarList(List<Car> carList) {
-        this.cars = carList;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
-

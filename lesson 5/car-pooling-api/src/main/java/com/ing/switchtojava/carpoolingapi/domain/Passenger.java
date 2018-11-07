@@ -11,8 +11,10 @@ public class Passenger {
     @Id
     @GeneratedValue
     private Long id;
+
     @NotNull
     private String firstName;
+
     @NotNull
     private String lastName;
 

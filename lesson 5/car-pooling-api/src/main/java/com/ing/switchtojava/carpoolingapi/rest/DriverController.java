@@ -37,7 +37,12 @@ public class DriverController {
     }
 
     @PutMapping("{id}/cars")
-    public List<Car> addCars(@PathVariable Long id, @Valid @RequestBody CarListRequest cars) {
-        return driverService.saveCars(id, cars.getCarList());
+    public List<Car> addCars(@PathVariable Long id, @Valid @RequestBody CarListRequest carListRequest) {
+        return driverService.saveCars(id, carListRequest.getCars());
+    }
+
+    @GetMapping("{id}/cars")
+    public List<Car> getCars(@PathVariable Long id) {
+        return driverService.getCars(id);
     }
 }

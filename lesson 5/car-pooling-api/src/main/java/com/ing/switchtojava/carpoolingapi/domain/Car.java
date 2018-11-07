@@ -1,8 +1,7 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Car {
@@ -10,7 +9,11 @@ public class Car {
     @Id
     @GeneratedValue
     private Long id;
+
+    @NotNull
     private String number;
+
+    @NotNull
     private int seats;
 
     public Long getId() {
