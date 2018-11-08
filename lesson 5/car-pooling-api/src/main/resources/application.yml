@@ -1,0 +1,10 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+      show-sql: true
+logging:
+  level:
+    com.ing.switchtojava: DEBUG
+    org.springframework.data: DEBUG
