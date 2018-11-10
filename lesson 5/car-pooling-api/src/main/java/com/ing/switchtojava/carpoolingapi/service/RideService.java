@@ -1,5 +1,6 @@
 package com.ing.switchtojava.carpoolingapi.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ing.switchtojava.carpoolingapi.domain.Passenger;
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.exception.PassengerNotFoundException;
@@ -10,6 +11,7 @@ import com.ing.switchtojava.carpoolingapi.rest.model.CarPosition;
 import com.ing.switchtojava.carpoolingapi.rest.model.Position;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import org.vesalainen.jaxb.gpx.GpxType;
 
 import javax.xml.bind.JAXBContext;
@@ -19,6 +21,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class RideService {
@@ -52,7 +56,7 @@ public class RideService {
         return rideRepository.save(ride);
     }
 
-    public CarPosition getCarPositionsFromFile(Long rideId) throws JAXBException, IOException {
+    private CarPosition getCarPositionsFromFile(Long rideId) throws JAXBException, IOException {
         File file = new ClassPathResource("/routes/route0.gpx").getFile();
         JAXBContext jc = JAXBContext.newInstance(GpxType.class);
         GpxType route = ((JAXBElement<GpxType>) jc.createUnmarshaller().unmarshal(file)).getValue();
@@ -68,5 +72,28 @@ public class RideService {
         });
 
         return carPosition;
+    }
+
+    public SseEmitter track(Long rideId) throws JAXBException, IOException {
+        CarPosition carPosition = getCarPositionsFromFile(rideId);
+        SseEmitter emitter = new SseEmitter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(
+                () -> {
+                    try {
+                        SseEmitter.SseEventBuilder event =  SseEmitter.event();
+                        String dataPosition = objectMapper.writeValueAsString(carPosition.next());
+                        event.data(dataPosition + "\n")
+                                .id(String.valueOf(System.currentTimeMillis()))
+                                .name("Raw position for " + rideId);
+                        emitter.send(event);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }, 0, 1, TimeUnit.SECONDS
+        );
+
+        return emitter;
     }
 }

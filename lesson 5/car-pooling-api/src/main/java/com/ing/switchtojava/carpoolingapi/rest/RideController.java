@@ -49,26 +49,7 @@ public class RideController {
 
     @GetMapping("{id}/track")
     public SseEmitter track(@PathVariable Long id) throws JAXBException, IOException {
-        CarPosition carPosition = rideService.getCarPositionsFromFile(id);
-        SseEmitter emitter = new SseEmitter();
-        ObjectMapper objectMapper = new ObjectMapper();
-        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(
-                () -> {
-                    try {
-                        SseEmitter.SseEventBuilder event =  SseEmitter.event();
-                        String dataPosition = objectMapper.writeValueAsString(carPosition.next());
-                        event.data(dataPosition + "\n")
-                                .id(String.valueOf(System.currentTimeMillis()))
-                                .name("Raw position for " + id);
-                        emitter.send(event);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                }, 0, 1, TimeUnit.SECONDS
-        );
-
-        return emitter;
+        return rideService.track(id);
     }
 }
 
