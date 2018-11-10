@@ -30,9 +30,15 @@ public class RideService {
 
     private final PassengerRepository passengerRepository;
 
-    public RideService(RideRepository rideRepository, PassengerRepository passengerRepository) {
+    private final ObjectMapper objectMapper;
+
+    private final SseEmitter emitter;
+
+    public RideService(RideRepository rideRepository, PassengerRepository passengerRepository, ObjectMapper objectMapper, SseEmitter emitter) {
         this.rideRepository = rideRepository;
         this.passengerRepository = passengerRepository;
+        this.objectMapper = objectMapper;
+        this.emitter = emitter;
     }
 
     public List<Ride> findAll() {
@@ -55,7 +61,7 @@ public class RideService {
         return rideRepository.save(ride);
     }
 
-    public CarPosition getCarPositionsFromFile(Long rideId) throws JAXBException, IOException {
+    public CarPosition loadCoordinatesFromFile(Long rideId) throws JAXBException, IOException {
         File file = new ClassPathResource("/routes/route0.gpx").getFile();
         JAXBContext jc = JAXBContext.newInstance(GpxType.class);
         GpxType route = ((JAXBElement<GpxType>) jc.createUnmarshaller().unmarshal(file)).getValue();
@@ -74,13 +80,11 @@ public class RideService {
     }
 
     public SseEmitter track(Long id) throws JAXBException, IOException {
-        CarPosition carPosition = getCarPositionsFromFile(id);
-        SseEmitter emitter = new SseEmitter();
-        ObjectMapper objectMapper = new ObjectMapper();
+        CarPosition carPosition = loadCoordinatesFromFile(id);
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(
                 () -> {
                     try {
-                        SseEmitter.SseEventBuilder event =  SseEmitter.event();
+                        SseEmitter.SseEventBuilder event = SseEmitter.event();
                         String dataPosition = objectMapper.writeValueAsString(carPosition.next());
                         event.data(dataPosition + "\n")
                                 .id(String.valueOf(System.currentTimeMillis()))

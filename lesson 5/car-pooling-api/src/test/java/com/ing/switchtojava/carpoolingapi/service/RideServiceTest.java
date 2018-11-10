@@ -41,8 +41,8 @@ public class RideServiceTest {
     }
 
     @Test
-    public void testGetCarPositions() throws JAXBException, IOException {
-        CarPosition carPosition = service.getCarPositionsFromFile( 1L);
+    public void testLoadCoordinatesFromFile() throws JAXBException, IOException {
+        CarPosition carPosition = service.loadCoordinatesFromFile( 1L);
         carPosition.getPositions()
                 .forEach(p -> System.out.println("Pos "+ p.getLat() + ", " + p.getLon()));
 
