@@ -35,7 +35,6 @@ public class CarPosition implements Iterator<Position> {
     public Position next() {
         Position position = positions.get(index);
         index++;
-        System.out.println(index);
         return position;
     }
 }

@@ -84,14 +84,16 @@ public class RideService {
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(
                 () -> {
                     try {
-                        SseEmitter.SseEventBuilder event = SseEmitter.event();
-                        String dataPosition = objectMapper.writeValueAsString(carPosition.next());
-                        event.data(dataPosition + "\n")
-                                .id(String.valueOf(System.currentTimeMillis()))
-                                .name("Raw position for " + id);
-                        emitter.send(event);
+                        if (carPosition.hasNext()) {
+                            SseEmitter.SseEventBuilder event = SseEmitter.event();
+                            String dataPosition = objectMapper.writeValueAsString(carPosition.next());
+                            event.data(dataPosition + "\n")
+                                    .id(String.valueOf(System.currentTimeMillis()))
+                                    .name("Raw position for " + id);
+                            emitter.send(event);
+                        }
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        emitter.completeWithError(e);
                     }
 
                 }, 0, 1, TimeUnit.SECONDS
