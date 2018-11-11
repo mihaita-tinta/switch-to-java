@@ -73,13 +73,13 @@ public class RideControllerTest {
 
     @Test
     @WithMockUser
+    @Sql({"/car.sql", "/ride-location.sql"})
     public void testSaveOne() throws Exception {
-        // TODO 3 save ride
         mvc.perform(MockMvcRequestBuilders.put("/rides/")
                 .content("{" +
-                        "from\":" + "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"},\"" +
+                        "\"from\":" + "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"},\"" +
                         "to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"Arcul de Trimuf\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"124\"},\"" +
-                        "when\":\"2019-11-01T23:29:46.123+02:00\",\"" +
+                        "when\":\"2019-11-01T21:29:46.123Z\",\"" +
                         "car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2},\"status\":\"PENDING\",\"" +
                         "passengers\":[]" +
                         "}")
@@ -90,7 +90,7 @@ public class RideControllerTest {
                 .string("{\"id\":1,\"" +
                         "from\":" + "{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"Crangasi \",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"123\"},\"" +
                         "to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"Arcul de Trimuf\",\"city\":\"Bucuresti\",\"state\":\"B\",\"zip\":\"124\"},\"" +
-                        "when\":\"2019-11-01T23:29:46.123+02:00\",\"" +
+                        "when\":\"2019-11-01T21:29:46.123Z\",\"" +
                         "car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2},\"status\":\"PENDING\",\"" +
                         "passengers\":[]" +
                         "}"))

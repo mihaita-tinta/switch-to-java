@@ -9,6 +9,7 @@ import com.ing.switchtojava.carpoolingapi.repository.PassengerRepository;
 import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
 import com.ing.switchtojava.carpoolingapi.rest.model.CarPosition;
 import com.ing.switchtojava.carpoolingapi.rest.model.Position;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
