@@ -13,6 +13,7 @@ public class Driver {
     private String lastName;
 
     @OneToMany
+    @JoinColumn(name ="driver_id")
     private List<Car> cars;
 
     public List<Car> getCars() {
@@ -45,6 +46,14 @@ public class Driver {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void addCar(Car car) {
+        cars.add(car);
+    }
+
+    public void removeCar(Car car) {
+        cars.remove(car);
     }
 
     @Override

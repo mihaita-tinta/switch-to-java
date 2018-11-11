@@ -1,8 +1,6 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -35,5 +33,10 @@ public class Car {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.number==((Car) obj).getNumber();
     }
 }

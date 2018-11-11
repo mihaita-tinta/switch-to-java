@@ -37,7 +37,6 @@ public class CarControllerTest {
     @Test
     public void testFindAll() throws Exception {
         // TODO 1 list all cars.
-
         mvc.perform(MockMvcRequestBuilders.get("/cars/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())

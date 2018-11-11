@@ -26,7 +26,7 @@ public class Ride {
     @OneToMany
     private List<Passenger> passengers;
 
-    @OneToMany(mappedBy = "ride" )
+    @OneToMany(mappedBy = "ride")
     private List<RideRequest> requests;
 
 

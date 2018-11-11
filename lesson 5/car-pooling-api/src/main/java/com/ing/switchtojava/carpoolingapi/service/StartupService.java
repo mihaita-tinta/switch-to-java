@@ -7,6 +7,7 @@ import com.ing.switchtojava.carpoolingapi.domain.Ride;
 import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
 import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
+import com.ing.switchtojava.carpoolingapi.repository.RideRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -31,6 +32,8 @@ public class StartupService implements CommandLineRunner {
     @Autowired
     CarRepository carRepository;
 
+    @Autowired
+    RideRequestRepository rideRequestRepository;
 
     @Override
     public void run(String... args) {
@@ -55,11 +58,17 @@ public class StartupService implements CommandLineRunner {
 
         Car car = new Car();
         car.setNumber("IL33ASD");
+        car.setSeats(5);
         carRepository.save(car);
+
+        Car car2 = new Car();
+        car2.setNumber("IL44WEB");
+        car2.setSeats(5);
+        carRepository.save(car2);
 
         Driver driver = new Driver();
         driver.setFirstName("Mih");
-        driver.setCars(asList(car));
+        driver.setCars(asList(car, car2));
         driverRepository.save(driver);
 
         Ride ride = new Ride();

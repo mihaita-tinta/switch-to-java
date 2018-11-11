@@ -23,7 +23,7 @@ public class DriverControllerTest {
     private MockMvc mvc;
 
     @Test
-    //@Sql("/driver.sql")
+    @Sql("/driver.sql")
     public void testFindAll() throws Exception {
         // TODO 0 list all drivers.
 
@@ -31,7 +31,7 @@ public class DriverControllerTest {
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[]"))
+                                        .string("[{\"id\":1,\"firstName\":\"Cosmin\",\"lastName\":\"Pacala\",\"cars\":[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
@@ -62,6 +62,7 @@ public class DriverControllerTest {
 
     }
     @Test
+    //@Sql("/driver.sql")
     public void testFindCarsByDriver() throws Exception {
         // TODO 0 cars for a driver.
 
@@ -74,22 +75,23 @@ public class DriverControllerTest {
     }
 
     @Test
+    @Sql("/driver.sql")
     public void testSaveCarForADriver() throws Exception {
         // TODO 0 cars for a driver.
 
         mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
                 .content("{" +
-                        "\"number\":\"IL11ABC\"," +
-                        "\"seats\":2" +
+                        "\"number\":\"IL151ABC\"," +
+                        "\"seats\":5" +
                         "}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{" +
-                                "\"id\":1," +
-                                "\"number\":\"IL11ABC\"," +
-                                "\"seats\":2" +
+                                "\"id\":2," +
+                                "\"number\":\"IL151ABC\"," +
+                                "\"seats\":5" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
 
