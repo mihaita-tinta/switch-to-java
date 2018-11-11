@@ -67,7 +67,7 @@ public class RiderLocationService {
         );
         return emitter;
     }
-    
+
     private GpxType loadGpsCoordonates() throws JAXBException, IOException {
         File file = new ClassPathResource("route0.gpx").getFile();
         JAXBContext jc =  JAXBContext.newInstance(GpxType.class);

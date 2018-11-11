@@ -12,6 +12,7 @@ public class Driver {
     private String firstName;
     private String lastName;
 
+    //@OneToMany(cascade = CascadeType.ALL)
     @OneToMany
     private List<Car> cars;
 

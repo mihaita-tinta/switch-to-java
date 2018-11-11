@@ -38,7 +38,6 @@ public class DriverControllerTest {
 
     @Test
     public void testSaveDriver() throws Exception {
-        // TODO 0 save driver
         mvc.perform(MockMvcRequestBuilders.put("/drivers/")
                 .content("{" +
                         "\"firstName\":\"Marcela\"," +
