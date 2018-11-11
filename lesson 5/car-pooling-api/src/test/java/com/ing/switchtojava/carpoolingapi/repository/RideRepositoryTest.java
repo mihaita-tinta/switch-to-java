@@ -2,7 +2,10 @@ package com.ing.switchtojava.carpoolingapi.repository;
 
 
 import com.ing.switchtojava.carpoolingapi.domain.Ride;
+import com.ing.switchtojava.carpoolingapi.repository.specification.RideSpecification;
+import com.ing.switchtojava.carpoolingapi.repository.specification.SearchCriteria;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -38,4 +41,8 @@ public class RideRepositoryTest {
         assertEquals(3, ride.getRequests().size());
     }
 
+    @Sql("/ride.sql")
+    public void givenFrom_whenGettingRides_thenCorrect() {
+        RideSpecification specification = new RideSpecification(new SearchCriteria("from", ":", "Crangasi"));
+    }
 }

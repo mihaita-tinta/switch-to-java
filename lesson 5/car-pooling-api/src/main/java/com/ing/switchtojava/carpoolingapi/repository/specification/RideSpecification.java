@@ -10,7 +10,13 @@ import javax.persistence.criteria.Root;
 import java.time.LocalDateTime;
 
 public class RideSpecification implements Specification<Ride> {
+
     private SearchCriteria criteria;
+
+    public RideSpecification(SearchCriteria criteria) {
+        this.criteria = criteria;
+    }
+
     @Override
     public Predicate toPredicate(Root<Ride> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
         if (criteria.getOperation().equalsIgnoreCase(":")) {
