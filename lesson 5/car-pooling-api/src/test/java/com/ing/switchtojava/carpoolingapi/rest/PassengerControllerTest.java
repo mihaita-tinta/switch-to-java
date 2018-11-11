@@ -67,8 +67,6 @@ public class PassengerControllerTest {
     @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testListRequestsByPassenger() throws Exception {
-        // TODO 2 requests for a passenger.
-
         mvc.perform(MockMvcRequestBuilders.get("/passengers/1/ride-requests/")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -83,9 +81,7 @@ public class PassengerControllerTest {
     @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testJoinRide() throws Exception {
-        // TODO 2 create a ride request
-
-        mvc.perform(MockMvcRequestBuilders.put("/passengers/1/ride-requests/")
+        mvc.perform(MockMvcRequestBuilders.put("/passengers/3/ride-requests/")
                 .content("{" +
                         "\"rideId\":1" +
                         "}")
@@ -101,10 +97,18 @@ public class PassengerControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
     }
-
+    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testCancelRideRequest() throws Exception {
-        // TODO 2 what should we do to cancel a ride request?
+        mvc.perform(MockMvcRequestBuilders.put("/passengers/1/ride-requests/1")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                        .string("{\"id\":1,\"passenger\":" +
+                                        "{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"},\"status\":\"CANCELED\"}"
+
+                                ))
+                .andDo(MockMvcResultHandlers.print());
     }
 
 }

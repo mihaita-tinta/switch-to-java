@@ -12,7 +12,8 @@ public class Driver {
     private String firstName;
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
+//    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Car> cars;
 
     public List<Car> getCars() {

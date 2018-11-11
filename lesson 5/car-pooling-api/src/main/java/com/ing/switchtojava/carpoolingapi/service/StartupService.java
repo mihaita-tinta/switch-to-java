@@ -1,18 +1,17 @@
 package com.ing.switchtojava.carpoolingapi.service;
 
-import com.ing.switchtojava.carpoolingapi.domain.Car;
-import com.ing.switchtojava.carpoolingapi.domain.Driver;
-import com.ing.switchtojava.carpoolingapi.domain.Location;
-import com.ing.switchtojava.carpoolingapi.domain.Ride;
-import com.ing.switchtojava.carpoolingapi.repository.CarRepository;
-import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
-import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
+import com.ing.switchtojava.carpoolingapi.domain.*;
+import com.ing.switchtojava.carpoolingapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 
@@ -31,10 +30,35 @@ public class StartupService implements CommandLineRunner {
     @Autowired
     CarRepository carRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    RoleRepository roleRepository;
+
+    @Autowired
+    BCryptPasswordEncoder encoder;
 
     @Override
     public void run(String... args) {
+        Role role1 = new Role();
+        role1.setRole(Role.Roles.ADMIN.toString());
+        Role role2 = new Role();
+        role1.setRole("USER");
 
+        roleRepository.save(role1);
+        roleRepository.save(role2);
+
+
+        User user = new User();
+        user.setPassword(encoder.encode("admin"));
+        user.setUsername("admin");
+        Set set = new HashSet();
+        set.add(role1);
+
+        user.setRoles(set);
+
+        userRepository.save(user);
         Location a = new Location();
         a.setLatitude(44.4513003);
         a.setLongitude(26.0415585);

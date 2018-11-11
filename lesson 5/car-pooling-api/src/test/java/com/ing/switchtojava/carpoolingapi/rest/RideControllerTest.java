@@ -25,19 +25,27 @@ public class RideControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testFindAll() throws Exception {
-        // TODO 3 list all rides.
-
         mvc.perform(MockMvcRequestBuilders.get("/rides/")
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[]"))
+                                        .string("[{\"id\":1," +
+                                                "\"from\":{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"loc1 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"123\"}," +
+                                                "\"to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"loc2 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"124\"}," +
+                                                "\"when\":\"1970-01-01T13:25:45.194+02:00\"," +
+                                                "\"car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":3}," +
+                                                "\"status\":\"PENDING\"," +
+                                                "\"passengers\":[]," +
+                                                "\"requests\":[{\"id\":1,\"passenger\":{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"}," +
+                                                "{\"id\":2,\"passenger\":{\"id\":2,\"firstName\":\"Maria\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"}," +
+                                                "{\"id\":3,\"passenger\":{\"id\":3,\"firstName\":\"Ioana\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"}]}]"))
                 .andDo(MockMvcResultHandlers.print());
 
     }
-
+    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testFindOne() throws Exception {
         // TODO 3 list one ride.
@@ -46,16 +54,17 @@ public class RideControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("{}"))
+                        .string("{\"id\":1,\"from\":{\"id\":1,\"latitude\":11.11,\"longitude\":12.12,\"address\":\"loc1 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"123\"},\"to\":{\"id\":2,\"latitude\":13.13,\"longitude\":14.14,\"address\":\"loc2 \",\"city\":\"buc\",\"state\":\"B\",\"zip\":\"124\"},\"when\":\"1970-01-01T13:37:04.206+02:00\",\"car\":{\"id\":1,\"number\":\"IL11ABC\",\"seats\":3},\"status\":\"PENDING\",\"passengers\":[],\"requests\":[{\"id\":1,\"passenger\":{\"id\":1,\"firstName\":\"Ana\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"},{\"id\":2,\"passenger\":{\"id\":2,\"firstName\":\"Maria\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"},{\"id\":3,\"passenger\":{\"id\":3,\"firstName\":\"Ioana\",\"lastName\":\"Z\"},\"status\":\"ACCEPTED\"}]}"))
                 .andDo(MockMvcResultHandlers.print());
 
     }
 
+    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testSaveOne() throws Exception {
         // TODO 3 save ride
     }
-
+    @Sql({"/location.sql", "/passenger.sql", "/ride.sql", "/ride-request.sql"})
     @Test
     public void testFindBy() throws Exception {
         // TODO 3 find by date

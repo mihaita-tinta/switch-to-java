@@ -49,4 +49,9 @@ public class PassengerController {
 
         return passengerService.joinRide(id, ride.getRideId());
     }
+
+    @PutMapping("/{id}/ride-requests/{rideRequestId}")
+    public RideRequest cancelRideRequestByPassenger(@PathVariable("id") Long id, @PathVariable("rideRequestId") Long rideRequestId){
+        return passengerService.cancelRideRequestByPassenger(id, rideRequestId);
+    }
 }
