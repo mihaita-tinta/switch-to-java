@@ -1,13 +1,14 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Driver {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
@@ -49,11 +50,16 @@ public class Driver {
     }
 
     public void addCar(Car car) {
+        if (cars==null) {
+            cars = new ArrayList<>();
+        }
         cars.add(car);
     }
 
     public void removeCar(Car car) {
-        cars.remove(car);
+        if (cars!=null) {
+            cars.remove(car);
+        }
     }
 
     @Override

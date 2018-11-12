@@ -31,7 +31,7 @@ public class DriverControllerTest {
                                             .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                                        .string("[{\"id\":1,\"firstName\":\"Cosmin\",\"lastName\":\"Pacala\",\"cars\":[{\"id\":1,\"number\":\"IL11ABC\",\"seats\":2}]}]"))
+                                        .string("[{\"id\":1,\"firstName\":\"Cosmin\",\"lastName\":\"Pacala\",\"cars\":[]}]"))
                 .andDo(MockMvcResultHandlers.print());
     }
 
@@ -41,28 +41,37 @@ public class DriverControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.post("/drivers/")
                 .content("{" +
-                        "\"firstName\":\"Marcela\"," +
-                        "\"lastName\":\"Popescu\"," +
-                        "\"cars\":\"[{" +
-                            "\"number\":\"B357WEB\"," +
-                            "\"seats\": 4" +
-                            "}]" +
+                        "\"firstName\": \"Popescu\"," +
+                        "\"lastName\": \"Marcela\"," +
+                        "\"cars\": [" +
+                        "{" +
+                        "\"number\": \"B357CUR\"," +
+                        "\"seats\": 5" +
+                        "}" +
+                        "]" +
                         "}")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
-                        .string("{" +
-                                "\"id\":1," +
-                                "\"firstName\":\"Marcela\"," +
-                                "\"lastName\":\"Popescu\"," +
-                                "\"cars\":null" +
-                                "}"))
+                                                .string("{" +
+                                                        "\"id\":2," +
+                                                        "\"firstName\":\"Popescu\"," +
+                                                        "\"lastName\":\"Marcela\"," +
+                                                        "\"cars\":[" +
+                                                        "{" +
+                                                        "\"id\":1," +
+                                                        "\"number\":\"B357CUR\"," +
+                                                        "\"seats\":5" +
+                                                        "}" +
+                                                        "]" +
+                                                        "}")
+                        )
                 .andDo(MockMvcResultHandlers.print());
 
     }
     @Test
-    //@Sql("/driver.sql")
+    @Sql("/driver.sql")
     public void testFindCarsByDriver() throws Exception {
         // TODO 0 cars for a driver.
 
@@ -89,12 +98,27 @@ public class DriverControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content()
                         .string("{" +
-                                "\"id\":2," +
+                                "\"id\":1," +
                                 "\"number\":\"IL151ABC\"," +
                                 "\"seats\":5" +
                                 "}"))
                 .andDo(MockMvcResultHandlers.print());
 
+        mvc.perform(MockMvcRequestBuilders.put("/drivers/1/cars/")
+                .content("{" +
+                        "\"number\":\"IL152ABC\"," +
+                        "\"seats\":5" +
+                        "}")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content()
+                        .string("{" +
+                                "\"id\":2," +
+                                "\"number\":\"IL152ABC\"," +
+                                "\"seats\":5" +
+                                "}"))
+                .andDo(MockMvcResultHandlers.print());
     }
 
 }

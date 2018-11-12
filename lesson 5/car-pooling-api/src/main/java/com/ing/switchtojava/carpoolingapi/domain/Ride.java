@@ -8,7 +8,7 @@ import java.util.List;
 public class Ride {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToOne

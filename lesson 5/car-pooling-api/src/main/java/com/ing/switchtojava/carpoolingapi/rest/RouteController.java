@@ -51,7 +51,7 @@ public class RouteController {
                                 .name("Position for " + position.hashCode());
                         emitter.send(event);
                     } catch (Exception e) {
-                        throw new ServerErrorException();
+                        emitter.completeWithError(new ServerErrorException());
                     }
                 }, 0L, 1L, TimeUnit.SECONDS);
 

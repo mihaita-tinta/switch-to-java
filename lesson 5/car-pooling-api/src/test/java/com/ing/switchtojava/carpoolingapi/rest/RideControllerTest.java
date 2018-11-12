@@ -39,8 +39,9 @@ public class RideControllerTest {
     }
 
     @Test
+    @Sql("/ride.sql")
     public void testFindOne() throws Exception {
-        // TODO 3 list one ride.
+        // TODO 3 li    @Sql("/driver.sql")st one ride.
 
         mvc.perform(MockMvcRequestBuilders.get("/rides/1")
                 .accept(MediaType.APPLICATION_JSON))
