@@ -11,7 +11,6 @@ public class CarPoolingApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
-
 	}
 
 }

@@ -20,6 +20,7 @@ public class Passenger {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -33,7 +34,7 @@ public class Passenger {
     }
 
     public void setLastName(String lastName) {
-            this.lastName = lastName;
-        }
+        this.lastName = lastName;
+    }
 
 }

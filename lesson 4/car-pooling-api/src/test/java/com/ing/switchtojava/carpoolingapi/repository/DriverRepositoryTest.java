@@ -1,8 +1,6 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
 
-import com.ing.switchtojava.carpoolingapi.repository.DriverRepository;
-import com.ing.switchtojava.carpoolingapi.repository.RideRepository;
-import org.junit.Assert;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,17 +12,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class RideRepositoryTest {
-
+public class DriverRepositoryTest {
     private static final Logger log = LoggerFactory.getLogger(DriverRepositoryTest.class);
-
     @Autowired
-    RideRepository repository;
+    DriverRepository repository;
 
-    @Sql("/ride.sql")
+    @Sql("/driver.sql")
     @Test
     public void test() {
         repository.findAll()
-                .forEach(ride -> log.debug("ride: " + ride));
+                .forEach(driver -> log.debug("driver: " + driver));
     }
+
 }

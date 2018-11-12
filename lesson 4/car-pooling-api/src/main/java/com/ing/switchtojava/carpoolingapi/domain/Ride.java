@@ -1,10 +1,8 @@
 package com.ing.switchtojava.carpoolingapi.domain;
 
-
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.List;
-import com.ing.switchtojava.carpoolingapi.domain.Location;
 
 @Entity
 public class Ride {
@@ -17,6 +15,7 @@ public class Ride {
     private Location from;
     @OneToOne
     private Location to;
+
     private ZonedDateTime when;
 
     @OneToOne
@@ -26,6 +25,26 @@ public class Ride {
 
     @OneToMany
     private List<Passenger> passengers;
+
+    @OneToMany(mappedBy = "ride" )
+    private List<RideRequest> requests;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<RideRequest> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<RideRequest> requests) {
+        this.requests = requests;
+    }
 
     public Location getFrom() {
         return from;
@@ -43,17 +62,21 @@ public class Ride {
         this.to = to;
     }
 
-    public com.ing.switchtojava.carpoolingapi.domain.Car getCar() {
+    public Car getCar() {
         return car;
     }
 
-    public void setCar(com.ing.switchtojava.carpoolingapi.domain.Car car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 
-    public List<com.ing.switchtojava.carpoolingapi.domain.Passenger> getPassengers() { return passengers; }
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
 
-    public void setPassengers(List<com.ing.switchtojava.carpoolingapi.domain.Passenger> passengers) { this.passengers = passengers; }
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
 
     public ZonedDateTime getWhen() {
         return when;
@@ -76,5 +99,17 @@ public class Ride {
         IN_PROGRESS,
         COMPLETED,
         CANCELED
+    }
+
+    @Override
+    public String toString() {
+        return "Ride{" +
+                "id=" + id +
+                ", from=" + from +
+                ", to=" + to +
+                ", when=" + when +
+                ", car=" + car +
+                ", status=" + status +
+                '}';
     }
 }

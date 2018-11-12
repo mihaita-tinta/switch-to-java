@@ -1,4 +1,5 @@
-package com.ing.switchtojava.carpoolingapi;
+package com.ing.switchtojava.carpoolingapi.repository;
+
 
 import com.ing.switchtojava.carpoolingapi.domain.Location;
 import com.ing.switchtojava.carpoolingapi.repository.LocationRepository;
@@ -20,23 +21,30 @@ public class LocationRepositoryTest {
 
     @Test
     public void test() {
+
         Location location = new Location();
-        location.setAddress("Str. Vulturilor");
+        location.setLatitude(44.4513003);
+        location.setLongitude(26.0415585);
+        location.setAddress("aleea lacul morii nr. 4");
         location.setCity("Bucuresti");
-        location.setState("Romania");
-        location.setZip("031759");
-        Location dbLocation = repository.save(location);
+        location.setZip("123-123");
+        location.setState("B");
+        Location dbLocation = repository.saveAndFlush(location);
         Assert.assertNotNull(dbLocation.getId());
     }
 
     @Test
     public void testFind() {
+
         Location location = new Location();
-        location.setAddress("Str. Vulturilor");
+        location.setLatitude(44.4513003);
+        location.setLongitude(26.0415585);
+        location.setAddress("Crangasi");
         location.setCity("Bucuresti");
-        location.setState("Romania");
-        location.setZip("031759");
+        location.setZip("123-123");
+        location.setState("B");
         Location dbLocation = repository.save(location);
+
         Optional<Location> fromFind = repository.findById(dbLocation.getId());
         Assert.assertEquals(dbLocation.getId(), fromFind.get().getId());
     }
