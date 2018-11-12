@@ -15,7 +15,7 @@ function initialize() {
         });
 
     marker.setMap(map);
-    var eventSource = new EventSource("/rides/1/track");
+    var eventSource = new EventSource("/rides/1/flux");
 
     eventSource.onmessage = function(e) {
         console.log('message:' + e.data);

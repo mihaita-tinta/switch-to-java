@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import org.vesalainen.jaxb.gpx.GpxType;
 import org.vesalainen.jaxb.gpx.WptType;
+import reactor.core.publisher.Flux;
+import reactor.util.function.Tuple2;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +33,7 @@ public class TrackingService {
 
     public List<Position> getPositions() throws JAXBException, IOException {
 
-        File file = new ClassPathResource("/mapstogpx20181108_162318.gpx").getFile();
+        File file = new ClassPathResource("/route0.gpx").getFile();
         JAXBContext jc = JAXBContext.newInstance(GpxType.class);
 
         GpxType route = ((JAXBElement<GpxType>) jc.createUnmarshaller().unmarshal(file)).getValue();
@@ -63,7 +66,8 @@ public class TrackingService {
                                 .id(String.valueOf(System.currentTimeMillis()))
                                 .name("Raw position for id " + id);
                             emitter.send(event);
-                            iter.remove();}
+                        //    iter.remove();
+                        }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -71,6 +75,16 @@ public class TrackingService {
 
         return emitter;
     }
+
+    public Flux<Position> generateEvents(Long id) throws JAXBException, IOException {
+        Flux<Long> durationFlux = Flux.interval(Duration.ofSeconds(10));
+        Flux<Position> positions = Flux.fromStream(getPositions().stream());
+        return Flux.zip(positions, durationFlux).map(Tuple2::getT1);
+
+    }
+
+
+
 
 
     public String writeAsString(Position position) {
