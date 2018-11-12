@@ -6,7 +6,9 @@ import java.io.File;
 
 public class Context {
 
-    public String lowercase(String content) { return content.toLowerCase(); }
+    public String lowercase(String content) {
+        return content.toLowerCase();
+    }
 
     public String uppercase(String content) {
         return content.toUpperCase();
@@ -30,5 +32,4 @@ public class Context {
 
         return "";
     }
-
 }

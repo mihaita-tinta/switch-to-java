@@ -27,7 +27,6 @@ public class RideServiceTest {
     public void test() {
         //when(rideRepository.save(ride));
         service.save(ride);
-
     }
 
 
