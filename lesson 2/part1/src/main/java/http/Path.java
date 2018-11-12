@@ -1,15 +1,15 @@
 package http;
 
-public class Uppercase implements Interpreter{
+public class Path implements Interpreter{
 
     private String content;
 
-    public Uppercase(String content) {
+    public Path(String content) {
         this.content = content;
     }
 
     @Override
     public String interpret(Context c) {
-        return c.uppercase(this.content);
+        return c.path(this.content);
     }
 }

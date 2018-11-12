@@ -70,7 +70,8 @@ public class ServerApp {
                 socketWriter.write(outMsg);
                 socketWriter.write("\n");
                 socketWriter.flush();
-                log.info("A scris la output " + inMsg);
+
+                log.info("A scris la output " + outMsg);
             }
             socket.getInputStream().close();
             socket.getOutputStream().close();
@@ -95,6 +96,11 @@ public class ServerApp {
             }
             case("uppercase"): {
                 interpreter = new Uppercase(content);
+                break;
+            }
+            case("now"): {
+                interpreter = new Now(content);
+                break;
             }
         }
 
