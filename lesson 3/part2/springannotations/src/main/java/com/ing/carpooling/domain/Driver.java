@@ -1,10 +1,22 @@
-package com.ing.ayo.domain;
+package com.ing.carpooling.domain;
 
-public class Passenger {
+import java.util.List;
+
+public class Driver {
 
     private Long id;
     private String firstName;
     private String lastName;
+
+    private List<Car> cars;
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
 
     public Long getId() {
         return id;
@@ -13,6 +25,7 @@ public class Passenger {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getFirstName() {
         return firstName;
     }

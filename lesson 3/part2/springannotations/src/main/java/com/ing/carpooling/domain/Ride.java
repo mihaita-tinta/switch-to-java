@@ -1,4 +1,4 @@
-package com.ing.ayo.domain;
+package com.ing.carpooling.domain;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -60,15 +60,10 @@ public class Ride {
         this.status = status;
     }
 
-    public int getAvailableSeats() {
-        // FIXME what is the number of available seats for this ride?
-        return 0;
-    }
-
     public static enum Status {
         PENDING,
         IN_PROGRESS,
-        REJECTED,
+        COMPLETED,
         CANCELED
     }
 }

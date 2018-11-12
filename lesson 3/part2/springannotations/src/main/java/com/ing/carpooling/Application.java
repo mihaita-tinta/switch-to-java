@@ -1,11 +1,10 @@
-package com.ing.ayo;
+package com.ing.carpooling;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Configuration
@@ -19,11 +18,7 @@ public class Application {
         watch.start("Main");
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
-//        new ClassPathXmlApplicationContext("app-config.xml");
-//        context.scan("com.ing.ayo");
-//        context.refresh();
         context.registerShutdownHook();
-
         watch.stop();
         log.info("main - stop {}", watch.prettyPrint());
 
