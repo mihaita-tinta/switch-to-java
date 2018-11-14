@@ -77,7 +77,7 @@ public class TrackingService {
     }
 
     public Flux<Position> generateEvents(Long id) throws JAXBException, IOException {
-        Flux<Long> durationFlux = Flux.interval(Duration.ofSeconds(10));
+        Flux<Long> durationFlux = Flux.interval(Duration.ofSeconds(1));
         Flux<Position> positions = Flux.fromStream(getPositions().stream());
         return Flux.zip(positions, durationFlux).map(Tuple2::getT1);
 

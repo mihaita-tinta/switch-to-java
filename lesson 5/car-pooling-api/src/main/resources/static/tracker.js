@@ -20,7 +20,7 @@ function initialize() {
     eventSource.onmessage = function(e) {
         console.log('message:' + e.data);
         var position = JSON.parse(e.data);
-        moveMarker(map, marker, position.latitude, position.longitude);
+        moveMarker(map, marker, position.lat, position.lon);
     };
 
     eventSource.onerror = function(e) {
